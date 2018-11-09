@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Categories from './categories'
 
-import { colors, weight } from '../../_variables.js'
+import { colors } from '../../_variables.js'
 
 const WorkHeader = (data) => (
   <WorkHeaderContainer style={{background: 'url(' + data.data.image + ')'}}>

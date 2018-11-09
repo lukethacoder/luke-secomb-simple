@@ -7,7 +7,7 @@ import WorkHeader from '../../components/work/header'
 
 import styled from 'styled-components'
 
-import { colors, weight } from '../../_variables.js'
+import { colors } from '../../_variables.js'
 
 const item_data = {
   "image": "https://scontent-syd2-1.cdninstagram.com/vp/eaa76bf63971ab5cd5b2cf52f42e9373/5C7ED5EF/t51.2885-15/fr/e15/s1080x1080/43736954_2021637617882576_2137828474612103556_n.jpg",
