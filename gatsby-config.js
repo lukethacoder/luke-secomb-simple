@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'luke-secomb-simple',
+        short_name: 'lss',
         start_url: '/',
         background_color: '#FFC87F',
         theme_color: '#FFC87F',

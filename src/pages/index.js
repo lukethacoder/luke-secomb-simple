@@ -15,7 +15,8 @@ class IndexPage extends Component {
       home_view: true,
       filter: 'blur(0px)',
       opacity: '',
-      position: '0vw'
+      position: '0vw',
+      loaded: false
     }
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -24,7 +25,8 @@ class IndexPage extends Component {
     if (window.innerWidth >= 480) {
       window.addEventListener('scroll', this.handleScroll);
       this.setState({
-        position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
+        position: `${(1 / (50 / window.pageYOffset)) + 50}vw`,
+        loaded: true
       })
     }
   }
@@ -58,7 +60,10 @@ class IndexPage extends Component {
     return (
       <Layout>
         
-        {window.innerWidth >= 480 ? <GoldBar style={{right: this.state.position}}/> : null}
+        {this.state.loaded ?
+          window.innerWidth >= 480 ? <GoldBar style={{right: this.state.position}}/> : null
+          : null
+        }
         <GetInTouchRight>
           <p>Get in touch</p>
           <a href="mailto:hello@lukesecomb.digital">hello@lukesecomb.digital</a>
@@ -156,12 +161,12 @@ const IndexContainer = styled.div`
     color: white;
     max-width: 820px;
     min-height: 55vh;
-    margin: 10vh 0 30vh;
+    margin: 5vh 0 30vh;
     padding: 124px 0 0 0;
     position: relative;
-    /* display: flex; */
     @media (min-width: 768px) {
       padding: 124px 0 0 10vw;
+      margin: 10vh 0 30vh;
     }
     .small_title {
       color: ${colors.white};
