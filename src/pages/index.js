@@ -12,8 +12,28 @@ class IndexPage extends Component {
     super(props);
 
     this.state = {
-      home_view: true
+      home_view: true,
+      filter: 'blur(0px)',
+      opacity: '',
+      position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
     }
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(e) {
+    e = window.pageYOffset;
+    this.setState({
+      position: `${(1 / (50 / e)) + 50}vw`,
+      // position: "blur(" + `${e / 50}` + "px)",
+      // opacity: `${1 / (e / 200)}`
+    })
   }
 
   toggleView() {
@@ -33,7 +53,7 @@ class IndexPage extends Component {
     return (
       <Layout>
         
-        <GoldBar/>
+        <GoldBar style={{right: this.state.position}}/>
         <GetInTouchRight>
           <p>Get in touch</p>
           <a href="mailto:hello@lukesecomb.digital">hello@lukesecomb.digital</a>
@@ -117,12 +137,13 @@ const GoldBar = styled.div`
   width: 248px;
   min-height: 410vh;
   position: fixed;
-  right: 50vw;
+  /* right: 50vw; */
   top: -268px;
   background-color: ${colors.gold};
   transform: rotate(23deg);
   z-index: 0;
   opacity: .5;
+  /* transition: .15s; */
 `
 
 const IndexContainer = styled.div`
