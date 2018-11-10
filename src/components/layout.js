@@ -4,17 +4,12 @@ import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { colors, weight } from '../_variables.js'
+import { colors } from '../_variables.js'
 
 import './layout.css'
 require('typeface-raleway')
 
 class Layout extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <LayoutContainer>
@@ -78,7 +73,7 @@ const HeadBar = styled.div`
   width: 100%;
   padding: 48px;
   max-height: 124px;
-  position: fixed;
+  position: absolute;
   .logo {
     max-height: 68px;
     max-width: 68px;

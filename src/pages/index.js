@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { colors, weight } from '../_variables.js'
 import Layout from '../components/layout'
 import Gallery from '../components/gallery'
-import Button from '../components/button'
+// import Button from '../components/button'
 
 class IndexPage extends Component {
   constructor(props) {
@@ -34,10 +34,10 @@ class IndexPage extends Component {
       <Layout>
         
         <GoldBar/>
-        <GetInTouchLeft>
+        <GetInTouchRight>
           <p>Get in touch</p>
-          <a mailto="hello@lukesecomb.digital">hello@lukesecomb.digital</a>
-        </GetInTouchLeft>
+          <a href="mailto:hello@lukesecomb.digital">hello@lukesecomb.digital</a>
+        </GetInTouchRight>
         <IndexContainer>
             <section className="main_content">
               <div className="small_title">
@@ -46,8 +46,8 @@ class IndexPage extends Component {
               </div>
               <div className="content_box">
                 <h1>Hey, I'm <span>Luke Secomb</span>, Web Developer, Photographer and Digital Designer.</h1>
-                <p>I currently work at <span>Soda Strategic</span> as a <span>Web Developer</span>. I pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web technologies/frameworks and experimenting with various tools to make pixels look good.</p>
-                <Button onClick={() => this.toggleView} buttonText="Get To Know Me"/>
+                <p>I currently work at <span><a href="https://sodastrategic.com.au" target="_blank" rel="noopener noreferrer">Soda Strategic</a></span> as a <span>Web Developer</span>. I pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web technologies/frameworks and experimenting with various tools to make pixels look good.</p>
+                {/* <Button onClick={() => this.toggleView} buttonText="Get To Know Me"/> */}
               </div>
             </section>
 
@@ -64,7 +64,7 @@ class IndexPage extends Component {
                   <ul>
                     <li>
                       <p>Email</p>
-                      <a mailto="hello@lukesecomb.digital" target="_blank" rel="noopener noreferrer">hello@lukesecomb.digital</a>
+                      <a href="mailto:hello@lukesecomb.digital" target="_blank" rel="noopener noreferrer">hello@lukesecomb.digital</a>
                     </li>
                     <li>
                       <p>Github</p>
@@ -80,7 +80,7 @@ class IndexPage extends Component {
                     </li>
                   </ul>
                 </GetInTouch>
-                <Button onClick={() => this.toggleView} buttonText="Go Back Home" style={{marginTop: '64px'}}/>
+                {/* <Button onClick={() => this.toggleView} buttonText="Go Back Home" style={{marginTop: '64px'}}/> */}
               </div>
             </section>
         </IndexContainer>
@@ -91,12 +91,13 @@ class IndexPage extends Component {
 
 export default IndexPage
 
-const GetInTouchLeft = styled.div`
+const GetInTouchRight = styled.div`
   /* width: 48px; */
-  position: fixed;
+  position: absolute;
 
-  left: 48px;
-  bottom: 48px;
+  right: 48px;
+  top: 90vh;
+  text-align: right;
   p {
     margin: 0;
     color: ${colors.white};
@@ -105,6 +106,7 @@ const GetInTouchLeft = styled.div`
   }
   a {
     margin: 0;
+    mix-blend-mode: luminosity;
     color: ${colors.grey};
     text-decoration: none;
     font-size: .65rem;
@@ -115,37 +117,56 @@ const GoldBar = styled.div`
   width: 248px;
   min-height: 410vh;
   position: fixed;
-  right: 59%;
+  right: 50vw;
   top: -268px;
   background-color: ${colors.gold};
   transform: rotate(23deg);
   z-index: 0;
-  opacity: .65;
+  opacity: .5;
 `
 
 const IndexContainer = styled.div`
   .main_content {
     color: white;
     max-width: 820px;
+    min-height: 55vh;
     margin: 10vh 0 30vh;
-    padding: 124px 0 0 10vw;
+    padding: 124px 0 0 0;
     position: relative;
     /* display: flex; */
+    @media (min-width: 768px) {
+      padding: 124px 0 0 10vw;
+    }
     .small_title {
       color: ${colors.white};
       p {
+        margin: 12px 24px 0;
         font-size: .75rem;
         font-weight: ${weight.bold};
+        @media (min-width: 768px) {
+          margin: 12px 0 0;
+        }
       }
       > div {
-        margin: 12px 0 0;
+        margin: 12px 24px 0;
         height: 2px;
         width: 48px;
         background-color: ${colors.white};
+        @media (min-width: 768px) {
+          margin: 12px 0 0;
+        }
       }
     }
     .content_box {
-      padding: 48px 48px 0;
+      padding: 48px 24px 48px;
+      @media (min-width: 768px) {
+        padding: 48px 48px 48px;
+      }
+      /* @media (min-width: 1079px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 64px 148px;
+      } */
       h1 {
         font-size: 1.5rem;
         font-weight: ${weight.regular};
@@ -158,13 +179,25 @@ const IndexContainer = styled.div`
       p {
         span {
           font-weight: ${weight.bold};
+          a {
+            text-decoration: none;
+            color: ${colors.white};
+            transition: .5s;
+            border-bottom: 1px solid transparent;
+            &:hover {
+              color: ${colors.gold};
+              transition: .5s;
+              border-bottom: 1px solid ${colors.gold};
+            }
+          }
         }
       }
     }
   }
 `
 const GetInTouch = styled.div`
-  margin: 24px 0 48px ;
+  margin: 24px 0 48px;
+  padding-bottom: 96px;
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
-import { colors, weight } from '../../_variables.js'
+// import { colors, weight } from '../../_variables.js'
 
 const category_colors = {
   "vue": "#4fc08d",
@@ -15,11 +14,6 @@ const category_colors = {
 }
 
 class Categories extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   mapCategories(data) {
     return (
       <ul>
