@@ -15,13 +15,16 @@ class IndexPage extends Component {
       home_view: true,
       filter: 'blur(0px)',
       opacity: '',
-      position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
+      position: '10vw'
     }
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
+    })
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
