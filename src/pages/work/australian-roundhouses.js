@@ -9,14 +9,14 @@ import styled from 'styled-components'
 import { colors } from '../../_variables.js'
 
 const item_data = {
-  "image": "https://scontent-syd2-1.cdninstagram.com/vp/eaa76bf63971ab5cd5b2cf52f42e9373/5C7ED5EF/t51.2885-15/fr/e15/s1080x1080/43736954_2021637617882576_2137828474612103556_n.jpg",
-  "title": "WP Webhook Deploy Netlify",
+  "image": "https://australianroundhouses.com.au/static/c309b0c8dc5b91cd6463726b57426a4b-3128194e46f4afc0a41ca9b4c9c09fc8-80561.jpg",
+  "title": "Australian Roundhouses",
   "intro": "Lorem ipsum dolor amet hell of lyft put a bird on it distillery yuccie photo booth readymade drinking vinegar thundercats bespoke slow-carb asymmetrical. Ugh fixie snackwave franzen, church-key vice fingerstache portland hexagon pop-up chartreuse thundercats gochujang 90's prism. Trust fund viral schlitz raclette jean shorts taiyaki before they sold out.",
   "categories": ["PHP", "WordPress"],
   "github": "https://github.com/lukethacoder/wp-webhook-deploy-netlify",
 }
 
-const WebhookDeployNetlify = () => (
+const AustralianRoundhouses = () => (
   <Layout>
     <WorkHeader data={item_data}/>
     <WorkItemContainer>
@@ -43,7 +43,7 @@ const WebhookDeployNetlify = () => (
   </Layout>
 )
 
-export default WebhookDeployNetlify
+export default AustralianRoundhouses
 
 
 const WorkItemContainer = styled.section`

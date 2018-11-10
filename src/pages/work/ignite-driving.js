@@ -9,14 +9,14 @@ import styled from 'styled-components'
 import { colors } from '../../_variables.js'
 
 const item_data = {
-  "image": "https://scontent-syd2-1.cdninstagram.com/vp/eaa76bf63971ab5cd5b2cf52f42e9373/5C7ED5EF/t51.2885-15/fr/e15/s1080x1080/43736954_2021637617882576_2137828474612103556_n.jpg",
-  "title": "WP Webhook Deploy Netlify",
-  "intro": "Lorem ipsum dolor amet hell of lyft put a bird on it distillery yuccie photo booth readymade drinking vinegar thundercats bespoke slow-carb asymmetrical. Ugh fixie snackwave franzen, church-key vice fingerstache portland hexagon pop-up chartreuse thundercats gochujang 90's prism. Trust fund viral schlitz raclette jean shorts taiyaki before they sold out.",
-  "categories": ["PHP", "WordPress"],
+  "image": "https://d33wubrfki0l68.cloudfront.net/6e0d672d0e0bd74654ea9867cd34324c9213a020/66160/static/bgimg.43ab0aac.jpg",
+  "title": "Ignite Driving",
+  "intro": "Ignite Driving was built from the ground up. All design and advertising work, as well as the web development was created. The challenge was to reach and engage with the audience using current digital technologies and design thinking strategies",
+  "categories": ["GatsbyJS", "React"],
   "github": "https://github.com/lukethacoder/wp-webhook-deploy-netlify",
 }
 
-const WebhookDeployNetlify = () => (
+const IgniteDriving = () => (
   <Layout>
     <WorkHeader data={item_data}/>
     <WorkItemContainer>
@@ -39,11 +39,23 @@ const WebhookDeployNetlify = () => (
           // console.log('data ', data)
         }
       />
+      <h2>The Brand</h2>
+      <p>
+        Based in South Canberra, Ignite Driving is a newly founded small business that aims to help Learner drivers transition to become safe and confident P plate drivers. Through the use of thorough and informative teaching techniques, Ignite driving is putting safer drivers on Canberra roads.
+      </p>
+      <h2>The Project</h2>
+      <p>
+        Starting a brand from scratch is always a difficult process. It began with the design of the logo. Inspired by a flowing flame of sorts the cursive typography of the "ignite" contrasts with the sans serif "driving" type. The overall aesthetic follows hues of purple, oranges, and shades of grey.
+      </p>
+      <h2>The Result</h2>
+      <p>
+        The project has been completed, but is still undergoing review with the development. Small bugs are being thinned out and fixed up - and optimisations are always being developed. Additionally, there is a car wrap design that is in the process of being created. This will be used on the company car and will help it stand out when traveling the roads of Canberra.
+      </p>
     </WorkItemContainer>
   </Layout>
 )
 
-export default WebhookDeployNetlify
+export default IgniteDriving
 
 
 const WorkItemContainer = styled.section`
