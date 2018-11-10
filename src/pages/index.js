@@ -15,16 +15,18 @@ class IndexPage extends Component {
       home_view: true,
       filter: 'blur(0px)',
       opacity: '',
-      position: '10vw'
+      position: '0vw'
     }
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.setState({
-      position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
-    })
+    if (window.innerWidth >= 480) {
+      window.addEventListener('scroll', this.handleScroll);
+      this.setState({
+        position: `${(1 / (50 / window.pageYOffset)) + 50}vw`
+      })
+    }
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -56,7 +58,7 @@ class IndexPage extends Component {
     return (
       <Layout>
         
-        <GoldBar style={{right: this.state.position}}/>
+        {window.innerWidth >= 480 ? <GoldBar style={{right: this.state.position}}/> : null}
         <GetInTouchRight>
           <p>Get in touch</p>
           <a href="mailto:hello@lukesecomb.digital">hello@lukesecomb.digital</a>
