@@ -60,10 +60,10 @@ class IndexPage extends Component {
     return (
       <Layout>
         
-        {this.state.loaded ?
+        {/* hide gold bar {this.state.loaded ?
           window.innerWidth >= 480 ? <GoldBar style={{right: this.state.position}}/> : null
           : null
-        }
+        } */}
         <GetInTouchRight>
           <p>Get in touch</p>
           <a href="mailto:hello@lukesecomb.digital">hello@lukesecomb.digital</a>
@@ -76,7 +76,7 @@ class IndexPage extends Component {
               </div>
               <div className="content_box">
                 <h1>Hey, I'm <span>Luke Secomb</span>, Web Developer, Photographer and Digital Designer.</h1>
-                <p>I currently work at <span><a href="https://sodastrategic.com.au" target="_blank" rel="noopener noreferrer">Soda Strategic</a></span> as a <span>Web Developer</span>. I pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web technologies/frameworks and experimenting with various tools to make pixels look good.</p>
+                <p>I currently work at <span><a id="soda" href="https://sodastrategic.com.au" target="_blank" rel="noopener noreferrer">Soda Strategic</a></span> as a <span>Web Developer</span>. I pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web technologies/frameworks and experimenting with various tools to make pixels look good.</p>
                 {/* <Button onClick={() => this.toggleView} buttonText="Get To Know Me"/> */}
               </div>
             </section>
@@ -210,6 +210,12 @@ const IndexContainer = styled.div`
       p {
         span {
           font-weight: ${weight.bold};
+          #soda {
+            &:hover {
+              color: #8863F8;
+              border-bottom: 1px solid #8863F8;
+            }
+          }
           a {
             text-decoration: none;
             color: ${colors.white};
@@ -237,7 +243,7 @@ const GetInTouch = styled.div`
     margin: 0;
     padding: 0;
     p {
-      color: ${colors.grey}
+      color: ${colors.grey};
       font-size: .75rem;
       margin: 0;
     }
