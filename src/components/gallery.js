@@ -69,7 +69,7 @@ class Gallery extends Component {
     let returnMe = keys.map(key => {
       return (
         <div key={key}>
-          <a href={galleryItems[key].github} target="_blank" rel="noopener noreferrer">
+          <a href={galleryItems[key].github} target="_blank" rel="noopener noreferrer" aria-label={'link to project ' + galleryItems[key].title}>
             <h2>{galleryItems[key].title}
               <span className="underline" style={{backgroundColor: galleryItems[key].color}}/>
             </h2>
