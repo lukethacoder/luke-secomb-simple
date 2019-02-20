@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "C:\\Users\\Luke.Secomb\\Documents\\GitHub\\luke-secomb-simple"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"titleBar.activeBackground": "#1B1432",
+			"titleBar.activeForeground": "#fff",
+			"titleBar.inactiveBackground": "#1B1432",
+			"titleBar.inactiveForeground": "#95989A"
+		},
+		"search.exclude": {
+			
+		},
+	}
+}
