@@ -80,8 +80,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
       <AbsoluteNavigation className={`${isMenuOpen ? 'isOpen' : ''}`}>
         <ul>
           {MenuList.map((nav_item: any) => (
-            <li className={window ? window.location.pathname === nav_item.path || window.location.pathname === '' ? 'active' : '' : ''}>
-              <Link to={nav_item.path}>{nav_item.name}</Link>
+            <li>
+              <Link to={nav_item.path} activeClassName="active">
+                {nav_item.name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -147,12 +149,13 @@ const AbsoluteNavigation = styled.nav`
     left: 0;
     li {
       font-size: ${getEmSize(48)}em;
-      &.active {
-        font-weight: bold;
-        color: teal !important;
-      }
+
       a {
         transition: ${trans};
+        &.active {
+          font-weight: bold;
+          color: teal !important;
+        }
         &:hover {
           transition: ${trans};
         }
