@@ -80,7 +80,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
       <AbsoluteNavigation className={`${isMenuOpen ? 'isOpen' : ''}`}>
         <ul>
           {MenuList.map((nav_item: any) => (
-            <li className={window.location.pathname === nav_item.path || window.location.pathname === '' ? 'active' : ''}>
+            <li className={window ? window.location.pathname === nav_item.path || window.location.pathname === '' ? 'active' : '' : ''}>
               <Link to={nav_item.path}>{nav_item.name}</Link>
             </li>
           ))}
