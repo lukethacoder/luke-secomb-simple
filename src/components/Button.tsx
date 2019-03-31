@@ -59,7 +59,7 @@ const StyledButton = styled.button`
         transition: ${trans};
       }
       svg {
-        max-width: 108px;
+        width: 108px;
         transition: ${trans};
       }
     }
@@ -77,7 +77,8 @@ const StyledButton = styled.button`
       transition: ${trans};
     }
     svg {
-      max-width: 96px;
+      width: 96px;
+
       transition: ${trans};
     }
   }

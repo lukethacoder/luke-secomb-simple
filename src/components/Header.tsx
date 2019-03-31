@@ -116,6 +116,9 @@ const HeaderFixed = styled.div`
   width: 100%;
   margin: 0;
   padding: 48px;
+  svg {
+    height: 42px;
+  }
 `
 const AbsoluteNavigation = styled.nav`
   position: fixed;
@@ -154,7 +157,6 @@ const AbsoluteNavigation = styled.nav`
         transition: ${trans};
         &.active {
           font-weight: bold;
-          color: teal !important;
         }
         &:hover {
           transition: ${trans};
