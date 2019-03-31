@@ -1,41 +1,67 @@
+'use strict'
+
 module.exports = {
   siteMetadata: {
-    title: 'Luke Secomb | Web Developer / Photographer / Digital Designer',
+    title: 'Luke Secomb Digital | Develop & Photograph',
+    description: '.',
+    siteUrl: 'https://lukesecomb.digital',
+    author: {
+      name: 'Luke Secomb',
+      url: 'https://lukesecomb.digital',
+      email: 'hello@lukesecomb.digital'
+    }
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-html-attributes',
-      options: {
-        lang: 'en'
+        name: 'content',
+        path: `${__dirname}/src/content`
       }
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-transformer-remark',
       options: {
-        name: 'luke-secomb-simple',
-        short_name: 'lss',
-        start_url: '/',
-        background_color: '#FFC87F',
-        theme_color: '#FFC87F',
-        display: 'minimal-ui',
-        icon: 'src/images/luke-secomb-logo.png', // This path is relative to the root of the site.
-      },
+        plugins: [
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              wrapperStyle: 'margin-bottom: 1rem'
+            }
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1140,
+              quality: 90,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
-  ],
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/ // See below to configure properly
+        }
+      }
+    },
+    'gatsby-transformer-json',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
+      }
+    },
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet'
+  ]
 }

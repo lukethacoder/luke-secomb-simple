@@ -1,0 +1,9 @@
+{
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint-config-blvd/react", "tslint-config-prettier"],
+  "rules": {
+    "prettier": true,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
