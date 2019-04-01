@@ -22,6 +22,7 @@ interface WorkItem {
         title: string
         category: string
         image: any
+        slug: string
       }
     }
   }
@@ -48,7 +49,7 @@ interface PageTemplateProps {
 const RenderWorkItem: React.SFC<WorkItem> = ({ data }) => {
   // console.log(data.node.frontmatter.image.childImageSharp.sizes)
   return (
-    <WorkItem to={`${data.node.frontmatter.category}/${Slugify(data.node.frontmatter.title)}`}>
+    <WorkItem to={`${data.node.frontmatter.category}/${data.node.frontmatter.slug}`}>
       <div className="image_wrapper">
         <Img sizes={data.node.frontmatter.image.childImageSharp.sizes} />
       </div>
@@ -94,7 +95,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: { frontmatter: { category: { eq: "work" } } }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }, filter: { frontmatter: { category: { eq: "work" } } }) {
       edges {
         node {
           html
@@ -102,6 +103,7 @@ export const query = graphql`
           frontmatter {
             title
             category
+            slug
             image {
               childImageSharp {
                 sizes(maxWidth: 1080) {

@@ -1,7 +1,9 @@
 ---
 layout: project
 title: 'Ignite Driving'
+slug: 'ignite-driving'
 category: 'work'
+order: 1
 image: './ignite-driving.jpg'
 ---
 

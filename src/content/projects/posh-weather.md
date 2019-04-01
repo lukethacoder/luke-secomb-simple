@@ -1,7 +1,9 @@
 ---
 layout: project
 title: 'Posh Weather'
+slug: 'posh-weather'
 category: 'projects'
+order: 3
 image: './posh-weather.jpg'
 ---
 

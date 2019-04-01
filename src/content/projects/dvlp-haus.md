@@ -1,7 +1,9 @@
 ---
 layout: project
 title: 'DVLP HAUS'
+slug: 'dvlp-haus'
 category: 'projects'
+order: 2
 image: './dvlp-haus.jpg'
 ---
 

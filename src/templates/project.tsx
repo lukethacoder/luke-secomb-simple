@@ -39,14 +39,14 @@ const ProjectTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => (
     <Page>
       <Container>
         {console.log(data.markdownRemark.frontmatter.image.childImageSharp.sizes)}
-        <Link to={data.markdownRemark.frontmatter.category}>BACK</Link>
+        <Link to={data.markdownRemark.frontmatter.category}>back</Link>
         <ProjectItem>
           <div className="image_wrapper">
             <Img sizes={data.markdownRemark.frontmatter.image.childImageSharp.sizes} />
           </div>
         </ProjectItem>
         <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <div style={{ color: colors.white }} dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        <PageContent dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
       </Container>
     </Page>
   </IndexLayout>
@@ -84,6 +84,10 @@ export const query = graphql`
   }
 `
 
+const PageContent = styled.div`
+  color: ${colors.white};
+  max-width: 740px;
+`
 const ProjectItem = styled.div`
   /* background-color: #f4f4f4; */
   display: flex;
