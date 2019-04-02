@@ -13,19 +13,20 @@ import { colors, breakpoints } from '../styles/variables'
 import { trans } from '../styles/mixins'
 import { Slugify } from '../helpers/helpers'
 
-interface ProjectItem {
-  data: {
-    node: {
-      html: HTMLElement
-      excerpt: string
-      frontmatter: {
-        title: string
-        category: string
-        image: any
-        slug: string
-      }
+interface ProjectItemObj {
+  node: {
+    html: HTMLElement
+    excerpt: string
+    frontmatter: {
+      title: string
+      category: string
+      image: any
+      slug: string
     }
   }
+}
+interface ProjectItemData {
+  data: ProjectItemObj
 }
 
 interface PageTemplateProps {
@@ -41,12 +42,12 @@ interface PageTemplateProps {
       }
     }
     allMarkdownRemark: {
-      edges: ProjectItem[]
+      edges: ProjectItemObj[]
     }
   }
 }
 
-const RenderProjectItem: React.SFC<ProjectItem> = ({ data }) => {
+const RenderProjectItem: React.SFC<ProjectItemData> = ({ data }) => {
   // console.log(data.node.frontmatter.image.childImageSharp.sizes)
   return (
     <ProjectItem to={`${data.node.frontmatter.category}/${data.node.frontmatter.slug}`}>
@@ -70,7 +71,7 @@ const ProjectsPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
             side projects & hacks.
           </h1>
           <ProjectsContainer>
-            {data.allMarkdownRemark.edges.map((item: ProjectItem) => (
+            {data.allMarkdownRemark.edges.map((item: ProjectItemObj) => (
               <RenderProjectItem data={item} key={item.node.frontmatter.title} />
             ))}
           </ProjectsContainer>

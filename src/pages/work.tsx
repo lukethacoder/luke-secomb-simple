@@ -13,19 +13,20 @@ import { colors, breakpoints } from '../styles/variables'
 import { trans } from '../styles/mixins'
 import { Slugify } from '../helpers/helpers'
 
-interface WorkItem {
-  data: {
-    node: {
-      html: HTMLElement
-      excerpt: string
-      frontmatter: {
-        title: string
-        category: string
-        image: any
-        slug: string
-      }
+interface WorkItemObj {
+  node: {
+    html: HTMLElement
+    excerpt: string
+    frontmatter: {
+      title: string
+      category: string
+      image: any
+      slug: string
     }
   }
+}
+interface WorkItemObjData {
+  data: WorkItemObj
 }
 
 interface PageTemplateProps {
@@ -41,13 +42,12 @@ interface PageTemplateProps {
       }
     }
     allMarkdownRemark: {
-      edges: WorkItem[]
+      edges: WorkItemObj[]
     }
   }
 }
 
-const RenderWorkItem: React.SFC<WorkItem> = ({ data }) => {
-  // console.log(data.node.frontmatter.image.childImageSharp.sizes)
+const RenderWorkItem: React.SFC<WorkItemObjData> = ({ data }) => {
   return (
     <WorkItem to={`${data.node.frontmatter.category}/${data.node.frontmatter.slug}`}>
       <div className="image_wrapper">
@@ -56,7 +56,6 @@ const RenderWorkItem: React.SFC<WorkItem> = ({ data }) => {
     </WorkItem>
   )
 }
-// Works_data.forEach((Work_item: any) => <h1>${Work_item.node.frontmatter.title}</h1>
 
 const WorksPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
   console.log(data.site)
@@ -67,11 +66,11 @@ const WorksPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
         <Container>
           <h1 style={{ fontWeight: '400', padding: '48px 0 64px' }}>
             built these to put <br />
-            bread on the table
+            food on the table.
           </h1>
           <WorksContainer>
-            {data.allMarkdownRemark.edges.map((item: WorkItem) => (
-              <RenderWorkItem data={item} key={item.node.frontmatter.title} />
+            {data.allMarkdownRemark.edges.map((item: WorkItemObj) => (
+              <RenderWorkItem data={item} key={Slugify(item.node.frontmatter.title)} />
             ))}
           </WorksContainer>
           <Button text="Keen for a chat?" link="/contact" isInternal />

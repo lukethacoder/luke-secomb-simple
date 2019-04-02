@@ -3,7 +3,7 @@ layout: project
 title: 'Posh Weather'
 slug: 'posh-weather'
 category: 'projects'
-order: 3
+order: 800
 image: './posh-weather.jpg'
 ---
 

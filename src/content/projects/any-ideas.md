@@ -3,7 +3,7 @@ layout: project
 title: 'any.ideas'
 slug: 'any-ideas'
 category: 'projects'
-date: 1000
+order: 799
 image: './any-ideas.jpg'
 ---
 

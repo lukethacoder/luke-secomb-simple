@@ -161,9 +161,9 @@ export default `
   blockquote {
     margin: .8rem 0;
     padding: .5rem 1rem;
-    border-left: .25rem solid ${colors.ui.light};
-    color: ${colors.gray.calm};
-
+    border-left: .25rem solid ${colors.brand};
+    background-color: rgba(255,255,255,0.05);
+    color: ${colors.brand};
     p {
       &:last-child {
         margin-bottom: 0;
