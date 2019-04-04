@@ -5,6 +5,7 @@ slug: 'any-ideas'
 category: 'projects'
 order: 799
 image: './any-ideas.jpg'
+published: true
 ---
 
 ## Turn your shower thoughts into Power Thoughts

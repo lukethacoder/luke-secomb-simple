@@ -5,6 +5,7 @@ slug: 'wp-webhook-netlify-deploy'
 category: 'projects'
 order: 1
 image: './wp-webhook-netlify-deploy.jpg'
+published: true
 ---
 
 WP Webhook Netlify Deploy allows users to send webhook requests to Netlify from within WordPress. Perfect for a headless WP / GatsbyJS setup.

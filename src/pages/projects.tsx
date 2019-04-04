@@ -22,6 +22,7 @@ interface ProjectItemObj {
       category: string
       image: any
       slug: string
+      published: boolean
     }
   }
 }
@@ -48,11 +49,14 @@ interface PageTemplateProps {
 }
 
 const RenderProjectItem: React.SFC<ProjectItemData> = ({ data }) => {
-  // console.log(data.node.frontmatter.image.childImageSharp.sizes)
+  const item = data.node.frontmatter
+  if (!item.published) {
+    return null
+  }
   return (
-    <ProjectItem to={`${data.node.frontmatter.category}/${data.node.frontmatter.slug}`}>
+    <ProjectItem to={`${item.category}/${item.slug}`}>
       <div className="image_wrapper">
-        <Img sizes={data.node.frontmatter.image.childImageSharp.sizes} />
+        <Img sizes={item.image.childImageSharp.sizes} />
       </div>
     </ProjectItem>
   )
@@ -112,6 +116,7 @@ export const query = graphql`
                 }
               }
             }
+            published
           }
         }
       }

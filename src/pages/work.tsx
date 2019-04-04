@@ -22,6 +22,8 @@ interface WorkItemObj {
       category: string
       image: any
       slug: string
+      date?: string
+      published: boolean
     }
   }
 }
@@ -48,10 +50,14 @@ interface PageTemplateProps {
 }
 
 const RenderWorkItem: React.SFC<WorkItemObjData> = ({ data }) => {
+  const item = data.node.frontmatter
+  if (!item.published || !item.image) {
+    return null
+  }
   return (
-    <WorkItem to={`${data.node.frontmatter.category}/${data.node.frontmatter.slug}`}>
+    <WorkItem to={`${item.category}/${item.slug}`}>
       <div className="image_wrapper">
-        <Img sizes={data.node.frontmatter.image.childImageSharp.sizes} />
+        <Img sizes={item.image.childImageSharp.sizes} />
       </div>
     </WorkItem>
   )
@@ -65,8 +71,8 @@ const WorksPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
         <TopLeftText text="work." />
         <Container>
           <h1 style={{ fontWeight: '400', padding: '48px 0 64px' }}>
-            built these to put <br />
-            food on the table.
+            i got paid <br />
+            for these.
           </h1>
           <WorksContainer>
             {data.allMarkdownRemark.edges.map((item: WorkItemObj) => (
@@ -94,7 +100,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }, filter: { frontmatter: { category: { eq: "work" } } }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, filter: { frontmatter: { category: { eq: "work" } } }) {
       edges {
         node {
           html
@@ -103,6 +109,7 @@ export const query = graphql`
             title
             category
             slug
+            date
             image {
               childImageSharp {
                 sizes(maxWidth: 1080) {
@@ -110,6 +117,7 @@ export const query = graphql`
                 }
               }
             }
+            published
           }
         }
       }

@@ -6,12 +6,12 @@ import { getEmSize } from '../styles/mixins'
 
 const TopLeftTextComponent = styled.h6`
   position: relative;
-  padding: ${getEmSize(128)}em 0px ${getEmSize(8)}em ${getEmSize(10)}em;
+  padding: ${getEmSize(84)}em 0px ${getEmSize(8)}em ${getEmSize(10)}em;
   width: auto;
   margin: 0;
   font-size: ${getEmSize(12)}em;
   @media (min-width: ${breakpoints.md}px) {
-    padding: ${getEmSize(128)}em 0px ${getEmSize(8)}em ${getEmSize(168)}em !important;
+    padding: ${getEmSize(56)}em 0px ${getEmSize(8)}em ${getEmSize(168)}em !important;
   }
   hr {
     background-color: ${colors.white};

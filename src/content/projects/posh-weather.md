@@ -5,6 +5,7 @@ slug: 'posh-weather'
 category: 'projects'
 order: 800
 image: './posh-weather.jpg'
+published: true
 ---
 
 The humble weather app is one that is used by many on a daily basis. It is informative, features little copy and uses visual elements to convey data. Weather applications need to be dynamic in design, and be able to convey different states of weather to the users clearly and creatively.

@@ -5,6 +5,7 @@ slug: 'large-js'
 category: 'projects'
 order: 1
 image: './large-js.jpg'
+published: true
 ---
 
 #### Not just giving you medium content, giving you the largest content

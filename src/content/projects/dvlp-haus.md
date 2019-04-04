@@ -5,6 +5,7 @@ slug: 'dvlp-haus'
 category: 'projects'
 order: 5
 image: './dvlp-haus.jpg'
+published: true
 ---
 
 DVLP HAUS is a web developers go to. Code snippets, useful tutorials and the unique toolbox are all part of the awesome features planned. The platform will be built on GatsbyJS and use Firebase for all backend functionality.

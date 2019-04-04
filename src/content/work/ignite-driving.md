@@ -3,8 +3,10 @@ layout: project
 title: 'Ignite Driving'
 slug: 'ignite-driving'
 category: 'work'
-order: 1
+date: '2018-02-26'
+order: 50
 image: './ignite-driving.jpg'
+published: true
 ---
 
 Ignite Driving was built from the ground up. All design and advertising work, as well as the web development was created. The challenge was to reach and engage with the audience using current digital technologies and design thinking strategies

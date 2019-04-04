@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import Arrow from '../assets/arrow.svg'
 
 import { widths, colors } from '../styles/variables'
-import { getEmSize, trans } from '../styles/mixins'
+import { getEmSize, trans, no_select } from '../styles/mixins'
 
 interface ButtonProps {
   link: string
@@ -43,12 +43,12 @@ const StyledButton = styled.button`
   background-color: transparent;
   border: 1px solid ${colors.white};
   transition: ${trans};
+  padding: 0;
+  ${no_select}
   &:hover {
     border: 1px solid ${colors.brand};
     transition: ${trans};
-
     a {
-      padding: 24px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -65,11 +65,13 @@ const StyledButton = styled.button`
     }
   }
   a {
-    padding: 24px;
+    padding: 24px 32px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     text-decoration: none;
+    border: none;
+    ${no_select}
     p {
       margin: 0 24px 0 0;
       color: ${colors.white};
