@@ -33,10 +33,10 @@ const MenuList: Array<object> = [
     name: 'home.',
     path: '/'
   },
-  {
-    name: 'about.',
-    path: '/about'
-  },
+  // {
+  //   name: 'about.',
+  //   path: '/about'
+  // },
   {
     name: 'projects.',
     path: '/projects'

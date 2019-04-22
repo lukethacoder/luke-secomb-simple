@@ -21,7 +21,7 @@ const IndexPage = () => (
             I currently work at Soda Strategic as a Web Developer and pride myself on delivering beautiful and user friendly experiences. I
             enjoy learning about new web technologies/frameworks and experimenting with various tools to get places I maybe should quite be.
           </p>
-          <Button text="Get to know me" link="/about" isInternal />
+          <Button text="Delve into my side projects" link="/projects" isInternal />
         </div>
       </Container>
     </Page>
