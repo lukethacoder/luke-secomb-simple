@@ -19,4 +19,4 @@ Custom Visualforce (Salesforce) form Front End Development.
 
 Built click and drag preference list in ES6 JS.
 
-[Check out the form.](https://nysfau.secure.force.com/ApplicationforProgram?ProgramID=a077F00000LyR7lQAF)
+<a href="https://nysfau.secure.force.com/ApplicationforProgram?ProgramID=a077F00000LyR7lQAF" target="_blank">Check out the form.</a>
