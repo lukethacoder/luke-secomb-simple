@@ -13,23 +13,23 @@ const ContactOptionsData: Array<object> = [
   {
     type: 'email',
     text: 'hello@lukesecomb.digital',
-    url: 'hello@lukesecomb.digital'
+    url: 'hello@lukesecomb.digital',
   },
   {
     type: 'github',
     text: '@lukethacoder',
-    url: 'https://github.com/lukethacoder'
+    url: 'https://github.com/lukethacoder',
   },
   {
     type: 'linkedin',
     text: 'linkedin.com/in/luke-secomb',
-    url: 'https://linkedin.com/in/luke-secomb'
+    url: 'https://linkedin.com/in/luke-secomb',
   },
   {
     type: 'instagram',
     text: '@lukesecombdigital',
-    url: 'https://instagram.com/lukesecombdigital'
-  }
+    url: 'https://instagram.com/lukesecombdigital',
+  },
 ]
 
 const ContactPage = () => (
@@ -39,7 +39,7 @@ const ContactPage = () => (
       <Container>
         <div style={{ maxWidth: `${widths.md}px` }}>
           <h1 style={{ fontWeight: '400', padding: '48px 0 128px' }}>
-            Get in touch, <br />
+            get in touch, <br />
             or stalk me.
           </h1>
           <ContactOptions>
@@ -50,7 +50,7 @@ const ContactPage = () => (
               </li>
             ))}
           </ContactOptions>
-          <Button text="Back to home?" link="/" isInternal />
+          <Button text="Are you a dev?" link="/dev" isInternal />
         </div>
       </Container>
     </Page>

@@ -3,18 +3,19 @@ layout: project
 title: 'RBD Projects'
 slug: 'rbd'
 category: 'work'
-date: '2019-01-20'
+date: '2019-05-01'
 order: 10
 image: './rbd.jpg'
-published: false
+published: true
 ---
 
-#### Role: Lead Developer
+### Manage. Build. Design
 
-WordPress Backend (CPT & ACF)
+> Specialists in hospitality and residential projects.
 
-use of vanilla JavaScript to emulate SPA-type page navigations and url params.
+WordPress / Timber / Twig
+
+Use of vanilla JavaScript to emulate SPA-type page navigations and dynamic url params.
 
 <br/>
-
-[Check out the site.](https://rbdprojects.com.au)
+<a href="https://rbdprojects.com.au" target="_blank">Check out the site.</a>

@@ -48,6 +48,10 @@ const MenuList: Array<object> = [
   {
     name: 'contact.',
     path: '/contact'
+  },
+  {
+    name: 'dev.',
+    path: '/dev'
   }
 ]
 
@@ -79,8 +83,8 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
       </HeaderFixed>
       <AbsoluteNavigation className={`${isMenuOpen ? 'isOpen' : ''}`}>
         <ul>
-          {MenuList.map((nav_item: any) => (
-            <li>
+          {MenuList.map((nav_item: any, key: number) => (
+            <li key={key}>
               <Link to={nav_item.path} activeClassName="active">
                 {nav_item.name}
               </Link>
