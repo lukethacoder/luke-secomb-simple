@@ -1,14 +1,13 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import TopLeftText from './TopLeftText'
 import { getEmSize } from '../styles/mixins'
 
 const StyledLayoutMain = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: ${getEmSize(128)}em 0 0;
+  padding: ${getEmSize(48)}em 0 0;
   min-height: 100vh;
   /* max-width: 0px; */
 `

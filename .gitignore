@@ -115,3 +115,4 @@ $RECYCLE.BIN/
 *.lnk
 package-lock.json
 package-lock.json
+*.development

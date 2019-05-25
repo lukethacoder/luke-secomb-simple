@@ -71,6 +71,7 @@ const StyledButton = styled.button`
     align-items: center;
     text-decoration: none;
     border: none;
+    text-align: left;
     ${no_select}
     p {
       margin: 0 24px 0 0;
