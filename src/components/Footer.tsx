@@ -9,7 +9,9 @@ const Footer: React.SFC = () => {
   return (
     <FooterContainer>
       {/* <p>hello.</p> */}
-      <FooterWrapper>{/* <Spotify /> */}</FooterWrapper>
+      <FooterWrapper>
+        <Spotify />
+      </FooterWrapper>
     </FooterContainer>
   )
 }
@@ -19,7 +21,7 @@ export default Footer
 const FooterContainer = styled.div`
   height: 0;
   color: ${colors.brand};
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   z-index: 100;
@@ -27,6 +29,9 @@ const FooterContainer = styled.div`
   width: 100%;
   display: flex;
   height: 0;
+  @media (min-width: ${breakpoints.md}px) {
+    position: fixed;
+  }
   > p {
     text-align: center;
     width: 100%;
@@ -47,12 +52,11 @@ const FooterContainer = styled.div`
 const FooterWrapper = styled.div`
   height: 100%;
   overflow: hidden;
-  max-height: 0;
-  opacity: 0;
+  max-height: 100vh;
+  opacity: 1;
   bottom: -20px;
   @media (min-width: ${breakpoints.md}px) {
     max-height: 100vh;
-    opacity: 1;
     bottom: 0;
   }
 `

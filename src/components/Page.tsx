@@ -8,9 +8,7 @@ const StyledPage = styled.div`
   flex: 1;
   position: relative;
   padding: ${dimensions.containerPadding}rem;
-  margin-bottom: 3rem;
-  /* height: calc(100vh - 48px * 6);
-  overflow: auto; */
+  margin-bottom: 10rem;
 `
 
 interface PageProps {

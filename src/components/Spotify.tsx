@@ -12,7 +12,7 @@ interface SpotifyObj {
   }
 }
 
-const API_KEY: any = process.env.LAST_FM_API_KEY
+const API_KEY: any = 'ae1689ceac2d61e7cf4fd57595057671'
 
 function fetchDataFromAxios(url: string) {
   // You can await here
@@ -49,8 +49,8 @@ const Spotify: React.SFC = () => {
       <p>{spotifyData ? (spotifyData.track[0]['@attr'] ? 'currently playing.' : 'last played.') : ''}</p>
       <img src={`${spotifyData ? spotifyData.track[0].image[spotifyData.track[0].image.length - 1]['#text'] : ''}`} />
       <div>
-        <h5>{spotifyData ? spotifyData.track[0].name : 'loading'}</h5>
-        <h6>{spotifyData ? spotifyData.track[0].artist['#text'] : 'loading'}</h6>
+        <h5>{spotifyData ? spotifyData.track[0].name : ''}</h5>
+        <h6>{spotifyData ? spotifyData.track[0].artist['#text'] : ''}</h6>
       </div>
     </StyledSpotify>
   )
@@ -78,19 +78,37 @@ const StyledSpotify = styled.div`
     font-weight: bold;
   }
   img {
-    width: 64px;
-    background-color: ${colors.black};
+    min-height: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    width: 100%;
+    height: 100%;
+    background-color: ${colors.gradientEnd};
     border: 1px solid ${colors.white};
   }
   div {
-    margin: 0 auto 0 24px;
+    padding: 0 64px 0 24px;
+    width: 100%;
     h5 {
       font-size: 12px;
-      margin: 0;
+      margin: 0 0 4px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      color: ${colors.white};
+      transition: all 0.3s ease;
+      max-width: 100%;
+      &:hover {
+        overflow: visible;
+        transition: all 0.3s ease;
+      }
     }
     h6 {
       font-size: 12px;
       margin: 0;
+      color: ${colors.gray.base};
     }
   }
 `
