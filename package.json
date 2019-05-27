@@ -24,6 +24,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
     "babel-plugin-styled-components": "^1.7.1",
@@ -63,7 +64,6 @@
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.0.7",
     "@types/react-helmet": "^5.0.7",
-    "axios": "^0.18.0",
     "gh-pages": "^2.0.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
