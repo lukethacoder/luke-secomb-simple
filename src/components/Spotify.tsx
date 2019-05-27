@@ -23,26 +23,24 @@ function fetchDataFromAxios(url: string) {
 const Spotify: React.SFC = () => {
   const [spotifyData, setSpotifyData]: any = React.useState<SpotifyObj | null>(null)
 
-  console.log('API_KEY', API_KEY)
-  console.warn('process.env.GATSBY_LAST_FM_API_KEY', process.env.GATSBY_LAST_FM_API_KEY)
-  console.warn('process.env.LAST_FM_API_KEY', process.env.LAST_FM_API_KEY)
+  if (typeof window !== undefined) {
+    React.useEffect(() => {
+      let didCancel = false
 
-  React.useEffect(() => {
-    let didCancel = false
-
-    async function fetchMyAPI() {
-      let url = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lu_ke____&api_key=${API_KEY}&format=json`
-      const response: any = await fetchDataFromAxios(url)
-      if (!didCancel) {
-        setSpotifyData(response.data.recenttracks)
+      async function fetchMyAPI() {
+        let url = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lu_ke____&api_key=${API_KEY}&format=json`
+        const response: any = await fetchDataFromAxios(url)
+        if (!didCancel) {
+          setSpotifyData(response.data.recenttracks)
+        }
       }
-    }
 
-    fetchMyAPI()
-    return () => {
-      didCancel = true
-    } // Remember if we start fetching something else
-  }, [])
+      fetchMyAPI()
+      return () => {
+        didCancel = true
+      } // Remember if we start fetching something else
+    }, [])
+  }
 
   return (
     <StyledSpotify>
