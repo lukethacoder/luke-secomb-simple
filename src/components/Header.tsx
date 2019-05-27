@@ -63,7 +63,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
       <HeaderFixed>
         <HeaderLogo>
           <Link to="/">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 226.86">
+            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 350 226.86">
               <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                   <path className="cls-1" d="M106.94,22.24,19.24,59l87.7,37v22.24L0,71.71V46.48L106.94,0Z" />

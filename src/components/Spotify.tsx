@@ -28,7 +28,7 @@ const Spotify: React.SFC = () => {
       let didCancel = false
 
       async function fetchMyAPI() {
-        let url = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lu_ke____&api_key=${API_KEY}&format=json`
+        let url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lu_ke____&api_key=${API_KEY}&format=json`
         const response: any = await fetchDataFromAxios(url)
         if (!didCancel) {
           setSpotifyData(response.data.recenttracks)
