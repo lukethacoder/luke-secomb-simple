@@ -13,6 +13,18 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Luke Secomb Digital | Develop & Photograph`,
+        short_name: `Luke Secomb Digital`,
+        start_url: `/`,
+        background_color: `#141414`,
+        theme_color: `#FFC87F`,
+        display: `standalone`,
+        icon: `src/assets/favicon.png`,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
@@ -58,12 +70,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-json',
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
-      },
-    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',

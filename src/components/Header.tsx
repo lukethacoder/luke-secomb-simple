@@ -19,15 +19,6 @@ interface NavItem {
   name: string
 }
 
-// const toggleMenu: React.FunctionComponent<any> = e => {
-//   console.log(e.target)
-//   e.target.classList.contains('isOpen')
-//     ? ((e.target.textContent = 'close.'), e.target.classList.remove('isOpen'))
-//     : ((e.target.textContent = 'menu.'), e.target.classList.add('isOpen'))
-
-//   return
-// }
-
 const MenuList: Array<object> = [
   {
     name: 'home.',
@@ -55,7 +46,7 @@ const MenuList: Array<object> = [
   },
 ]
 
-const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
+const Header: React.FunctionComponent<HeaderProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   return (

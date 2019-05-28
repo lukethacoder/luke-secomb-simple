@@ -38,7 +38,6 @@ const ProjectTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => (
   <IndexLayout>
     <Page>
       <Container>
-        {console.log(data.markdownRemark.frontmatter.image.childImageSharp.sizes)}
         <Link to={data.markdownRemark.frontmatter.category}>back</Link>
         <ProjectItem>
           <div className="image_wrapper">
