@@ -64,7 +64,6 @@ const RenderProjectItem: React.SFC<ProjectItemData> = ({ data }) => {
 // projects_data.forEach((project_item: any) => <h1>${project_item.node.frontmatter.title}</h1>
 
 const ProjectsPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
-  console.log(data.site)
   return (
     <IndexLayout>
       <Page>

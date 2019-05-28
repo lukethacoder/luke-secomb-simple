@@ -31,8 +31,6 @@ const IndexLayout: React.SFC = ({ children }) => {
     transform: 'translate(0px, 0px)',
   })
 
-  console.log(fade)
-
   return (
     <StaticQuery
       query={graphql`
@@ -54,7 +52,7 @@ const IndexLayout: React.SFC = ({ children }) => {
               { name: 'keywords', content: 'gatsbyjs, gatsby, javascript, sample, something' },
             ]}
           />
-          <Header title={data.site.siteMetadata.title} />
+          <Header />
           <LayoutMain>
             <animated.div style={fade}>{children}</animated.div>
           </LayoutMain>

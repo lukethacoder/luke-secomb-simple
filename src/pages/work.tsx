@@ -64,7 +64,6 @@ const RenderWorkItem: React.SFC<WorkItemObjData> = ({ data }) => {
 }
 
 const WorksPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
-  console.log(data.site)
   return (
     <IndexLayout>
       <Page>
