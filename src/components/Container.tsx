@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   width: auto;
   max-width: ${getEmSize(widths.lg)}em;
   @media (min-width: ${breakpoints.md}px) {
-    margin-left: ${getEmSize(184)}em;
+    margin-left: ${getEmSize(224)}em;
   }
 `
 

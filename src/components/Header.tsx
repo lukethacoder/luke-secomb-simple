@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import { Link } from 'gatsby'
 
-import { heights, dimensions, colors } from '../styles/variables'
+import { dimensions, colors } from '../styles/variables'
 import { getEmSize, trans } from '../styles/mixins'
 // import Container from './Container'
 
@@ -31,7 +31,7 @@ interface NavItem {
 const MenuList: Array<object> = [
   {
     name: 'home.',
-    path: '/'
+    path: '/',
   },
   // {
   //   name: 'about.',
@@ -39,20 +39,20 @@ const MenuList: Array<object> = [
   // },
   {
     name: 'projects.',
-    path: '/projects'
+    path: '/projects',
   },
   {
     name: 'work.',
-    path: '/work'
+    path: '/work',
   },
   {
     name: 'contact.',
-    path: '/contact'
+    path: '/contact',
   },
   {
     name: 'dev.',
-    path: '/dev'
-  }
+    path: '/dev',
+  },
 ]
 
 const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
@@ -63,7 +63,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
       <HeaderFixed>
         <HeaderLogo>
           <Link to="/">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 226.86">
+            <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 350 226.86">
               <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                   <path className="cls-1" d="M106.94,22.24,19.24,59l87.7,37v22.24L0,71.71V46.48L106.94,0Z" />
@@ -99,7 +99,6 @@ const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
 export default Header
 
 const StyledHeader = styled.header`
-  height: ${heights.header}px;
   color: ${transparentize(0.5, colors.white)};
   position: fixed;
   z-index: 50;
@@ -107,6 +106,7 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   bottom: 0;
+  height: 0;
 `
 
 const HeaderFixed = styled.div`
@@ -119,7 +119,7 @@ const HeaderFixed = styled.div`
   /* height: 80px; */
   width: 100%;
   margin: 0;
-  padding: 48px;
+  padding: 24px;
   svg {
     height: 42px;
   }

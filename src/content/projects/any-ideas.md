@@ -16,6 +16,6 @@ The platform was built on Laravel, and uses Vue on the front end.
 
 ---
 
-Live site: [anyideas.herokuapp.com](http://anyideas.herokuapp.com/)
+Live site: [anyideas.herokuapp.com](https://anyideas.herokuapp.com/)
 
 Github Repo: [github.com/lukethacoder/anyideas](https://github.com/lukethacoder/anyideas)
