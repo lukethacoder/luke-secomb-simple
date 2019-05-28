@@ -18,8 +18,12 @@ const IndexPage = () => (
             Hey, I'm <span style={{ fontWeight: '700' }}>Luke Secomb</span>, web developer and photographic connoisseur.
           </h1>
           <p style={{ color: colors.white, margin: '0 0 64px' }}>
-            I currently work at Soda Strategic as a Web Developer and pride myself on delivering beautiful and user friendly experiences. I
-            enjoy learning about new web technologies/frameworks and experimenting with various tools to get places I maybe should quite be.
+            I currently work at{' '}
+            <a href="https://sodastrategic.com.au/" target="_blank">
+              Soda Strategic
+            </a>{' '}
+            as a Developer and pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web
+            technologies/frameworks and experimenting with various tools to get places I maybe shouldn't be.
           </p>
           <Button text="Delve into my side projects" link="/projects" isInternal />
         </div>
