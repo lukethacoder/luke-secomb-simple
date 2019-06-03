@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import axios from 'axios'
 
 import { widths, colors } from '../styles/variables'
-import { getEmSize, trans, no_select } from '../styles/mixins'
+import { rem, trans, no_select } from '../styles/mixins'
 
 interface SpotifyObj {
   recenttracks: {
@@ -106,7 +106,7 @@ const StyledSpotify = styled.div`
     h6 {
       font-size: 12px;
       margin: 0;
-      color: ${colors.gray.base};
+      color: ${colors.grey.base};
     }
   }
 `

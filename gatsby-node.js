@@ -12,27 +12,29 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   switch (node.internal.type) {
     case 'MarkdownRemark': {
-      const { permalink, layout } = node.frontmatter
+      const { slug, layout, category } = node.frontmatter
       const { relativePath } = getNode(node.parent)
 
-      let slug = permalink
+      let slugUse = slug
 
-      if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`
+      if (!slugUse) {
+        slugUse = `/${relativePath.replace('.md', '')}/`
+      } else {
+        slugUse = `/${category}/${slug}/`
       }
 
       // Used to generate URL to view this content.
       createNodeField({
         node,
         name: 'slug',
-        value: slug || ''
+        value: slugUse || '',
       })
 
       // Used to determine a page layout.
       createNodeField({
         node,
         name: 'layout',
-        value: layout || ''
+        value: layout || '',
       })
     }
   }
@@ -78,8 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
-        slug
-      }
+        slug,
+      },
     })
   })
 }

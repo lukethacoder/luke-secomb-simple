@@ -2,16 +2,16 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { colors, breakpoints } from '../styles/variables'
-import { getEmSize } from '../styles/mixins'
+import { rem } from '../styles/mixins'
 
 const TopLeftTextComponent = styled.h6`
   position: relative;
-  padding: ${getEmSize(84)}em 0px ${getEmSize(8)}em ${getEmSize(10)}em;
+  padding: ${rem(84)}em 0px ${rem(8)}em ${rem(10)}em;
   width: auto;
   margin: 0;
-  font-size: ${getEmSize(12)}em;
+  font-size: ${rem(12)}em;
   @media (min-width: ${breakpoints.md}px) {
-    padding: ${getEmSize(56)}em 0px ${getEmSize(8)}em ${getEmSize(168)}em !important;
+    padding: ${rem(56)}em 0px ${rem(8)}em ${rem(168)}em !important;
   }
   hr {
     background-color: ${colors.white};

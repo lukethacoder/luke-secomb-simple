@@ -10,24 +10,25 @@ import Button from '../components/Button'
 import TopLeftText from '../components/TopLeftText'
 
 import { colors, breakpoints } from '../styles/variables'
-import { trans } from '../styles/mixins'
+import { trans, rem } from '../styles/mixins'
 import { Slugify } from '../helpers/helpers'
 
-interface ProjectItemObj {
+interface WordRepoObj {
   node: {
     html: HTMLElement
     excerpt: string
     frontmatter: {
       title: string
       category: string
-      image?: unknown
       slug: string
       published: boolean
+      date: string
+      tags?: Array<string>
     }
   }
 }
-interface ProjectItemData {
-  data: ProjectItemObj
+interface WordRepoData {
+  data: WordRepoObj
 }
 
 interface PageTemplateProps {
@@ -43,42 +44,46 @@ interface PageTemplateProps {
       }
     }
     allMarkdownRemark: {
-      edges: ProjectItemObj[]
+      edges: WordRepoObj[]
     }
   }
 }
 
-const RenderProjectItem: React.SFC<ProjectItemData> = ({ data }) => {
+const RenderWordRepo: React.SFC<WordRepoData> = ({ data }) => {
   const item = data.node.frontmatter
   if (!item.published) {
     return null
   }
   return (
-    <ProjectItem to={`${item.category}/${item.slug}`}>
-      <div className="image_wrapper">
-        <Img sizes={item.image.childImageSharp.sizes} />
+    <WordRepo to={`${item.category}/${item.slug}`}>
+      <div className="content_wrapper">
+        {/* <p className="category">{item.tags[0]}</p> */}
+        <h3 className="item_title">{item.title}</h3>
+        <p className="date_created">{item.date}</p>
       </div>
-    </ProjectItem>
+    </WordRepo>
   )
 }
 // projects_data.forEach((project_item: any) => <h1>${project_item.node.frontmatter.title}</h1>
 
 const ProjectsPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
+  console.log(data.allMarkdownRemark.edges)
   return (
     <IndexLayout>
       <Page>
-        <TopLeftText text="projects" />
+        <TopLeftText text="word repo." />
         <Container>
           <h1 style={{ fontWeight: '400', padding: '48px 0 64px' }}>
-            just a bit of fun. <br />
-            side projects & hacks.
+            yes, its a blog. <br />
+            code snippets, hacks <br />
+            and how-to's.
           </h1>
-          <ProjectsContainer>
-            {data.allMarkdownRemark.edges.map((item: ProjectItemObj) => (
-              <RenderProjectItem data={item} key={item.node.frontmatter.title} />
+          <WordRepoContainer>
+            {data.allMarkdownRemark.edges.map((item: WordRepoObj) => (
+              <RenderWordRepo data={item} key={item.node.frontmatter.title} />
             ))}
-          </ProjectsContainer>
-          <Button text="See projects I have been paid for" link="/work" isInternal />
+          </WordRepoContainer>
+          <Button text="...this is the end" link="/" isInternal />
         </Container>
       </Page>
     </IndexLayout>
@@ -88,7 +93,7 @@ const ProjectsPage: React.FunctionComponent<PageTemplateProps> = ({ data }) => {
 export default ProjectsPage
 
 export const query = graphql`
-  query ProjectsPageTemplateQuery {
+  query WordRepoPageTemplateQuery {
     site {
       siteMetadata {
         title
@@ -99,22 +104,16 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }, filter: { frontmatter: { category: { eq: "projects" } } }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }, filter: { frontmatter: { category: { eq: "word_repo" } } }) {
       edges {
         node {
           html
           excerpt
           frontmatter {
             title
-            category
             slug
-            image {
-              childImageSharp {
-                sizes(maxWidth: 1080) {
-                  ...GatsbyImageSharpSizes_tracedSVG
-                }
-              }
-            }
+            category
+            date(formatString: "MMMM DD, YYYY")
             published
           }
         }
@@ -122,7 +121,7 @@ export const query = graphql`
     }
   }
 `
-const ProjectsContainer = styled.div`
+const WordRepoContainer = styled.div`
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 24px;
@@ -137,33 +136,41 @@ const ProjectsContainer = styled.div`
   }
 `
 
-const ProjectItem = styled(Link)`
-  /* background-color: #f4f4f4; */
+const WordRepo = styled(Link)`
   display: flex;
   width: 100%;
-  height: 228px;
-  min-height: 100%;
+  height: auto;
   overflow: hidden;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
   border: 2px solid ${colors.brand};
   transition: ${trans};
+  padding: 24px;
   &:hover {
     border: 2px solid ${colors.white};
     transition: ${trans};
   }
-  .image_wrapper {
+  .content_wrapper {
     height: 100%;
     width: 100%;
-    max-height: calc(100% - 32px);
+    max-height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16px;
-    overflow: hidden;
-    .gatsby-image-wrapper {
-      width: 100%;
-      height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .category {
+      color: ${colors.grey.base};
+      margin: -2px 0 0;
+      font-size: ${rem(14)}rem;
+    }
+    .item_title {
+      color: ${colors.white};
+      margin: 8px 0 24px;
+      font-size: ${rem(20)}rem;
+    }
+
+    .date_created {
+      font-size: ${rem(14)}rem;
+      margin: 0;
     }
   }
 `
