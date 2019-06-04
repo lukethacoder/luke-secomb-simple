@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
@@ -28,6 +28,9 @@ const WordRepoTemplate: React.SFC<WordRepoTemplateProps> = ({ data }) => (
   <IndexLayout>
     <Page>
       <Container>
+        <Link to={data.markdownRemark.frontmatter.category} style={{ paddingBottom: '24px', display: 'flex' }}>
+          back
+        </Link>
         <h1>{data.markdownRemark.frontmatter.title}</h1>
         <ContentTags>
           {data.markdownRemark.frontmatter.tags.map(tag => (
@@ -84,5 +87,8 @@ const PageContent = styled.div`
   max-width: 740px;
   p {
     font-size: ${rem(16)}rem;
+  }
+  h4 {
+    color: ${colors.brand};
   }
 `

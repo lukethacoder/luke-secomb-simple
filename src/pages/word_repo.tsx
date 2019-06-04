@@ -17,14 +17,7 @@ interface WordRepoObj {
   node: {
     html: HTMLElement
     excerpt: string
-    frontmatter: {
-      title: string
-      category: string
-      slug: string
-      published: boolean
-      date: string
-      tags?: Array<string>
-    }
+    frontmatter: FrontmatterProps
   }
 }
 interface WordRepoData {
@@ -48,16 +41,26 @@ interface PageTemplateProps {
     }
   }
 }
+interface FrontmatterProps {
+  title: string
+  category: string
+  slug: string
+  published: boolean
+  date: string
+  tags?: Array<string>
+}
 
 const RenderWordRepo: React.SFC<WordRepoData> = ({ data }) => {
-  const item = data.node.frontmatter
+  const item: FrontmatterProps = data.node.frontmatter
   if (!item.published) {
     return null
   }
+  let tagsArray: any = item.tags.map((tag: string) => <p>{tag}</p>)
+  console.log(tagsArray)
   return (
     <WordRepo to={`${item.category}/${item.slug}`}>
       <div className="content_wrapper">
-        {/* <p className="category">{item.tags[0]}</p> */}
+        <div className="tags">{tagsArray}</div>
         <h3 className="item_title">{item.title}</h3>
         <p className="date_created">{item.date}</p>
       </div>
@@ -113,6 +116,7 @@ export const query = graphql`
             title
             slug
             category
+            tags
             date(formatString: "MMMM DD, YYYY")
             published
           }
@@ -157,15 +161,20 @@ const WordRepo = styled(Link)`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    .category {
-      color: ${colors.grey.base};
-      margin: -2px 0 0;
-      font-size: ${rem(14)}rem;
+    .tags {
+      display: block;
+      p {
+        float: left;
+        color: ${colors.grey.base};
+        margin: -2px 4px 0 0;
+        font-size: ${rem(12)}rem;
+      }
     }
     .item_title {
       color: ${colors.white};
       margin: 8px 0 24px;
-      font-size: ${rem(20)}rem;
+      font-size: ${rem(22)}rem;
+      font-weight: 700;
     }
 
     .date_created {
