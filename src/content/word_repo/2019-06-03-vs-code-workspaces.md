@@ -17,7 +17,7 @@ published: true
 
 #### What are Workspaces
 
-VS Code's Workspaces allow users to customise both the UI and functionality of the IDE at a project level. Workspaces settings override `User Settings`. Workspaces are useful for sharing project settings with other devs and allow for project specific functionality and customisations.
+VS Code's Workspaces allow users to customise both the UI and functionality of the IDE at a project level. Workspaces settings override `User Settings` and are useful for sharing project settings with other devs and allow for project specific functionality and customisations.
 
 To open Workspace Settings use the shortcut `Ctrl+,`. You can either edit the settings using the UI on this view or click the `{ }` in the top right corner to edit the `JSON` file.
 
