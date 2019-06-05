@@ -138,6 +138,9 @@ export default `
     margin-top: 0;
     margin-bottom: 1rem;
   }
+  li {
+    margin: 0 0 8px;
+  }
 
   dt {
     font-weight: bold;

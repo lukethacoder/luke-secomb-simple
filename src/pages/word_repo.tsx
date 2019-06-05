@@ -55,7 +55,7 @@ const RenderWordRepo: React.SFC<WordRepoData> = ({ data }) => {
   if (!item.published) {
     return null
   }
-  let tagsArray: any = item.tags.map((tag: string) => <p>{tag}</p>)
+  let tagsArray: any = (item as any).tags.map((tag: string) => <p>{tag}</p>)
   console.log(tagsArray)
   return (
     <WordRepo to={`${item.category}/${item.slug}`}>
