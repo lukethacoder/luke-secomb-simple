@@ -1,8 +1,9 @@
 import { dimensions, fonts, colors, breakpoints } from './variables'
-import { getEmSize } from './mixins'
+import { rem } from './mixins'
 
 export default `
   @import url('https://fonts.googleapis.com/css?family=Muli|Raleway:400,700')
+  @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
   html {
     box-sizing: border-box;
   }
@@ -41,11 +42,6 @@ export default `
   a {
     color: ${colors.brand};
     text-decoration: none;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
   }
 
   img {
@@ -120,7 +116,7 @@ export default `
 
   h4, h5, h6 {
     font-size: ${dimensions.headingSizes.h4}rem;
-    color: ${colors.gray.base};
+    color: ${colors.grey.base};
   }
 
   h6 {
@@ -141,6 +137,9 @@ export default `
   dl {
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+  li {
+    margin: 0 0 8px;
   }
 
   dt {
@@ -170,9 +169,93 @@ export default `
       }
     }
 
-    @media (min-width: ${getEmSize(breakpoints.md)}em) {
+    @media (min-width: ${rem(breakpoints.md)}em) {
       padding-right: 5rem;
       padding-left: 1.25rem;
     }
   }
+
+  .gatsby-highlight {
+    background-color: ${colors.gradientStart};
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: ${colors.brand};
+    overflow: visible;
+    padding: 0;
+    margin: 0 0 16px;
+    @media screen and (min-width: 767px) {
+      border-bottom-color: ${colors.brand} !important;
+    }
+    > pre {
+      margin: 0;
+      padding: 16px 24px;
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      font-size: ${rem(14)}rem;
+      > code {
+        color: $content-color;
+        font-family: 'Fira Code', monospace;
+      }
+    }
+    &[data-language] {
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        color: ${colors.grey.dark};
+        background: ${colors.brand};
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 12px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-bottom-left-radius: 3px;
+        @media screen and (max-width: 767px) {
+          content: '' !important;
+          top: auto;
+          bottom: 0;
+          right: 0;
+          padding: 0;
+          width: 100%;
+          height: 3px;
+        }
+      }
+    }
+    &[data-language="javascript"] {
+
+    border-bottom-color: ${colors.syntax.javascript};
+      &:after {
+        content: 'JS';
+        background-color: ${colors.syntax.javascript};
+      }
+    }
+    &[data-language="json"] {
+      border-bottom-color: ${colors.syntax.json};
+      &:after {
+        content: 'JSON';
+        background-color: ${colors.syntax.json};
+      }
+    }
+    &[data-language="html"] {
+      border-bottom-color: ${colors.syntax.html};
+      &:after {
+        content: 'HTML';
+        background-color: ${colors.syntax.html};
+      }
+    }
+  }
+
+  .gatsby-code-button-container {
+    background-color: peru;
+    height: 40px;
+    width: 100px;
+  }
+  .gatsby-code-button {}
+  .gatsby-code-button-icon {}
+  .gatsby-code-button-toaster {}
+  .gatsby-code-button-toaster-text {}
 `

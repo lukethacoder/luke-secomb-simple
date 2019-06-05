@@ -20,7 +20,7 @@ interface ProjectItemObj {
     frontmatter: {
       title: string
       category: string
-      image: any
+      image?: unknown
       slug: string
       published: boolean
     }

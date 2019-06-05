@@ -50,7 +50,7 @@ const ContactPage = () => (
               </li>
             ))}
           </ContactOptions>
-          <Button text="Are you a dev?" link="/dev" isInternal />
+          <Button text="fancy a read?" link="/word_repo" isInternal />
         </div>
       </Container>
     </Page>
@@ -67,7 +67,7 @@ const ContactOptions = styled.li`
   margin: 0 0 48px;
   li {
     p {
-      color: ${colors.gray.base};
+      color: ${colors.grey.base};
       font-weight: '700';
       margin: 0;
     }

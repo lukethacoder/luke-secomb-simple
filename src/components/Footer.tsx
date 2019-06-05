@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import Spotify from './Spotify'
 
 import { widths, colors, breakpoints } from '../styles/variables'
+import { rem, trans } from '../styles/mixins'
+import { Link } from 'gatsby'
 
 const Footer: React.SFC = () => {
   return (
@@ -11,6 +13,7 @@ const Footer: React.SFC = () => {
       {/* <p>hello.</p> */}
       <FooterWrapper>
         <Spotify />
+        <Link to="/word_repo">word repo.</Link>
       </FooterWrapper>
     </FooterContainer>
   )
@@ -58,5 +61,18 @@ const FooterWrapper = styled.div`
   @media (min-width: ${breakpoints.md}px) {
     max-height: 100vh;
     bottom: 0;
+  }
+  a {
+    bottom: 42px;
+    color: ${colors.white};
+    font-weight: 600;
+    position: fixed;
+    right: 24px;
+    font-size: ${rem(16)}rem;
+    transition: ${trans};
+    &:hover {
+      color: ${colors.brand};
+      transition: ${trans};
+    }
   }
 `

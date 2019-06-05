@@ -4,7 +4,7 @@ import { transparentize } from 'polished'
 import { Link } from 'gatsby'
 
 import { dimensions, colors } from '../styles/variables'
-import { getEmSize, trans } from '../styles/mixins'
+import { rem, trans } from '../styles/mixins'
 // import Container from './Container'
 
 interface HeaderProps {
@@ -24,10 +24,6 @@ const MenuList: Array<object> = [
     name: 'home.',
     path: '/',
   },
-  // {
-  //   name: 'about.',
-  //   path: '/about'
-  // },
   {
     name: 'projects.',
     path: '/projects',
@@ -41,8 +37,8 @@ const MenuList: Array<object> = [
     path: '/contact',
   },
   {
-    name: 'dev.',
-    path: '/dev',
+    name: 'word repo.',
+    path: '/word_repo',
   },
 ]
 
@@ -92,7 +88,7 @@ export default Header
 const StyledHeader = styled.header`
   color: ${transparentize(0.5, colors.white)};
   position: fixed;
-  z-index: 50;
+  z-index: 5555;
   top: 0;
   left: 0;
   right: 0;
@@ -146,7 +142,7 @@ const AbsoluteNavigation = styled.nav`
     bottom: 0;
     left: 0;
     li {
-      font-size: ${getEmSize(48)}em;
+      font-size: ${rem(48)}em;
 
       a {
         transition: ${trans};
@@ -155,6 +151,7 @@ const AbsoluteNavigation = styled.nav`
         }
         &:hover {
           transition: ${trans};
+          color: ${colors.white};
         }
       }
     }

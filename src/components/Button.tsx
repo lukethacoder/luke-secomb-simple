@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import Arrow from '../assets/arrow.svg'
 
 import { widths, colors } from '../styles/variables'
-import { getEmSize, trans, no_select } from '../styles/mixins'
+import { rem, trans, no_select } from '../styles/mixins'
 
 interface ButtonProps {
   link: string
@@ -39,7 +39,7 @@ const StyledButton = styled.button`
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-width: ${getEmSize(widths.lg)}em;
+  max-width: ${rem(widths.lg)}em;
   background-color: transparent;
   border: 1px solid ${colors.white};
   transition: ${trans};
