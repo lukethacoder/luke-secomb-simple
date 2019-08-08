@@ -52,7 +52,7 @@
     "normalize.css": "^8.0.0",
     "polished": "^3.4.1",
     "prism-themes": "^1.0.1",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.1",
