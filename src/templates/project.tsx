@@ -86,6 +86,9 @@ export const query = graphql`
 const PageContent = styled.div`
   color: ${colors.white};
   max-width: 740px;
+  @media (prefers-color-scheme: light) {
+    color: ${colors.darkGrey};
+  }
 `
 const ProjectItem = styled.div`
   /* background-color: #f4f4f4; */

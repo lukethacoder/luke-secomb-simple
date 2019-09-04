@@ -70,6 +70,9 @@ const FooterWrapper = styled.div`
     right: 24px;
     font-size: ${rem(16)}rem;
     transition: ${trans};
+    @media (prefers-color-scheme: light) {
+      color: ${colors.darkGrey};
+    }
     &:hover {
       color: ${colors.brand};
       transition: ${trans};

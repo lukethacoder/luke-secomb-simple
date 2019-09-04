@@ -45,6 +45,9 @@ const StyledButton = styled.button`
   transition: ${trans};
   padding: 0;
   ${no_select}
+  @media (prefers-color-scheme: light) {
+    border: 1px solid ${colors.darkGrey};
+  }
   &:hover {
     border: 1px solid ${colors.brand};
     transition: ${trans};
@@ -78,6 +81,9 @@ const StyledButton = styled.button`
       color: ${colors.white};
       font-weight: 700;
       transition: ${trans};
+      @media (prefers-color-scheme: light) {
+        color: ${colors.darkGrey};
+      }
     }
     svg {
       width: 96px;

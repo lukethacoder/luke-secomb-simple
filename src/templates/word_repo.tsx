@@ -85,6 +85,9 @@ const ContentTags = styled.div`
 const PageContent = styled.div`
   color: ${colors.white};
   max-width: 740px;
+  @media (prefers-color-scheme: light) {
+    color: ${colors.darkGrey};
+  }
   p {
     font-size: ${rem(16)}rem;
   }

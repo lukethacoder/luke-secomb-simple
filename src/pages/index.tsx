@@ -17,7 +17,7 @@ const IndexPage = () => (
           <h1 style={{ fontWeight: '400', padding: '48px 0 24px' }}>
             Hey, I'm <span style={{ fontWeight: '700' }}>Luke Secomb</span>, web developer and photographic connoisseur.
           </h1>
-          <p style={{ color: colors.white, margin: '0 0 64px' }}>
+          <p style={{ margin: '0 0 64px' }}>
             I currently work at{' '}
             <a href="https://sodastrategic.com.au/" target="_blank">
               Soda Strategic

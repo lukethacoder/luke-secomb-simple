@@ -38,6 +38,25 @@ export default `
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
+  @media (prefers-color-scheme: light) {
+    body {
+      color: ${colors.black};
+      background-color: ${colors.white};
+      background: ${colors.gradientStartLight}; /* Old browsers */
+      background: -moz-linear-gradient(-45deg, ${colors.gradientStartLight} 0%, ${colors.gradientEndLight} 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg, ${colors.gradientStartLight} 0%,${
+  colors.gradientEndLight
+} 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg, ${colors.gradientStartLight} 0%,${
+  colors.gradientEndLight
+} 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='${colors.gradientStartLight}', endColorstr='${
+  colors.gradientEndLight
+}',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+  }
 
   a {
     color: ${colors.brand};
@@ -126,6 +145,13 @@ export default `
   p {
     margin-top: 0;
     margin-bottom: 1rem;
+    color: ${colors.white};
+  }
+
+  @media (prefers-color-scheme: light) {
+    p {
+      color: ${colors.black};
+    }
   }
 
   strong {

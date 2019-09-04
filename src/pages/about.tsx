@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
 import TopLeftText from '../components/TopLeftText'
 import Button from '../components/Button'
-import { colors, widths } from '../styles/variables'
+import { widths } from '../styles/variables'
 
 const AboutPage = () => (
   <IndexLayout>
@@ -15,7 +14,7 @@ const AboutPage = () => (
       <Container>
         <div style={{ maxWidth: `${widths.md}px` }}>
           <h1 style={{ fontWeight: '400', padding: '48px 0 24px' }}>Who is this?</h1>
-          <p style={{ color: colors.white, margin: '0 0 64px' }}>
+          <p style={{ margin: '0 0 64px' }}>
             I currently work at Soda Strategic as a Web Developer and pride myself on delivering beautiful and user friendly experiences. I
             enjoy learning about new web technologies/frameworks and experimenting with various tools to get places I maybe should quite be.
           </p>
