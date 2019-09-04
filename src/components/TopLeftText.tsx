@@ -13,10 +13,16 @@ const TopLeftTextComponent = styled.h6`
   @media (min-width: ${breakpoints.md}px) {
     padding: ${rem(56)}em 0px ${rem(8)}em ${rem(168)}em !important;
   }
+  @media (prefers-color-scheme: light) {
+    color: ${colors.darkGrey};
+  }
   hr {
     background-color: ${colors.white};
     max-width: 40px;
     margin: 0.75rem 0 1.5rem;
+    @media (prefers-color-scheme: light) {
+      background-color: ${colors.darkGrey};
+    }
   }
 `
 

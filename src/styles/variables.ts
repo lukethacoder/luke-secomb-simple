@@ -13,12 +13,15 @@ export const colors = {
   code: '#fcf6f0',
   gradientStart: '#141414',
   gradientEnd: '#2C2C2C',
+  gradientStartLight: '#ffffff',
+  gradientEndLight: '#dddddd',
   grey: {
     dark: 'hsla(270, 17.119554496%, 0%, 0.92)',
     base: '#696969',
   },
   white: '#fff',
   black: '#000',
+  darkGrey: '#2C2C2C',
   syntax: {
     javascript: '#f1e05a',
     json: '#40d47e',

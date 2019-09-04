@@ -148,9 +148,13 @@ const ProjectItem = styled(Link)`
   align-items: center;
   border: 2px solid ${colors.brand};
   transition: ${trans};
+
   &:hover {
     border: 2px solid ${colors.white};
     transition: ${trans};
+    @media (prefers-color-scheme: light) {
+      border: 2px solid ${colors.darkGrey};
+    }
   }
   .image_wrapper {
     height: 100%;

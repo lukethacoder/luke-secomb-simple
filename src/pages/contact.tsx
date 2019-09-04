@@ -74,6 +74,9 @@ const ContactOptions = styled.li`
     a {
       color: ${colors.white};
       font-weight: '700';
+      @media (prefers-color-scheme: light) {
+        color: ${colors.darkGrey};
+      }
     }
   }
 `

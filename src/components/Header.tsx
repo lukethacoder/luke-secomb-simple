@@ -107,6 +107,7 @@ const HeaderFixed = styled.div`
   width: 100%;
   margin: 0;
   padding: 24px;
+  pointer-events: none;
   svg {
     height: 42px;
   }
@@ -122,8 +123,8 @@ const AbsoluteNavigation = styled.nav`
   z-index: 99;
   width: 100vw;
   height: 100vh;
-  background-color: ${colors.white};
-  background: ${colors.gradientStart}; /* Old browsers */
+  background-color: ${colors.black};
+  background: ${colors.gradientStart};
   background: -moz-linear-gradient(-45deg, '${colors.gradientStart}' 0%, '${colors.gradientEnd}' 100%);
   background: -webkit-linear-gradient(-45deg, '${colors.gradientStart}' 0%, '${colors.gradientEnd}' 100%);
   background: linear-gradient(135deg, '${colors.gradientStart}' 0%, '${colors.gradientEnd}' 100%);
@@ -131,6 +132,13 @@ const AbsoluteNavigation = styled.nav`
   align-items: flex-end;
   padding: 10vw;
   transition: ${trans};
+  @media (prefers-color-scheme: light) {
+    background-color: ${colors.white};
+    background: ${colors.gradientStartLight};
+    background: -moz-linear-gradient(-45deg, '${colors.gradientStartLight}' 0%, '${colors.gradientEndLight}' 100%);
+    background: -webkit-linear-gradient(-45deg, '${colors.gradientStartLight}' 0%, '${colors.gradientEndLight}' 100%);
+    background: linear-gradient(135deg, '${colors.gradientStartLight}' 0%, '${colors.gradientEndLight}' 100%);
+  }
   &.isOpen {
     top: 0;
     transition: ${trans};
@@ -152,6 +160,9 @@ const AbsoluteNavigation = styled.nav`
         &:hover {
           transition: ${trans};
           color: ${colors.white};
+          @media (prefers-color-scheme: light) {
+                  color: ${colors.darkGrey};
+          }
         }
       }
     }
@@ -162,8 +173,19 @@ const HeaderLogo = styled.div`
   max-height: 48px;
   max-width: 72px;
   width: auto;
+  pointer-events: auto;
+  &:hover {
+    svg {
+      fill: ${colors.white};
+      transition: all 0.3s ease;
+      @media (prefers-color-scheme: light) {
+        fill: ${colors.darkGrey};
+      }
+    }
+  }
   svg {
     fill: ${colors.brand};
+    transition: all 0.3s ease;
   }
 `
 const MenuLink = styled.p`
@@ -179,6 +201,10 @@ const MenuLink = styled.p`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  pointer-events: auto;
+  @media (prefers-color-scheme: light) {
+    color: ${colors.darkGrey};
+  }
   &:hover,
   &:focus {
     color: ${colors.brand};
