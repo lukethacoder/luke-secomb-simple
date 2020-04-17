@@ -1,5 +1,24 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "labels": ["chore"],
+  "packageRules": [
+    {
+      "packagePatterns": ["*"],
+      "enabled": false
+    },
+    {
+      "enabled": true,
+      "enabledManagers": ["npm"],
+      "paths": ["package.json"],
+      "groupName": "Gastsby",
+      "groupSlug": "allGatsby",
+      "commitMessagePrefix": "chore(examples)",
+      "lockFileMaintenance": {
+        "enabled": true
+      },
+      "prPriority": -1,
+      "automerge": true,
+      "rebaseConflictedPrs": true
+    },
   ]
 }
