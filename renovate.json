@@ -19,6 +19,6 @@
       "prPriority": -1,
       "automerge": true,
       "rebaseConflictedPrs": true
-    },
+    }
   ]
 }
