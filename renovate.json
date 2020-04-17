@@ -1,15 +1,25 @@
 {
-  "extends": ["config:base"],
-  "labels": ["chore"],
+  "extends": [
+    "config:base"
+  ],
+  "labels": [
+    "chore"
+  ],
   "packageRules": [
     {
-      "packagePatterns": ["*"],
+      "packagePatterns": [
+        "*"
+      ],
       "enabled": false
     },
     {
       "enabled": true,
-      "enabledManagers": ["npm"],
-      "paths": ["package.json"],
+      "enabledManagers": [
+        "npm"
+      ],
+      "paths": [
+        "package.json"
+      ],
       "groupName": "Gastsby",
       "groupSlug": "allGatsby",
       "commitMessagePrefix": "chore(examples)",
