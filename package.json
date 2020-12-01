@@ -23,8 +23,8 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "@emotion/core": "10.0.35",
-    "@emotion/styled": "10.0.27",
+    "@emotion/core": "11.0.0",
+    "@emotion/styled": "11.0.0",
     "axios": "0.21.0",
     "babel-plugin-styled-components": "1.12.0",
     "classnames": "2.2.6",
@@ -49,11 +49,11 @@
     "gatsby-transformer-sharp": "2.7.0",
     "modern-normalize": "1.0.0",
     "normalize.css": "8.0.1",
-    "polished": "3.6.7",
+    "polished": "4.0.5",
     "prism-themes": "1.5.0",
     "prismjs": "1.22.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
     "react-spring": "8.0.27",
     "typescript": "4.1.2"
@@ -61,8 +61,8 @@
   "devDependencies": {
     "@types/classnames": "2.2.11",
     "@types/node": "13.13.5",
-    "@types/react": "16.9.49",
-    "@types/react-dom": "16.9.8",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
     "@types/react-helmet": "6.1.0",
     "gh-pages": "3.1.0",
     "prettier": "2.2.1",
