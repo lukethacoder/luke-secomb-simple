@@ -117,7 +117,12 @@ export const Header = ({ siteTitle, socials }) => {
                 key={social.title}
                 className='ml-4 text-tertiary hover:text-cream'
               >
-                <a className='w-12 h-12' href={social.url} title={social.title}>
+                <a
+                  className='w-12 h-12'
+                  href={social.url}
+                  title={social.title}
+                  target='_blank'
+                >
                   {(socialSvgComponents as any)[social.icon]}
                 </a>
               </li>
