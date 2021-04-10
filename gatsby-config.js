@@ -1,6 +1,23 @@
 module.exports = {
   siteMetadata: {
     title: 'luke-secomb-simple',
+    socials: [
+      {
+        icon: 'github',
+        url: 'https://github.com/lukethacoder',
+        title: 'Github',
+      },
+      {
+        icon: 'instagram',
+        url: 'https://www.instagram.com/lukesecomb',
+        title: 'Instagram',
+      },
+      {
+        icon: 'linkedIn',
+        url: 'https://www.linkedin.com/in/luke-secomb/',
+        title: 'LinkedIn',
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-postcss',

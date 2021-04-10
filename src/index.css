@@ -6,14 +6,17 @@ body {
   overflow: hidden;
   background-color: var(--theme-background);
   color: var(--theme-font);
+  font-family: theme('fontFamily.sans');
 
   --brand-gold: theme('colors.gold');
   --brand-cream: theme('colors.cream');
+  --brand-grey: theme('colors.grey');
   --brand-black: theme('colors.black');
   --brand-white: theme('colors.white');
 
   --theme-primary: var(--brand-gold);
   --theme-secondary: var(--brand-cream);
+  --theme-tertiary: var(--brand-grey);
   --theme-font: var(--brand-cream);
   --theme-black: var(--brand-black);
   --theme-white: var(--brand-white);
@@ -24,8 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  padding: 0 16px;
 }
 
 .layout main {

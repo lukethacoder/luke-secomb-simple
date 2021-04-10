@@ -1,6 +1,10 @@
-import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import * as React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import '@fontsource/work-sans/400.css'
+import '@fontsource/work-sans/700.css'
+
 import 'index.css'
+import { Header } from 'components'
 
 export const LayoutPrimary = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -8,17 +12,25 @@ export const LayoutPrimary = ({ children }) => {
       site {
         siteMetadata {
           title
+          socials {
+            icon
+            url
+            title
+          }
         }
       }
     }
-  `);
+  `)
 
   console.log(`data `, data)
 
   return (
     <>
-      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
-      <div className="layout">
+      <div className='layout lsd-container max-w-container-xxl mx-auto'>
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          socials={data.site.siteMetadata.socials}
+        />
         <main>{children}</main>
         <footer
           style={{
@@ -27,9 +39,9 @@ export const LayoutPrimary = ({ children }) => {
         >
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href='https://www.gatsbyjs.com'>Gatsby</a>
         </footer>
       </div>
     </>
-  );
-};
+  )
+}

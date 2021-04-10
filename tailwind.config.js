@@ -4,6 +4,8 @@ const MD = '768px'
 const LG = '1024px'
 const XL = '1280px'
 const XXL = '1440px'
+const XXXL = '2000px'
+const XXXXL = '2560px'
 
 module.exports = {
   prefix: '',
@@ -22,6 +24,8 @@ module.exports = {
       lg: LG,
       xl: XL,
       xxl: XXL,
+      xxxl: XXXL,
+      xxxxl: XXXXL,
     },
     fluidContainer: {
       sm: {
@@ -44,10 +48,19 @@ module.exports = {
         maxWidth: XXL,
         padding: '32px',
       },
+      xxl: {
+        maxWidth: XXL,
+        padding: '32px',
+      },
+      xxxl: {
+        maxWidth: XXXL,
+        padding: '32px',
+      },
     },
     colors: {
       primary: 'var(--theme-primary)',
       secondary: 'var(--theme-secondary)',
+      tertiary: 'var(--theme-tertiary)',
       background: 'var(--theme-background)',
       font: 'var(--theme-font)',
 
@@ -58,6 +71,7 @@ module.exports = {
       todo: '#117869',
 
       black: '#050505',
+      grey: '#484848',
       white: '#fff',
     },
     spacing: {
@@ -173,7 +187,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Barlow Condensed',
+        'Work Sans',
         'Roboto',
         '"Helvetica Neue"',
         '-apple-system',
@@ -238,8 +252,8 @@ module.exports = {
       // thin: '200',
       // light: '300',
       normal: '400',
-      medium: '500',
-      semibold: '600',
+      // medium: '500',
+      // semibold: '600',
       bold: '700',
       // extrabold: '800',
       // black: '900',
@@ -496,13 +510,9 @@ module.exports = {
   },
   corePlugins: {},
   plugins: [
-    // require('tailwindcss-fluid-container')({
-    //   componentPrefix: 'lsd-', // defaults to 'c-'
-    //   widthUtilities: true, // defaults to true
-    //   paddingUtilities: true, // defaults to true
-    //   marginUtilities: true, // defaults to true
-    //   negativeMarginUtilities: true, // defaults to true
-    // }),
+    require('tailwindcss-fluid-container')({
+      componentPrefix: 'lsd-', // defaults to 'c-'
+    }),
     // require('tailwindcss-multi-column')(),
     // require('tailwindcss-break')(),
   ],
