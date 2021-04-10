@@ -1,35 +1,24 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import * as React from "react"
+import { LayoutPrimary } from 'layouts'
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
-import TopLeftText from '../components/TopLeftText'
-import Button from '../components/Button'
-import { colors, widths } from '../styles/variables'
-
-const IndexPage = () => (
-  <IndexLayout>
-    <Page>
-      <TopLeftText text="nice to meet you" />
-      <Container>
-        <div style={{ maxWidth: `${widths.md}px` }}>
-          <h1 style={{ fontWeight: '400', padding: '48px 0 24px' }}>
-            Hey, I'm <span style={{ fontWeight: '700' }}>Luke Secomb</span>, web developer and photographic connoisseur.
-          </h1>
-          <p style={{ margin: '0 0 64px' }}>
-            I currently work at{' '}
-            <a href="https://sodastrategic.com.au/" target="_blank">
-              Soda Strategic
-            </a>{' '}
-            as a Developer and pride myself on delivering beautiful and user friendly experiences. I enjoy learning about new web
-            technologies/frameworks and experimenting with various tools to get places I maybe shouldn't be.
-          </p>
-          <Button text="Delve into my side projects" link="/projects" isInternal />
-        </div>
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+const IndexPage = () => {
+  return (
+    <LayoutPrimary>
+      <title>Home Page</title>
+      <h1>
+        Congratulations
+        <br />
+        <span>— you just made a Gatsby site! </span>
+        <span role="img" aria-label="Party popper emojis">
+          🎉🎉🎉
+        </span>
+      </h1>
+      <img
+        alt="Gatsby G Logo"
+        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
+      />
+    </LayoutPrimary>
+  )
+}
 
 export default IndexPage

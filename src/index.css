@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+  background-color: var(--theme-background);
+  color: var(--theme-font);
+
+  --brand-gold: theme('colors.gold');
+  --brand-cream: theme('colors.cream');
+  --brand-black: theme('colors.black');
+  --brand-white: theme('colors.white');
+
+  --theme-primary: var(--brand-gold);
+  --theme-secondary: var(--brand-cream);
+  --theme-font: var(--brand-cream);
+  --theme-black: var(--brand-black);
+  --theme-white: var(--brand-white);
+  --theme-background: var(--theme-black);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.layout main {
+  flex: 1 0;
+}
