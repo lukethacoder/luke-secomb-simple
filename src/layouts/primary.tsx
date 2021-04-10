@@ -31,7 +31,7 @@ export const LayoutPrimary = ({ children }) => {
           siteTitle={data.site.siteMetadata.title}
           socials={data.site.siteMetadata.socials}
         />
-        <main>{children}</main>
+        <main className='flex'>{children}</main>
       </div>
     </>
   )
