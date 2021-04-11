@@ -509,7 +509,7 @@ module.exports = {
     require('tailwindcss-fluid-container')({
       componentPrefix: 'lsd-', // defaults to 'c-'
     }),
-    // require('tailwindcss-multi-column')(),
+    require('tailwindcss-multi-column')(),
     // require('tailwindcss-break')(),
   ],
 }
