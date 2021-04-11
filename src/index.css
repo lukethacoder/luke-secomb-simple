@@ -23,6 +23,23 @@ body {
   --theme-background: var(--theme-black);
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-tertiary) #191817;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #191817;
+  border-radius: 20px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--theme-tertiary);
+  border-radius: 20px;
+  border: 3px solid #191817;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -32,4 +49,9 @@ body {
 
 .layout main {
   flex: 1 0;
+}
+
+.bi-avoid {
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
 }
