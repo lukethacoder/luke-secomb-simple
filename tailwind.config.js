@@ -48,10 +48,6 @@ module.exports = {
         maxWidth: XXL,
         padding: '32px',
       },
-      xxl: {
-        maxWidth: XXL,
-        padding: '32px',
-      },
       xxxl: {
         maxWidth: XXXL,
         padding: '32px',

@@ -26,7 +26,7 @@ export const LayoutPrimary = ({ children }) => {
 
   return (
     <>
-      <div className='layout lsd-container max-w-container-xxl mx-auto'>
+      <div className='layout lsd-container max-w-container-xxxl mx-auto'>
         <Header
           siteTitle={data.site.siteMetadata.title}
           socials={data.site.siteMetadata.socials}
