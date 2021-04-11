@@ -83,7 +83,7 @@ const IndexPage = () => {
           <div className='mt-12'>
             <WorkTypeToggle handleToggleContentType={handleToggleContentType} />
           </div>
-          <div className='flex-1 hidden lg:flex items-end mb-12'>
+          <div className='flex-1 hidden lg:flex items-end mb-12 md:mb-4'>
             <Scrobbler />
           </div>
         </div>
