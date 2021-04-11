@@ -20,6 +20,14 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content`,
+        name: `markdown-content`,
+      },
+    },
+    `gatsby-transformer-remark`,
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     {

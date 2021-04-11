@@ -1,9 +1,57 @@
 import * as React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import { LayoutPrimary } from 'layouts'
 import { Banner, Scrobbler, WorkTypeToggle } from 'components'
 
 const IndexPage = () => {
   // TODO: handle toggle between client work/side projects
+  const data = useStaticQuery(graphql`
+    query AllContentQuery {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        group(field: frontmatter___type) {
+          edges {
+            node {
+              frontmatter {
+                date
+                type
+                published
+                slug
+                title
+                url
+              }
+            }
+          }
+          fieldValue
+        }
+      }
+    }
+  `)
+
+  const getFrontmatter = (node) => {
+    const {
+      node: { frontmatter: data },
+    } = node
+    return { ...data }
+  }
+
+  const clientWork = []
+  const sideProjectWork = []
+  // loop over each markdown content type, and push the nodes to the respective arrays
+  data.allMarkdownRemark.group.forEach((contentType) => {
+    const items = contentType.edges
+    if (contentType.fieldValue === 'client') {
+      items.forEach((item) => {
+        clientWork.push(getFrontmatter(item))
+      })
+    } else if (contentType.fieldValue === 'project') {
+      items.forEach((item) => {
+        sideProjectWork.push(getFrontmatter(item))
+      })
+    }
+  })
+
+  console.log(`clientWork `, clientWork)
+  console.log(`sideProjectWork `, sideProjectWork)
 
   return (
     <LayoutPrimary>

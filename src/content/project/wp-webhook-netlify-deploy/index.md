@@ -1,5 +1,5 @@
 ---
-layout: 'project'
+type: 'project'
 title: 'WP Webhook Netlify Deploy'
 slug: 'wp-webhook-netlify-deploy'
 date: 2018-01-01

@@ -1,5 +1,5 @@
 ---
-layout: 'project'
+type: 'project'
 title: 'cytoscape-css-variables'
 slug: 'cytoscape-css-variables'
 date: 2020-10-24
