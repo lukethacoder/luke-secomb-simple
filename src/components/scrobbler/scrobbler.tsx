@@ -21,7 +21,6 @@ export const Scrobbler = () => {
   React.useEffect(() => {
     fetchCurrentSong()
 
-    console.log(`API_KEY `, API_KEY)
     const timer = setInterval(() => {
       fetchCurrentSong()
       // interval to re-check the current track every 2mins
