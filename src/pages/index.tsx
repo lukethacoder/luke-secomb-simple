@@ -76,7 +76,7 @@ const IndexPage = () => {
   return (
     <LayoutPrimary>
       <div className='grid grid-cols-12 flex-1'>
-        <div className='mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 pr-8 flex flex-col'>
+        <div className='mb-8 md:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 pr-8 flex flex-col'>
           <Banner />
           <div className='mt-12'>
             <WorkTypeToggle />
@@ -85,13 +85,13 @@ const IndexPage = () => {
             <Scrobbler />
           </div>
         </div>
-        <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full overflow-auto pb-8 relative'>
+        <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full md:overflow-auto pb-8 relative'>
           <ul className='col-count-1 md:col-count-2 lg:col-count-1 xl:col-count-2 col-gap-16 pr-4'>
             {clientWork.map((item, key) => (
               <li
                 key={item.title}
                 className={`w-full bi-avoid mb-8 ${
-                  key === 1 ? 'mt-24' : 'mt-8 md:mt-24'
+                  key === 1 ? 'mt-24' : 'md:mt-24'
                 }`}
               >
                 <Card

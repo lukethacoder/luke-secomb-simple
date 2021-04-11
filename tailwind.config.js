@@ -372,14 +372,15 @@ module.exports = {
     },
     padding: (theme) => theme('spacing'),
     placeholderColor: (theme) => theme('colors'),
+    scale: {
+      0: '0',
+      100: '1',
+      '-100': '-1',
+    },
     stroke: {
       current: 'currentColor',
     },
     textColor: (theme) => theme('colors'),
-    // transitionDuration: {
-    //   '100': '100ms',
-    //   '200': '200ms'
-    // },
     transitionTimingFunction: {
       perfect: 'cubic-bezier(0, 0, 0.175, 1)',
     },
