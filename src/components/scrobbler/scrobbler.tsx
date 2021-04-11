@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SpotifyObj } from './scrobbler-types'
 
-const API_KEY = ''
+const API_KEY = process.env.GATSBY_LAST_FM_API_KEY
 const SCROLLBE_LAST_FM_USER = 'lu_ke____'
 const SCROBBLE_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${SCROLLBE_LAST_FM_USER}&api_key=${API_KEY}&format=json`
 
@@ -21,6 +21,7 @@ export const Scrobbler = () => {
   React.useEffect(() => {
     fetchCurrentSong()
 
+    console.log(`API_KEY `, API_KEY)
     const timer = setInterval(() => {
       fetchCurrentSong()
       // interval to re-check the current track every 2mins
