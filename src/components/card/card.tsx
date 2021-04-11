@@ -7,8 +7,6 @@ import './style.css'
 export const Card: React.FC<ICard> = (data) => {
   const imageMain: IGatsbyImageData = getImage(data.imageMain)
   const imageLogo: IGatsbyImageData = getImage(data.imageLogo)
-  console.log('Card data ', data)
-  console.log('Card data  typeof ', typeof data.imageMain)
 
   return (
     <article className='card flex flex-col'>

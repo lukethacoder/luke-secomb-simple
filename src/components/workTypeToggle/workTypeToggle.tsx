@@ -1,31 +1,33 @@
 import * as React from 'react'
 
-export const WorkTypeToggle = () => {
+export const WorkTypeToggle = ({ handleToggleContentType }) => {
   const [contentType, setContentType] = React.useState('client')
 
+  React.useEffect(() => {
+    // send event back to parent
+    handleToggleContentType(contentType)
+  }, [contentType])
+
   const setClientWork = () => {
-    console.log('setClientWork')
     setContentType('client')
   }
   const setProjectWork = () => {
-    console.log('setProjectWork')
     setContentType('project')
   }
   const toggleContentType = () => {
-    console.log('toggleContentType')
     setContentType(contentType === 'client' ? 'project' : 'client')
   }
 
   return (
     <div className='flex items-center'>
-      <span
+      <button
         onClick={setClientWork}
         className={`underline uppercase select-none text-xs cursor-pointer ${
           contentType === 'client' ? 'font-bold' : ''
         }`}
       >
         client work
-      </span>
+      </button>
       <svg
         version='1.1'
         id='Layer_1'
@@ -45,14 +47,14 @@ export const WorkTypeToggle = () => {
           d='M42.1,7.9L34,0l-2.7,2.6L34.8,6H0v3.7h34.8l-3.5,3.4l2.7,2.6L42.1,7.9z'
         />
       </svg>
-      <span
+      <button
         onClick={setProjectWork}
         className={`underline uppercase select-none text-xs cursor-pointer ${
           contentType === 'project' ? 'font-bold' : ''
         }`}
       >
         side projects
-      </span>
+      </button>
     </div>
   )
 }

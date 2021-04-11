@@ -4,7 +4,6 @@ import { LayoutPrimary } from 'layouts'
 import { Banner, Card, Scrobbler, WorkTypeToggle } from 'components'
 
 const IndexPage = () => {
-  // TODO: handle toggle between client work/side projects
   const data = useStaticQuery(graphql`
     query AllContentQuery {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
@@ -70,8 +69,11 @@ const IndexPage = () => {
     }
   })
 
-  console.log(`clientWork  `, clientWork)
-  console.log(`sideProjectWork `, sideProjectWork)
+  const handleToggleContentType = (payload) => {
+    setCurrentContent(payload === 'client' ? clientWork : sideProjectWork)
+  }
+
+  const [currentContent, setCurrentContent] = React.useState(clientWork)
 
   return (
     <LayoutPrimary>
@@ -79,7 +81,7 @@ const IndexPage = () => {
         <div className='mb-8 md:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 pr-8 flex flex-col'>
           <Banner />
           <div className='mt-12'>
-            <WorkTypeToggle />
+            <WorkTypeToggle handleToggleContentType={handleToggleContentType} />
           </div>
           <div className='flex-1 hidden lg:flex items-end mb-12'>
             <Scrobbler />
@@ -87,7 +89,7 @@ const IndexPage = () => {
         </div>
         <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full md:overflow-auto pb-8 relative'>
           <ul className='col-count-1 md:col-count-2 lg:col-count-1 xl:col-count-2 col-gap-16 pr-4'>
-            {clientWork.map((item, key) => (
+            {currentContent.map((item, key) => (
               <li
                 key={item.title}
                 className={`w-full bi-avoid mb-8 ${

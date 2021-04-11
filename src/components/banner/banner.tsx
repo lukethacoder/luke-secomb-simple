@@ -10,6 +10,7 @@ export const Banner = () => {
         <a
           href='https://sodastrategic.com.au'
           target='_blank'
+          className='focus:underline hover:underline'
           style={{ color: '#6B2EFF' }}
         >
           Soda Strategic
