@@ -88,12 +88,12 @@ const IndexPage = () => {
           </div>
         </div>
         <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full lg:overflow-auto pb-8 relative'>
-          <ul className='col-count-1 md:col-count-2 lg:col-count-1 xl:col-count-2 col-gap-16 lg:pr-4'>
+          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-16 lg:pr-4'>
             {currentContent.map((item, key) => (
               <li
                 key={item.title}
                 className={`w-full bi-avoid mb-8 ${
-                  key === 1 ? 'mt-24' : 'md:mt-24'
+                  key % 2 ? 'mt-0' : 'mt-24 -mb-24'
                 }`}
               >
                 <Card
