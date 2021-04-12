@@ -83,17 +83,19 @@ const IndexPage = () => {
           <div className='mt-12'>
             <WorkTypeToggle handleToggleContentType={handleToggleContentType} />
           </div>
-          <div className='flex-1 hidden lg:flex items-end mb-12 md:mb-4'>
+          <div className='flex-1 hidden lg:flex items-end mb-12 md:mb-4 xxxl:mb-8'>
             <Scrobbler />
           </div>
         </div>
         <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full lg:overflow-auto pb-8 relative'>
-          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-16 lg:pr-4'>
+          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4'>
             {currentContent.map((item, key) => (
               <li
                 key={item.title}
                 className={`w-full bi-avoid mb-8 ${
-                  key % 2 ? 'mt-0' : 'mt-24 -mb-24'
+                  key % 2
+                    ? 'lg:mt-0 lg:mb-0 xl:mb-8'
+                    : 'md:mt-24 md:-mb-24 lg:mt-0 lg:mb-0 xl:mt-24 xl:-mb-24'
                 }`}
               >
                 <Card
