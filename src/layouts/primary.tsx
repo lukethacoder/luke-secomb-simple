@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import '@fontsource/work-sans/400.css'
 import '@fontsource/work-sans/700.css'
@@ -12,6 +13,8 @@ export const LayoutPrimary = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
+          keywords
           socials {
             icon
             url
@@ -24,6 +27,16 @@ export const LayoutPrimary = ({ children }) => {
 
   return (
     <>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: data.site.siteMetadata.description },
+          {
+            name: 'keywords',
+            content: data.site.siteMetadata.keywords,
+          },
+        ]}
+      />
       <div className='layout lsd-container max-w-container-xxxl mx-auto overflow-auto lg:overflow-hidden'>
         <Header
           siteTitle={data.site.siteMetadata.title}
