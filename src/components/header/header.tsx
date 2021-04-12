@@ -89,7 +89,7 @@ export const Header = ({ siteTitle, socials }) => {
   return (
     <>
       <title>{siteTitle}</title>
-      <header className='py-12 flex justify-between'>
+      <header className='py-6 lg:py-8 xxl:py-12 flex justify-between'>
         <div className='w-12 text-tertiary'>
           <Link to='/'>
             <svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 350 226.86'>

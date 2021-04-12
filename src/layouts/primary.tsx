@@ -26,7 +26,7 @@ export const LayoutPrimary = ({ children }) => {
 
   return (
     <>
-      <div className='layout lsd-container max-w-container-xxxl mx-auto overflow-auto md:overflow-hidden'>
+      <div className='layout lsd-container max-w-container-xxxl mx-auto overflow-auto lg:overflow-hidden'>
         <Header
           siteTitle={data.site.siteMetadata.title}
           socials={data.site.siteMetadata.socials}
