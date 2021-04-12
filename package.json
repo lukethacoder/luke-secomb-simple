@@ -15,6 +15,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "dependencies": {
     "@fontsource/work-sans": "^4.2.2",
     "@mdx-js/mdx": "^1.6.22",
