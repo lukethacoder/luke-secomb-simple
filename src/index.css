@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+  background-color: var(--theme-background);
+  color: var(--theme-font);
+  font-family: theme('fontFamily.sans');
+
+  --brand-gold: theme('colors.gold');
+  --brand-cream: theme('colors.cream');
+  --brand-grey: theme('colors.grey');
+  --brand-black: theme('colors.black');
+  --brand-white: theme('colors.white');
+
+  --theme-primary: var(--brand-gold);
+  --theme-secondary: var(--brand-cream);
+  --theme-tertiary: var(--brand-grey);
+  --theme-font: var(--brand-cream);
+  --theme-black: var(--brand-black);
+  --theme-white: var(--brand-white);
+  --theme-background: var(--theme-black);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-tertiary) #191817;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #191817;
+  border-radius: 20px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--theme-tertiary);
+  border-radius: 20px;
+  border: 3px solid #191817;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 16px;
+}
+
+.layout main {
+  flex: 1 0;
+}
+
+.bi-avoid {
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+}

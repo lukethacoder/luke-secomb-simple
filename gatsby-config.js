@@ -1,84 +1,66 @@
-'use strict'
-
 module.exports = {
   siteMetadata: {
-    title: 'Luke Secomb Digital | Develop & Photograph',
-    description: '.',
-    siteUrl: 'https://lukesecomb.digital',
-    author: {
-      name: 'Luke Secomb',
-      url: 'https://lukesecomb.digital',
-      email: 'hello@lukesecomb.digital',
-    },
+    title: 'luke-secomb-simple',
+    socials: [
+      {
+        icon: 'github',
+        url: 'https://github.com/lukethacoder',
+        title: 'Github',
+      },
+      {
+        icon: 'instagram',
+        url: 'https://www.instagram.com/lukesecomb',
+        title: 'Instagram',
+      },
+      {
+        icon: 'linkedIn',
+        url: 'https://www.linkedin.com/in/luke-secomb/',
+        title: 'LinkedIn',
+      },
+    ],
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: `Luke Secomb Digital | Develop & Photograph`,
-        short_name: `Luke Secomb Digital`,
-        start_url: `/`,
-        background_color: `#141414`,
-        theme_color: `#FFC87F`,
-        display: `standalone`,
-        icon: `src/assets/favicon.png`,
+        path: `${__dirname}/src/content`,
+        name: `markdown-content`,
       },
+    },
+    `gatsby-transformer-remark`,
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'test',
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
+      },
+    },
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'images',
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'content',
-        path: `${__dirname}/src/content`,
+        name: 'pages',
+        path: './src/pages/',
       },
+      __key: 'pages',
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1rem',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-            },
-          },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /assets/, // See below to configure properly
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE,
-      },
-    },
-    'gatsby-transformer-json',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
   ],
 }
