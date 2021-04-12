@@ -71,8 +71,20 @@ const IndexPage = () => {
 
   const handleToggleContentType = (payload) => {
     setCurrentContent(payload === 'client' ? clientWork : sideProjectWork)
+
+    // handle scrolling the container
+    const _contentItemsContainerElement: HTMLElement | undefined =
+      contentItemsContainerElement.current
+    if (_contentItemsContainerElement) {
+      _contentItemsContainerElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
+      })
+    }
   }
 
+  const contentItemsContainerElement = React.useRef()
   const [currentContent, setCurrentContent] = React.useState(clientWork)
 
   return (
@@ -88,7 +100,10 @@ const IndexPage = () => {
           </div>
         </div>
         <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full lg:overflow-auto pb-8 relative'>
-          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4'>
+          <ul
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4'
+            ref={contentItemsContainerElement}
+          >
             {currentContent.map((item, key) => (
               <li
                 key={item.title}
