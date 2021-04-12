@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'luke-secomb-simple',
+    title: 'Luke Secomb',
     socials: [
       {
         icon: 'github',
@@ -33,14 +33,20 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'test',
+        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE,
       },
     },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        name: `Luke Secomb`,
+        short_name: `Luke Secomb`,
+        start_url: `/`,
+        background_color: `#050505`,
+        theme_color: `#FFC87F`,
+        display: `standalone`,
+        icon: `src/assets/favicon.png`,
       },
     },
     'gatsby-plugin-mdx',
