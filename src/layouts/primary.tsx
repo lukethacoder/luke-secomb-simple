@@ -22,8 +22,6 @@ export const LayoutPrimary = ({ children }) => {
     }
   `)
 
-  console.log(`data `, data)
-
   return (
     <>
       <div className='layout lsd-container max-w-container-xxxl mx-auto overflow-auto lg:overflow-hidden'>
