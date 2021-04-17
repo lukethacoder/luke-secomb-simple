@@ -42,7 +42,7 @@ export const LayoutPrimary = ({ children }) => {
           siteTitle={data.site.siteMetadata.title}
           socials={data.site.siteMetadata.socials}
         />
-        <main className='flex h-1'>{children}</main>
+        <main className='flex overflow-auto h-full'>{children}</main>
       </div>
     </>
   )
