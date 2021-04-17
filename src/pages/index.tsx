@@ -71,6 +71,10 @@ const IndexPage = () => {
 
   const handleToggleContentType = (payload) => {
     setCurrentContent(payload === 'client' ? clientWork : sideProjectWork)
+    if (isFirstToggle) {
+      setIsFirstToggle(false)
+      return
+    }
 
     // handle scrolling the container
     const _contentItemsContainerElement: HTMLElement | undefined =
@@ -85,12 +89,13 @@ const IndexPage = () => {
   }
 
   const contentItemsContainerElement = React.useRef()
+  const [isFirstToggle, setIsFirstToggle] = React.useState(true)
   const [currentContent, setCurrentContent] = React.useState(clientWork)
 
   return (
     <LayoutPrimary>
-      <div className='grid grid-cols-12 flex-1'>
-        <div className='mb-8 md:mb-12 lg:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 pr-8 flex flex-col'>
+      <div className='grid grid-cols-12 flex-1 px-4 lg:px-0'>
+        <div className='mb-8 md:mb-12 lg:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 lg:pl-4 pr-8 flex flex-col'>
           <Banner />
           <div className='mt-12'>
             <WorkTypeToggle handleToggleContentType={handleToggleContentType} />
@@ -101,7 +106,7 @@ const IndexPage = () => {
         </div>
         <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full lg:overflow-auto pb-8 relative'>
           <ul
-            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4'
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4 mb-4 md:mb-0 lg:mb-8 xl:mb-0'
             ref={contentItemsContainerElement}
           >
             {currentContent.map((item, key) => (
@@ -109,8 +114,8 @@ const IndexPage = () => {
                 key={item.title}
                 className={`w-full bi-avoid mb-8 ${
                   key % 2
-                    ? 'lg:mt-0 lg:mb-0 xl:mb-8'
-                    : 'md:mt-24 md:-mb-24 lg:mt-0 lg:mb-0 xl:mt-24 xl:-mb-24'
+                    ? 'lg:mt-0 lg:mb-0 xl:mb-8 xxl:mb-16'
+                    : 'md:-mb-24 lg:mb-0 xl:-mb-24 md:mt-24 lg:mt-0 xl:mt-24 xxl:mt-32'
                 }`}
               >
                 <Card

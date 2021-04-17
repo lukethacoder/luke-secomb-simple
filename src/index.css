@@ -44,11 +44,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0 16px;
+  max-height: 100vh;
+  padding: 0;
 }
 
-.layout main {
-  flex: 1 0;
+@media (min-width: theme('screens.xl')) {
+  .layout main {
+    flex: 0 1;
+  }
 }
 
 .bi-avoid {
