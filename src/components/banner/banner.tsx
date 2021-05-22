@@ -8,14 +8,15 @@ export const Banner = () => {
         Hi, I'm <span className='text-primary'>Luke</span> Web Developer and
         Photographic connoisseur. Senior Developer at{' '}
         <a
-          href='https://sodastrategic.com.au'
+          href='https://deloittedigital.com.au'
           target='_blank'
+          rel='noopener'
           className='focus:underline hover:underline'
-          style={{ color: '#6B2EFF' }}
+          style={{ color: '#777777' }}
         >
-          Soda Strategic
+          Deloitte Digital
         </a>
-        .
+        <span style={{ color: 'rgb(134, 188, 37)' }}>.</span>
       </h1>
     </>
   )
