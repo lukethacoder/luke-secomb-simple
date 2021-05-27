@@ -11,7 +11,9 @@ export const Card: React.FC<ICard> = (data) => {
   return (
     <article className='card flex flex-col'>
       <div className='card-image-container flex relative w-full'>
-        <GatsbyImage image={imageMain} alt={data.title} />
+        <div className='card-image-main'>
+          <GatsbyImage image={imageMain} alt={data.title} />
+        </div>
         <div className='card-image-logo w-13 h-13 p-2 z-10 flex items-center'>
           <GatsbyImage image={imageLogo} alt={data.title} />
         </div>
@@ -21,29 +23,31 @@ export const Card: React.FC<ICard> = (data) => {
           {data.title}
         </h2>
         <p className='uppercase text-xs mb-2 mt-2'>{data.description}</p>
-        <a
-          className='font-bold text-xs ml-auto mb-2 uppercase underline flex items-center'
-          href={data.url}
-          target='_blank'
-        >
-          View project
-          <svg
-            version='1.1'
-            id='Layer_1'
-            xmlns='http://www.w3.org/2000/svg'
-            xmlnsXlink='http://www.w3.org/1999/xlink'
-            x='0px'
-            y='0px'
-            viewBox='0 0 42.1 15.8'
-            xmlSpace='preserve'
-            className='fill-current h-4 ml-4'
+        {data.url && (
+          <a
+            className='font-bold text-xs ml-auto mb-2 uppercase underline flex items-center'
+            href={data.url}
+            target='_blank'
           >
-            <path
-              id='arrow'
-              d='M42.1,7.9L34,0l-2.7,2.6L34.8,6H0v3.7h34.8l-3.5,3.4l2.7,2.6L42.1,7.9z'
-            />
-          </svg>
-        </a>
+            View project
+            <svg
+              version='1.1'
+              id='Layer_1'
+              xmlns='http://www.w3.org/2000/svg'
+              xmlnsXlink='http://www.w3.org/1999/xlink'
+              x='0px'
+              y='0px'
+              viewBox='0 0 42.1 15.8'
+              xmlSpace='preserve'
+              className='fill-current h-4 ml-4'
+            >
+              <path
+                id='arrow'
+                d='M42.1,7.9L34,0l-2.7,2.6L34.8,6H0v3.7h34.8l-3.5,3.4l2.7,2.6L42.1,7.9z'
+              />
+            </svg>
+          </a>
+        )}
       </div>
     </article>
   )

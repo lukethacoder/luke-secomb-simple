@@ -2,7 +2,7 @@
 type: 'client'
 title: 'Australian Cultural Fund'
 slug: 'acf'
-description: 'Donation Management Platform'
+description: 'Artist / Project Management Platform'
 devDescription: 'Salesforce / LWC / KeenSlider'
 date: 2021-01-01
 imageMain: './image.jpg'
