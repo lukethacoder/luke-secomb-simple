@@ -11,7 +11,9 @@ export const Card: React.FC<ICard> = (data) => {
   return (
     <article className='card flex flex-col'>
       <div className='card-image-container flex relative w-full'>
-        <GatsbyImage image={imageMain} alt={data.title} />
+        <div className='card-image-main'>
+          <GatsbyImage image={imageMain} alt={data.title} />
+        </div>
         <div className='card-image-logo w-13 h-13 p-2 z-10 flex items-center'>
           <GatsbyImage image={imageLogo} alt={data.title} />
         </div>
