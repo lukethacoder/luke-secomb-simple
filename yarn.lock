@@ -1069,10 +1069,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/work-sans@4.4.2":
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.4.2.tgz#98d0714212d6132f4fe6ee22af55411f439b3865"
-  integrity sha512-3cXvfvLxER0qd4hq+5tlC9mmJuYUAYqmUimmTUL0NCgWmUY/ccOJZQs8RorhF97bfgWI1gFkxnIC6aNIRvI1vQ==
+"@fontsource/work-sans@4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.4.5.tgz#325b1eb0b021ba4e76df58dc09be847cb5902764"
+  integrity sha512-6hFChHr8OcegI7quAWItQbdk49Fc1dmkLY0awTwOrtjjoqIsmFDQCxBaqWxb+dotCOTzQUba+2VKriR8e7Bu5w==
 
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
