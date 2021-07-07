@@ -1377,10 +1377,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/work-sans@4.4.5":
-  version "4.4.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.4.5.tgz#325b1eb0b021ba4e76df58dc09be847cb5902764"
-  integrity sha512-6hFChHr8OcegI7quAWItQbdk49Fc1dmkLY0awTwOrtjjoqIsmFDQCxBaqWxb+dotCOTzQUba+2VKriR8e7Bu5w==
+"@fontsource/work-sans@4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.5.0.tgz#c2ab966c39fe7cf8fb64008cef5d9034470a42c3"
+  integrity sha512-RPA/AVeF9hLEBVWdH1kMUTuj3tK3rNlhAKxedbkFk8yHHU3K3mpC3FQcCGQlbJTOAjW0qE4ACySSEsDNuW5rUg==
 
 "@fullhuman/postcss-purgecss@^4.0.3":
   version "4.0.3"
