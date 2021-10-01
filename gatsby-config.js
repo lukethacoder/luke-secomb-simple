@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: 'Luke Secomb',
     description:
-      "Hi, I'm Luke, Web Developer and Photographic connoisseur. Senior Developer at Soda Strategic.",
+      "Hi, I'm Luke, Web Developer and Photographic connoisseur. Senior Developer at Deloitte Digital.",
     keywords:
       'luke secomb, developer, salesforce, lightning web components, gatsbyjs, gatsby, javascript',
     socials: [
