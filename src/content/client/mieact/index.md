@@ -7,6 +7,6 @@ devDescription: 'Wordpress / SCSS'
 date: 2019-02-28
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
-url: 'https://mieact.org.au/'
+url: ''
 published: true
 ---
