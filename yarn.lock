@@ -1106,10 +1106,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/work-sans@4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.5.1.tgz#b5fdff3f62ca8ac23e7c91e424ec64464ebd4023"
-  integrity sha512-3mvsBxQtxlAyu4uzwKgtI38rZ5V5ZBSz3CgIwQsD1N3DmrT7T1NRLFgO34GxZiUpWSjE04IHPp4Y2GKUWpmFsg==
+"@fontsource/work-sans@4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.5.2.tgz#d4b8c75bf2e9ba60034508ddd12bfb6c5fc8976a"
+  integrity sha512-/QKXGMopm7qHDDHKYELVLwpIkwEjZauK9emrN9HYAm8pbotRrAlnZM2KrMufG0sm5+PbS/LKhYmOoS5sUCtsWA==
 
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
