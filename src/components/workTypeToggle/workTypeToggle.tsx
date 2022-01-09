@@ -22,7 +22,7 @@ export const WorkTypeToggle = ({ handleToggleContentType }) => {
     <div className='flex items-center'>
       <button
         onClick={setClientWork}
-        className={`underline uppercase select-none text-xs cursor-pointer ${
+        className={`underline uppercase select-none text-xs cursor-pointer border-0 ${
           contentType === 'client' ? 'font-bold' : ''
         }`}
       >
@@ -49,7 +49,7 @@ export const WorkTypeToggle = ({ handleToggleContentType }) => {
       </svg>
       <button
         onClick={setProjectWork}
-        className={`underline uppercase select-none text-xs cursor-pointer ${
+        className={`underline uppercase select-none text-xs cursor-pointer border-0 ${
           contentType === 'project' ? 'font-bold' : ''
         }`}
       >
