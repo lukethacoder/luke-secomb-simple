@@ -22,7 +22,7 @@
     "@fontsource/work-sans": "4.5.3",
     "@mdx-js/mdx": "2.0.0",
     "@mdx-js/react": "2.0.0",
-    "dotenv": "15.0.0",
+    "dotenv": "16.0.0",
     "gatsby": "4.6.1",
     "gatsby-plugin-google-analytics": "4.6.0",
     "gatsby-plugin-image": "2.6.0",
