@@ -38,7 +38,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "tailwindcss": "3.0.20",
+    "tailwindcss": "3.0.21",
     "tailwindcss-fluid-container": "4.0.0",
     "tailwindcss-multi-column": "1.0.2"
   }
