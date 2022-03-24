@@ -19,7 +19,7 @@
     "node": ">=14.x"
   },
   "dependencies": {
-    "@fontsource/work-sans": "4.5.5",
+    "@fontsource/work-sans": "4.5.7",
     "@mdx-js/mdx": "2.1.0",
     "@mdx-js/react": "2.1.0",
     "dotenv": "16.0.0",
