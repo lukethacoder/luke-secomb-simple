@@ -1235,10 +1235,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/work-sans@4.5.5":
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.5.5.tgz#4b5370e8b29793536cde46f8ce3435c9bc4d3f40"
-  integrity sha512-syABjZQcdi1X/AlPxPHUUfLNZ0/tr/ilmlPZwjheMyXmnwvR95RxNZ90D1lqD1P53dqfJm9l1pmYvSfovwgt5g==
+"@fontsource/work-sans@4.5.7":
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/work-sans/-/work-sans-4.5.7.tgz#e8d070896af8d751ca4064e9b0dd134faad3536b"
+  integrity sha512-DlVEYsShbL0ZUV96yPhie6rJN3eeCta4iI6UbLdbLptlLnkoryfbMIqeQLe+o7OsIoMNWqHTunKMW0x1BmUNpw==
 
 "@gatsbyjs/parcel-namer-relative-to-cwd@0.0.2":
   version "0.0.2"
