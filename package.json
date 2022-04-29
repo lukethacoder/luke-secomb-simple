@@ -23,7 +23,7 @@
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "dotenv": "16.0.0",
-    "gatsby": "4.13.0",
+    "gatsby": "4.13.1",
     "gatsby-plugin-google-analytics": "4.13.0",
     "gatsby-plugin-image": "2.13.0",
     "gatsby-plugin-manifest": "4.13.0",
