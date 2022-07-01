@@ -95,7 +95,7 @@ const IndexPage = () => {
   return (
     <LayoutPrimary>
       <div className='grid grid-cols-12 flex-1 px-4 lg:px-0'>
-        <div className='mb-8 md:mb-12 lg:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-4 xl:col-span-5 lg:pl-4 pr-8 flex flex-col'>
+        <div className='mb-8 md:mb-12 lg:mb-0 mt-8 md:mt-32 lg:mt-40 col-span-12 lg:col-span-5 lg:pl-4 pr-8 flex flex-col'>
           <Banner />
           <div className='mt-12'>
             <WorkTypeToggle handleToggleContentType={handleToggleContentType} />
@@ -104,7 +104,7 @@ const IndexPage = () => {
             <Scrobbler />
           </div>
         </div>
-        <div className='col-span-12 lg:col-span-8 xl:col-span-7 h-full lg:overflow-auto pb-8 relative'>
+        <div className='col-span-12 lg:col-span-7 h-full lg:overflow-auto pb-8 relative'>
           <ul
             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-16 lg:pr-4 mb-4 md:mb-0 lg:mb-8 xl:mb-0'
             ref={contentItemsContainerElement}
