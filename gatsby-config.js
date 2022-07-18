@@ -38,10 +38,32 @@ module.exports = {
     `gatsby-transformer-remark`,
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
+    // need to wait for the plugin to be available for gatsby v4
+    // https://github.com/microsoft/gatsby-plugin-clarity/pull/1
+    // {
+    //   resolve: `gatsby-plugin-clarity`,
+    //   options: {
+    //     // String value for your clarity project id
+    //     // Project id is found in your clarity dashboard url
+    //     // https://clarity.microsoft.com/projects/view/{clarity_project_id}/
+    //     clarity_project_id: process.env.GATSBY_CLARITY_ANALYTICS_TRACKING_CODE,
+    //     // Boolean value for enabling clarity while developing
+    //     // true will enable clarity tracking code on both development and production environments
+    //     // false will enable clarity tracking code on production environment only
+    //     //
+    //     enable_on_dev_env: false,
+    //   },
+    // },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-mixpanel',
       options: {
-        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE,
+        apiToken: process.env.GATSBY_MIXPANEL_API_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE],
       },
     },
     'gatsby-plugin-react-helmet',
