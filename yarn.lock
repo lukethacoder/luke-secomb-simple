@@ -6369,10 +6369,10 @@ gatsby-plugin-mdx@3.19.0:
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
 
-gatsby-plugin-mixpanel@3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mixpanel/-/gatsby-plugin-mixpanel-3.6.0.tgz#a79bfe27e7d58fef1c263077769ffaea2216ab52"
-  integrity sha512-SPJmelFArYI3u28OMIfBXo3BzrMXkSh1aeg0UHBtOgR/NbKf+cCyLMPtY8WgOrBPkCISpQ3guTf8U13PLyuAfw==
+gatsby-plugin-mixpanel@3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mixpanel/-/gatsby-plugin-mixpanel-3.7.0.tgz#ae020c6020af3071998e047e3bf49ac407a28605"
+  integrity sha512-yrqOLaWPU37YxCZ6/P5+qkMuGLuttdFHMMT2nbrTaGhiaHkyRez5TMKdUN1ub/9bVoVpmDcxjH1Q+r1YRa8QAg==
   dependencies:
     mixpanel-browser "^2.41.0"
 
