@@ -19,7 +19,7 @@
     "node": ">=14.x"
   },
   "dependencies": {
-    "@fontsource/work-sans": "4.5.10",
+    "@fontsource/work-sans": "4.5.11",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "dotenv": "16.0.1",
@@ -35,11 +35,11 @@
     "gatsby-source-filesystem": "4.20.0",
     "gatsby-transformer-remark": "5.20.0",
     "gatsby-transformer-sharp": "4.20.0",
-    "postcss": "8.4.14",
+    "postcss": "8.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
-    "tailwindcss": "3.1.7",
+    "tailwindcss": "3.1.8",
     "tailwindcss-fluid-container": "4.0.0",
     "tailwindcss-multi-column": "1.0.2"
   }
