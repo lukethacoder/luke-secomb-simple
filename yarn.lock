@@ -5457,13 +5457,6 @@ gatsby-plugin-mdx@3.20.0:
     unist-util-remove "^1.0.3"
     unist-util-visit "^1.4.1"
 
-gatsby-plugin-mixpanel@3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mixpanel/-/gatsby-plugin-mixpanel-3.7.0.tgz#ae020c6020af3071998e047e3bf49ac407a28605"
-  integrity sha512-yrqOLaWPU37YxCZ6/P5+qkMuGLuttdFHMMT2nbrTaGhiaHkyRez5TMKdUN1ub/9bVoVpmDcxjH1Q+r1YRa8QAg==
-  dependencies:
-    mixpanel-browser "^2.41.0"
-
 gatsby-plugin-page-creator@^4.23.1:
   version "4.23.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-4.23.1.tgz#5abd56ade5e650980e3b4c1cb4c226739ade8858"
@@ -7765,11 +7758,6 @@ mitt@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mitt/-/mitt-1.2.0.tgz#cb24e6569c806e31bd4e3995787fe38a04fdf90d"
   integrity sha512-r6lj77KlwqLhIUku9UWYes7KJtsczvolZkzp8hbaDPPaE24OmWl5s539Mytlj22siEQKosZ26qCBgda2PKwoJw==
-
-mixpanel-browser@^2.41.0:
-  version "2.45.0"
-  resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.45.0.tgz#a2973be5b66e6d2799ef95a1e55b8ad8eede57e8"
-  integrity sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg==
 
 mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   version "0.5.3"

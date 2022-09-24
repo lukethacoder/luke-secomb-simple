@@ -48,15 +48,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: process.env.GATSBY_MIXPANEL_API_TOKEN,
-        pageViews: 'all',
-        enableOnDevMode: true,
-        // mixpanelConfig: null,
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE],
