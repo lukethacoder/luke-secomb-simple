@@ -2,8 +2,12 @@ import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LayoutPrimary } from 'layouts'
 import { Banner, Card, Scrobbler, WorkTypeToggle } from 'components'
+import { useMixpanel } from 'gatsby-plugin-mixpanel'
 
 const IndexPage = () => {
+  const mixpanel = useMixpanel()
+  mixpanel.track('Home');
+
   const data = useStaticQuery(graphql`
     query AllContentQuery {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
