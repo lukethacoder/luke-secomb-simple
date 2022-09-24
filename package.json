@@ -25,6 +25,7 @@
     "dotenv": "16.0.2",
     "gatsby": "4.23.1",
     "gatsby-plugin-clarity": "^1.0.0",
+    "gatsby-plugin-goatcounter": "^0.4.0",
     "gatsby-plugin-google-gtag": "4.23.0",
     "gatsby-plugin-image": "2.23.1",
     "gatsby-plugin-manifest": "4.23.1",
@@ -44,7 +45,5 @@
     "tailwindcss-fluid-container": "4.0.0",
     "tailwindcss-multi-column": "1.0.2"
   },
-  "devDependencies": {
-    "gatsby-plugin-goatcounter": "^0.4.0"
-  }
+  "devDependencies": {}
 }
