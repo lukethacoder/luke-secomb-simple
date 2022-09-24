@@ -5360,14 +5360,14 @@ gatsby-parcel-config@0.14.0:
     "@parcel/transformer-raw" "2.6.2"
     "@parcel/transformer-react-refresh-wrap" "2.6.2"
 
-gatsby-plugin-clarity@^1.0.0:
+gatsby-plugin-clarity@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-clarity/-/gatsby-plugin-clarity-1.0.0.tgz#0ef5dd898957c8ac80f6d00d125e9c638b5330fa"
   integrity sha512-tRr//9Z3mdQl2YltUSb8yyVR7MQGLWjaQTuvKzFxnqhr8B8CsOvLzYoMJ72wtR1P4YSam04wT8CfsYjflFZ2qQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-goatcounter@^0.4.0:
+gatsby-plugin-goatcounter@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-goatcounter/-/gatsby-plugin-goatcounter-0.4.0.tgz#25862e3210edb9c41f87684f9b2b2d148c5782d6"
   integrity sha512-axcRQYjl6MkcpJZs17ugmGBgXaH8TOs7Aeqx/s+k8vQrq9gnKSaJaWFoXnfuG9W8KWlWQk5kbUQgr6P6bGDpcQ==
