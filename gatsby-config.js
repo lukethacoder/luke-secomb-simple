@@ -49,8 +49,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-clarity`,
       options: {
-        clarity_project_id: process.env.GATSBY_CLARITY_ANALYTICS_TRACKING_CODE,
-        enable_on_dev_env: true,
+        clarity_project_id:
+          process.env.GATSBY_CLARITY_ANALYTICS_TRACKING_CODE || 'EMPTY',
+        enable_on_dev_env: false,
       },
     },
     {
