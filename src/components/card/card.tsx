@@ -5,17 +5,17 @@ import { ICard } from './card-types'
 import './style.css'
 
 export const Card: React.FC<ICard> = (data) => {
-  const imageMain: IGatsbyImageData = getImage(data.imageMain)
-  const imageLogo: IGatsbyImageData = getImage(data.imageLogo)
+  const imageMain: IGatsbyImageData | undefined = getImage(data.imageMain)
+  const imageLogo: IGatsbyImageData | undefined = getImage(data.imageLogo)
 
   return (
     <article className='card flex flex-col'>
       <div className='card-image-container flex relative w-full'>
-        <div className='card-image-main'>
-          <GatsbyImage image={imageMain} alt={data.title} />
+        <div className='card-image-main pointer-events-none'>
+          {imageMain && <GatsbyImage image={imageMain} alt={data.title} />}
         </div>
-        <div className='card-image-logo w-13 h-13 p-2 z-10 flex items-center'>
-          <GatsbyImage image={imageLogo} alt={data.title} />
+        <div className='card-image-logo pointer-events-none w-13 h-13 p-2 z-10 flex items-center'>
+          {imageLogo && <GatsbyImage image={imageLogo} alt={data.title} />}
         </div>
       </div>
       <div className='card-content relative z-10 flex flex-col'>
