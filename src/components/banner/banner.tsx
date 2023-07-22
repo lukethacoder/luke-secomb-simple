@@ -6,7 +6,7 @@ export const Banner = () => {
       <h3 className='uppercase text-xs mb-2'>Think differently</h3>
       <h1 className='font-bold text-3xl xxxl:text-4xl leading-tight'>
         Hi, I'm <span className='text-primary'>Luke</span> Web Developer and
-        Photographic connoisseur. Senior Developer at{' '}
+        Photographic connoisseur. Specialist Lead at{' '}
         <a
           href='https://deloittedigital.com.au'
           target='_blank'
