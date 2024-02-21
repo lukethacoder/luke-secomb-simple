@@ -7,6 +7,6 @@ devDescription: 'Mapbox / ES6 / Parcel'
 date: 2020-03-01
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
-url: 'https://denmanprospect.com.au/block-map/'
+url: 'https://www.denmanprospect.com.au/live-here/block-map'
 published: true
 ---
