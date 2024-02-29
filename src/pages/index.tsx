@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { LayoutPrimary } from 'layouts'
-import { Banner, Card, Scrobbler, WorkTypeToggle } from 'components'
+import { LayoutPrimary } from '../layouts'
+import { Banner, Card, Scrobbler, WorkTypeToggle } from '../components'
 
 const IndexPage = () => {
-
   const data = useStaticQuery(graphql`
     query AllContentQuery {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-        group(field: frontmatter___type) {
+      allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+        group(field: { frontmatter: { type: SELECT } }) {
           edges {
             node {
               frontmatter {

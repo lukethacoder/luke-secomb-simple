@@ -41,12 +41,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     {
-      resolve: '@sentry/gatsby',
-      options: {
-        tracesSampleRate: 1,
-      },
-    },
-    {
       resolve: `gatsby-plugin-clarity`,
       options: {
         clarity_project_id:

@@ -4,8 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import '@fontsource/work-sans/400.css'
 import '@fontsource/work-sans/700.css'
 
-import 'index.css'
-import { Header } from 'components'
+import '../index.css'
+import { Header } from '../components'
 
 export const LayoutPrimary = ({ children }) => {
   const data = useStaticQuery(graphql`
