@@ -2,7 +2,7 @@
 type: 'client'
 title: 'OnePass'
 slug: 'onepass'
-description: 'Knowledge and Case Management Community Site'
+description: 'Knowledge and Case Management'
 devDescription: 'Salesforce'
 date: 2022-07-01
 imageMain: './image.jpg'

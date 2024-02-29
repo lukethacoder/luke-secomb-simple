@@ -1,5 +1,3 @@
-console.log('process.env.NODE_ENV ', process.env.NODE_ENV)
-
 require('dotenv').config({
   path:
     process.env.NODE_ENV !== 'production'
@@ -8,11 +6,6 @@ require('dotenv').config({
 })
 
 const isProduction = process.env.NODE_ENV === 'production'
-
-console.log(
-  'process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE ',
-  process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE
-)
 
 module.exports = {
   siteMetadata: {
