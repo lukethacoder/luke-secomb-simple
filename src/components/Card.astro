@@ -1,0 +1,56 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const { image, logo, title, description, url, slug, type } = Astro.props
+
+const imageBasePath = `/src/content/${type || 'client'}/${slug}`
+const imagePath = `${imageBasePath}/${image.replace('./', '')}`
+const logoPath = `${imageBasePath}/${logo.replace('./', '')}`
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/**/*.{jpeg,jpg,png,gif}');
+
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/content/**/*.{jpeg,jpg,png,gif}"`);
+---
+
+<article class='flex flex-col'>
+  <div class='card-header flex relative w-full'>
+    <div class="card-image w-full aspect-[16/10] overflow-hidden flex items-center">
+      {image && <Image src={images[imagePath]()} alt={title} class='object-cover w-full h-full pointer-events-none z-10' />}
+    </div>
+    <div class='pointer-events-none w-12 h-12 p-2 z-10 flex items-center bg-[#0e0d0c]'>
+      {logo && <Image src={images[logoPath]()} alt={title} class='object-contain w-full h-full pointer-events-none z-10' />}
+    </div>
+  </div>
+  <div class='relative z-10 flex flex-col'>
+    <h2 class='font-bold text-2xl xxxl:text-4xl uppercase mb-0 leading-4 mt-2'>
+      {title}
+    </h2>
+    <p class='uppercase text-xs mb-2 mt-2'>{description}</p>
+    {url && (
+      <a
+        class='font-bold text-xs ml-auto mb-2 uppercase underline flex items-center'
+        href={url}
+        target='_blank'
+      >
+        View project
+        <svg
+          version='1.1'
+          id='Layer_1'
+          xmlns='http://www.w3.org/2000/svg'
+          xmlns:xlink='http://www.w3.org/1999/xlink'
+          x='0px'
+          y='0px'
+          viewBox='0 0 42.1 15.8'
+          xml:space='preserve'
+          class='fill-current h-4 ml-4'
+        >
+          <path
+            id='arrow'
+            d='M42.1,7.9L34,0l-2.7,2.6L34.8,6H0v3.7h34.8l-3.5,3.4l2.7,2.6L42.1,7.9z'
+          />
+        </svg>
+      </a>
+    )}
+  </div>
+</article>

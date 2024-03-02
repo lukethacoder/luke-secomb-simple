@@ -1,0 +1,58 @@
+<div>
+  <div class='text-xs uppercase mb-1' id="track-status"></div>
+  <div class='flex items-end'>
+    <img
+      class='w-12'
+      id="track-artwork"
+    />
+    <a class='ml-2 hover:underline' id="track-url" target="_blank">
+      <p class='text-2xs' id="track-name"></p>
+      <p class='text-2xs font-bold text-tertiary no-underline' id="track-artist"></p>
+    </a>
+  </div>
+</div>
+
+<script>
+  import type { LastFmApiResponse } from '../lastfm';
+
+  const API_KEY = import.meta.env.PUBLIC_LAST_FM_API_KEY
+  const SCROLLBE_LAST_FM_USER = 'lu_ke____'
+  const SCROBBLE_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${SCROLLBE_LAST_FM_USER}&api_key=${API_KEY}&format=json`
+
+  const trackEl = {
+    status: document.querySelector('#track-status') as HTMLElement,
+    artwork: document.querySelector('#track-artwork') as HTMLImageElement,
+    name: document.querySelector('#track-name') as HTMLElement,
+    artist: document.querySelector('#track-artist') as HTMLElement,
+    url: document.querySelector('#track-url') as HTMLAnchorElement,
+  }
+
+  async function fetchCurrentSong() {
+    const response = await fetch(SCROBBLE_URL)
+    const data: LastFmApiResponse = await response.json()
+
+    if (data) {
+      const track = data.recenttracks.track[0]
+      
+      const trackName = track.name
+      const trackUrl = track.url
+      const trackArtist = track.artist['#text']
+      const status = track["@attr"] ? 'Currently playing' : 'Last played'
+      const trackArtwork = track.image?.[0]?.['#text']
+
+      trackEl.status.innerHTML = status
+      trackEl.artwork.src = trackArtwork
+      trackEl.name.innerHTML = trackName
+      trackEl.artist.innerHTML = trackArtist
+      trackEl.url.href = trackUrl
+    }
+  }
+
+  // fetch on load
+  fetchCurrentSong()
+
+  setInterval(() => {
+    fetchCurrentSong()
+    // interval to re-check the current track every 2mins
+  }, 120000)
+</script>

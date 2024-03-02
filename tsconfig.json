@@ -1,9 +1,9 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -11,9 +11,10 @@
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "baseUrl": "./src/"
-  },
-  "include": ["./src/**/*", "./*"]
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  }
 }
