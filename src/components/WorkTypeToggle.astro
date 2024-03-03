@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets'
+import arrowSvg from '../img/arrow.svg'
+---
+
+<div class='flex items-center' id='work-type-toggle'>
+  <button
+    id='btn-client'
+    aria-label="Set visible work to client work"
+    class='hover:text-gold underline uppercase select-none text-xs cursor-pointer border-0 font-bold'
+  >
+    client work
+  </button>
+  <button
+    id='btn-toggle'
+    aria-label="Toggle visible work type"
+    class='select-none cursor-pointer border-0'
+  >
+    <Image
+      src={arrowSvg}
+      alt='arrow icon'
+      class='h-4 ml-4 mr-3 transform-gpu duration-200 pointer-events-none -scale-x-100'
+    />
+  </button>
+  <button
+    id='btn-project'
+    aria-label="Set visible work to side project work"
+    class='hover:text-gold underline uppercase select-none text-xs cursor-pointer border-0'
+  >
+    side projects
+  </button>
+</div>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttons = document.querySelectorAll('button')
+  const workTypeToggle = document.querySelector('#work-type-toggle')
+
+  const buttonClient = document.querySelector('#btn-client')
+  const buttonProject = document.querySelector('#btn-project')
+  const buttonToggleSvg = document.querySelector('#btn-toggle img')
+
+  const TYPE_CLIENT = 'client'
+  const TYPE_PROJECT = 'project'
+
+  let type = TYPE_CLIENT
+
+  function handleButtonClick(event: any) {
+    switch (event.target.id) {
+      case 'btn-client':
+        if (type !== TYPE_CLIENT) {
+          type = TYPE_CLIENT
+        }
+        break
+      case 'btn-toggle':
+        type = type === TYPE_CLIENT ? TYPE_PROJECT : TYPE_CLIENT
+        break
+      case 'btn-project':
+        if (type !== TYPE_PROJECT) {
+          type = TYPE_PROJECT
+        }
+        break
+    }
+
+    if (buttonToggleSvg) {
+      if (type === TYPE_CLIENT) {
+        buttonToggleSvg.classList.remove('scale-x-100')
+        buttonToggleSvg.classList.add('-scale-x-100')
+      } else {
+        buttonToggleSvg.classList.remove('-scale-x-100')
+        buttonToggleSvg.classList.add('scale-x-100')
+      }
+    }
+
+    if (buttonProject && buttonClient) {
+      if (type === TYPE_CLIENT) {
+        buttonProject.classList.remove('font-bold')
+        buttonClient.classList.add('font-bold')
+      } else {
+        buttonClient.classList.remove('font-bold')
+        buttonProject.classList.add('font-bold')
+      }
+    }
+
+    if (workTypeToggle) {
+      workTypeToggle.dispatchEvent(
+        new CustomEvent('onsettype', {
+          bubbles: true,
+          detail: { type },
+        })
+      )
+    }
+  }
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', handleButtonClick)
+  })
+</script>

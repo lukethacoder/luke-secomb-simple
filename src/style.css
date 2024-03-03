@@ -1,0 +1,93 @@
+body {
+  overflow: hidden;
+  background-color: var(--theme-background);
+  color: var(--theme-font);
+  font-family: theme('fontFamily.sans');
+
+  --brand-gold: theme('colors.gold');
+  --brand-cream: theme('colors.cream');
+  --brand-grey: theme('colors.grey');
+  --brand-black: theme('colors.black');
+  --brand-white: theme('colors.white');
+
+  --theme-primary: var(--brand-gold);
+  --theme-secondary: var(--brand-cream);
+  --theme-tertiary: var(--brand-grey);
+  --theme-font: var(--brand-cream);
+  --theme-black: var(--brand-black);
+  --theme-white: var(--brand-white);
+  --theme-background: var(--theme-black);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-tertiary) #191817;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: #191817;
+  border-radius: 20px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--theme-tertiary);
+  border-radius: 20px;
+  border: 3px solid #191817;
+}
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: 1px;
+}
+
+.web-developer {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👨‍💻</text></svg>") 16 0, auto;
+}
+.photographic-connoisseur {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📷</text></svg>") 16 0, auto;
+}
+.music-nerd {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥁</text></svg>") 16 0, auto;
+}
+.deloitte {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🟢</text></svg>") 16 0, auto;
+}
+
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 0;
+}
+
+@media (min-width: theme('screens.xl')) {
+  .layout main {
+    flex: 0 1;
+  }
+}
+
+.bi-avoid {
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.card-header:before {
+  background-color: #191817;
+  content: "";
+  height: calc(100% + 2.6rem);
+  position: absolute;
+  right: 12px;
+  top: 0;
+  width: calc(100% - 5.25rem);
+  z-index: 0;
+}
+
+[data-type='client'] .project {
+  display: none;
+}
+[data-type='project'] .client {
+  display: none;
+}

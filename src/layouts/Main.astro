@@ -1,0 +1,74 @@
+---
+import Header from '../components/Header.astro'
+import '../style.css'
+
+const socials = [
+  {
+    icon: 'github',
+    url: 'https://github.com/lukethacoder',
+    title: 'Github',
+  },
+  {
+    icon: 'instagram',
+    url: 'https://www.instagram.com/lukesecomb',
+    title: 'Instagram',
+  },
+  {
+    icon: 'linkedIn',
+    url: 'https://www.linkedin.com/in/luke-secomb/',
+    title: 'LinkedIn',
+  },
+]
+
+const { title } = Astro.props
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div
+      class='layout lsd-container max-w-container-xxxl mx-auto overflow-auto lg:overflow-hidden'
+    >
+      <Header siteTitle='hello world' socials={socials} />
+      <main class='flex overflow-auto h-full'>
+        <slot />
+      </main>
+    </div>
+  </body>
+  <script
+    data-goatcounter='https://luke.goatcounter.com/count'
+    async
+    src='//gc.zgo.at/count.js'></script>
+  <script
+    type='text/partytown'
+    async
+    src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      window.dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+  </script>
+  <script is:inline>
+    ;(function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          ;(c[a].q = c[a].q || []).push(arguments)
+        }
+      t = l.createElement(r)
+      t.async = 1
+      t.src = 'https://www.clarity.ms/tag/' + i
+      y = l.getElementsByTagName(r)[0]
+      y.parentNode.insertBefore(t, y)
+    })(window, document, 'clarity', 'script', 'cthbfzqwds')
+  </script>
+</html>
