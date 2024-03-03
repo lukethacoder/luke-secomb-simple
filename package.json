@@ -25,6 +25,8 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^2.0.4"
+    "@astrojs/partytown": "^2.0.4",
+    "astro-imagetools": "^0.9.0",
+    "imagetools-core": "^6.0.4"
   }
 }

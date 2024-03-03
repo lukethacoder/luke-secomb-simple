@@ -1,6 +1,8 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import { Picture } from 'astro-imagetools/components'
+
 import arrowSvg from '../img/arrow.svg'
 
 const { image, logo, title, description, url, slug, type } = Astro.props
@@ -9,18 +11,27 @@ const imageBasePath = `/src/content/${type || 'client'}/${slug}`
 const imagePath = `${imageBasePath}/${image.replace('./', '')}`
 const logoPath = `${imageBasePath}/${logo.replace('./', '')}`
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/**/*.{jpeg,jpg,png,gif}');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/content/**/*.{jpeg,jpg,png,gif}'
+)
 
-if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/content/**/*.{jpeg,jpg,png,gif}"`);
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/content/**/*.{jpeg,jpg,png,gif}"`
+  )
 ---
 
 <article class='flex flex-col'>
   <div class='card-header flex relative w-full'>
-    <div class="card-image w-full aspect-[16/10] overflow-hidden flex items-center">
-      {image && <Image src={images[imagePath]()} alt={title} class='object-cover w-full h-full pointer-events-none z-10' />}
+    <div
+      class='card-image w-full aspect-[16/10] overflow-hidden flex items-center'
+    >
+      {image && <Picture src={imagePath} alt={title} layout='fill' />}
     </div>
-    <div class='pointer-events-none w-12 h-12 p-2 z-10 flex items-center bg-[#0e0d0c]'>
-      {logo && <Image src={images[logoPath]()} alt={title} class='object-contain w-full h-full pointer-events-none z-10' />}
+    <div
+      class='pointer-events-none w-12 h-12 p-2 z-10 flex items-center bg-[#0e0d0c]'
+    >
+      {logo && <Picture src={logoPath} alt={title} layout='fill' />}
     </div>
   </div>
   <div class='relative z-10 flex flex-col'>
@@ -28,19 +39,21 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       {title}
     </h2>
     <p class='uppercase text-xs mb-2 mt-2'>{description}</p>
-    {url && (
-      <a
-        class='font-bold text-xs ml-auto mb-2 uppercase underline flex items-center hover:text-gold'
-        href={url}
-        target='_blank'
-      >
-        View project
-        <Image
-          src={arrowSvg}
-          alt='arrow icon'
-          class='h-4 ml-4 mr-3 transform-gpu duration-200 pointer-events-none'
-        />
-      </a>
-    )}
+    {
+      url && (
+        <a
+          class='font-bold text-xs ml-auto mb-2 uppercase underline flex items-center hover:text-gold'
+          href={url}
+          target='_blank'
+        >
+          View project
+          <Image
+            src={arrowSvg}
+            alt='arrow icon'
+            class='h-4 ml-4 mr-3 transform-gpu duration-200 pointer-events-none'
+          />
+        </a>
+      )
+    }
   </div>
 </article>
