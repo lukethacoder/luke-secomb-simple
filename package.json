@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@astrojs/partytown": "^2.0.4",
-    "astro-imagetools": "^0.9.0",
-    "imagetools-core": "^6.0.4"
+    "astro-imagetools": "^0.9.0"
   }
 }
