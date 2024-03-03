@@ -23,5 +23,8 @@
     "tailwindcss-fluid-container": "4.0.0",
     "tailwindcss-multi-column": "1.0.2",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/partytown": "^2.0.4"
   }
 }

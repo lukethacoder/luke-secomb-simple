@@ -5,7 +5,7 @@
       class='w-12'
       id="track-artwork"
     />
-    <a class='ml-2 hover:underline' id="track-url" target="_blank">
+    <a class='ml-2 hover:underline' href="https://www.last.fm/user/lu_ke____" target="_blank">
       <p class='text-2xs' id="track-name"></p>
       <p class='text-2xs font-bold text-tertiary no-underline' id="track-artist"></p>
     </a>
@@ -24,7 +24,6 @@
     artwork: document.querySelector('#track-artwork') as HTMLImageElement,
     name: document.querySelector('#track-name') as HTMLElement,
     artist: document.querySelector('#track-artist') as HTMLElement,
-    url: document.querySelector('#track-url') as HTMLAnchorElement,
   }
 
   async function fetchCurrentSong() {
@@ -35,16 +34,14 @@
       const track = data.recenttracks.track[0]
       
       const trackName = track.name
-      const trackUrl = track.url
       const trackArtist = track.artist['#text']
       const status = track["@attr"] ? 'Currently playing' : 'Last played'
-      const trackArtwork = track.image?.[0]?.['#text']
+      const trackArtwork = track.image?.[1]?.['#text']
 
       trackEl.status.innerHTML = status
       trackEl.artwork.src = trackArtwork
       trackEl.name.innerHTML = trackName
       trackEl.artist.innerHTML = trackArtist
-      trackEl.url.href = trackUrl
     }
   }
 

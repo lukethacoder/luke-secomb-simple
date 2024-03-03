@@ -7,6 +7,6 @@ devDescription: 'PopMotion / React / SVG Morphing / 🐕'
 date: 2019-08-01
 imageMain: './image.png'
 imageLogo: './image-logo.png'
-url: 'https://how-big-is-your-dog.netlify.app/'
+url: https://how-big-is-your-dog.lukesecomb.digital
 published: true
 ---

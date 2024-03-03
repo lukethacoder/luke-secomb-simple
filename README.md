@@ -1,18 +1,16 @@
-# luke-secomb-simple
-
 <div align="center">
   <br>
   <br>
-  <img alt="luke-secomb-simple" src="./src/assets/favicon.png" width="320">
+  <img alt="luke-secomb-simple" src="./public/favicon.svg" width="180">
   <br>
   <br>
-  <strong>Simple portfolio site built using GatsbyJS</strong>
+  <strong>Simple portfolio site built using AstroJS and TailwindCSS</strong>
 </div>
 <br>
 
 ## Built With
 
-- ![GatsbyJS](https://img.shields.io/badge/gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=white)
+- ![Astro](https://img.shields.io/badge/astro-38286f?style=for-the-badge&logo=astro&logoColor=white) 
 - ![TailwindCSS](https://img.shields.io/badge/Tailwind%20CSS-0f172a?style=for-the-badge&logo=tailwindcss&logoColor=38bdf8)
 - ![LastFM](https://img.shields.io/badge/LastFM-D51007?style=for-the-badge&logo=lastdotfm&logoColor=white)
 - ![GoatCounter](https://img.shields.io/badge/Goat%20Counter-9a15a4?style=for-the-badge)
@@ -29,11 +27,10 @@ pnpm install
 **Edit the Environment variables.**
 
 ```env
-GATSBY_LAST_FM_API_KEY=abcdefghijklmnopqrstuvwxyz123456
-GATSBY_GOOGLE_ANALYTICS_TRACKING_CODE=abcdefghijklmnopqrstuvwxyz123456
-GATSBY_CLARITY_ANALYTICS_TRACKING_CODE=abcdefghijklmnopqrstuvwxyz123456
-GATSBY_GOAT_COUNTER_CODE=goat
-GATSBY_GOAT_COUNTER_CODE_DEV=goat-dev
+PUBLIC_LAST_FM_API_KEY=abcdefghijklmnopqrstuvwxyz123456
+PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=abcdefghijklmnopqrstuvwxyz123456
+PUBLIC_CLARITY_ANALYTICS_TRACKING_CODE=cthbfzqwds
+PUBLIC_GOAT_COUNTER_CODE=goat
 ```
 
 **Start the site in `dev` mode.**

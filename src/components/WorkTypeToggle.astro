@@ -1,34 +1,31 @@
-<div class='flex items-center' id="work-type-toggle">
+---
+import { Image } from 'astro:assets'
+import arrowSvg from '../img/arrow.svg'
+---
+
+<div class='flex items-center' id='work-type-toggle'>
   <button
-    id="btn-client"
-    class='underline uppercase select-none text-xs cursor-pointer border-0 font-bold'
+    id='btn-client'
+    aria-label="Set visible work to client work"
+    class='hover:text-gold underline uppercase select-none text-xs cursor-pointer border-0 font-bold'
   >
     client work
   </button>
   <button
-    id="btn-toggle"
-    class='underline uppercase select-none text-xs cursor-pointer border-0'
+    id='btn-toggle'
+    aria-label="Toggle visible work type"
+    class='select-none cursor-pointer border-0'
   >
-    <svg
-      version='1.1'
-      id='Layer_1'
-      xmlns='http://www.w3.org/2000/svg'
-      xmlns:xlink='http://www.w3.org/1999/xlink'
-      x='0px'
-      y='0px'
-      viewBox='0 0 42.1 15.8'
-      xml:space='preserve'
-      class='fill-current h-4 ml-4 mr-3 transform-gpu duration-200 pointer-events-none -scale-x-100'
-    >
-      <path
-        id='arrow'
-        d='M42.1,7.9L34,0l-2.7,2.6L34.8,6H0v3.7h34.8l-3.5,3.4l2.7,2.6L42.1,7.9z'
-      ></path>
-    </svg>
+    <Image
+      src={arrowSvg}
+      alt='arrow icon'
+      class='h-4 ml-4 mr-3 transform-gpu duration-200 pointer-events-none -scale-x-100'
+    />
   </button>
   <button
-    id="btn-project"
-    class='underline uppercase select-none text-xs cursor-pointer border-0'
+    id='btn-project'
+    aria-label="Set visible work to side project work"
+    class='hover:text-gold underline uppercase select-none text-xs cursor-pointer border-0'
   >
     side projects
   </button>
@@ -38,10 +35,10 @@
   // Find all buttons with the `alert` class on the page.
   const buttons = document.querySelectorAll('button')
   const workTypeToggle = document.querySelector('#work-type-toggle')
-  
+
   const buttonClient = document.querySelector('#btn-client')
   const buttonProject = document.querySelector('#btn-project')
-  const buttonToggleSvg = document.querySelector('#btn-toggle svg')
+  const buttonToggleSvg = document.querySelector('#btn-toggle img')
 
   const TYPE_CLIENT = 'client'
   const TYPE_PROJECT = 'project'
@@ -54,15 +51,15 @@
         if (type !== TYPE_CLIENT) {
           type = TYPE_CLIENT
         }
-        break;
+        break
       case 'btn-toggle':
         type = type === TYPE_CLIENT ? TYPE_PROJECT : TYPE_CLIENT
-        break;
+        break
       case 'btn-project':
         if (type !== TYPE_PROJECT) {
           type = TYPE_PROJECT
         }
-        break;
+        break
     }
 
     if (buttonToggleSvg) {
@@ -74,7 +71,7 @@
         buttonToggleSvg.classList.add('scale-x-100')
       }
     }
-    
+
     if (buttonProject && buttonClient) {
       if (type === TYPE_CLIENT) {
         buttonProject.classList.remove('font-bold')
@@ -87,11 +84,11 @@
 
     if (workTypeToggle) {
       workTypeToggle.dispatchEvent(
-        new CustomEvent("onsettype", {
+        new CustomEvent('onsettype', {
           bubbles: true,
           detail: { type },
-        }),
-      );
+        })
+      )
     }
   }
 
