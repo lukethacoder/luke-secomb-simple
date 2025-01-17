@@ -12,12 +12,12 @@ const imagePath = `${imageBasePath}/${image.replace('./', '')}`
 const logoPath = `${imageBasePath}/${logo.replace('./', '')}`
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/**/*.{jpeg,jpg,png,gif}'
+  '/src/content/**/*.{jpeg,jpg,png,gif,avif,webp}'
 )
 
 if (!images[imagePath])
   throw new Error(
-    `"${imagePath}" does not exist in glob: "src/content/**/*.{jpeg,jpg,png,gif}"`
+    `"${imagePath}" does not exist in glob: "src/content/**/*.{jpeg,jpg,png,gif,avif,webp}"`
   )
 ---
 
