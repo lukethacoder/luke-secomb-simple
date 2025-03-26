@@ -1,23 +1,64 @@
-body {
-  overflow: hidden;
-  background-color: var(--theme-background);
-  color: var(--theme-font);
-  font-family: theme('fontFamily.sans');
+@import 'tailwindcss';
 
-  --brand-gold: theme('colors.gold');
-  --brand-cream: theme('colors.cream');
-  --brand-grey: theme('colors.grey');
-  --brand-black: theme('colors.black');
-  --brand-white: theme('colors.white');
+@theme {
+  --color-gold-500: #ffc87f;
+  --color-background: oklch(0.93 0.01 56.13);
+}
 
-  --theme-primary: var(--brand-gold);
-  --theme-secondary: var(--brand-cream);
-  --theme-tertiary: var(--brand-grey);
-  --theme-font: var(--brand-cream);
+/* Build some custom transitions */
+/* https://www.smashingmagazine.com/2023/12/view-transitions-api-ui-animations-part1/ */
+@view-transition {
+  navigation: auto;
+}
+
+@font-face {
+  font-family: 'MG';
+  src: url('/mg-wd.otf') format('opentype');
+  font-display: swap;
+}
+
+body {  
+  --theme-background: oklch(0.17 0 0);
+  --theme-background-secondary: oklch(from var(--theme-background) calc(l/2 + 0.15) c h);
+
+  --theme-text: oklch(0.93 0.01 56.13);
+  --theme-text-secondary: oklch(from var(--theme-text) calc(l/2 + 0.15) c h);
+  
+  --theme-border: oklch(from var(--theme-background) calc(l/2 + 0.23) c h);
+  --theme-border-width: 2px;
+
+  --theme-primary: #ffc87f;
+  --theme-secondary: #ffc87f;
+
+  --theme-font-primary: 'MG', sans-serif;
+  --theme-font-secondary: 'Noto Sans Variable', sans-serif;
   --theme-black: var(--brand-black);
   --theme-white: var(--brand-white);
-  --theme-background: var(--theme-black);
+  --header-height: 240px;
+
+  /* overflow: hidden; */
+  background-color: var(--theme-background);
+  color: var(--theme-text-secondary);
+  font-family: var(--theme-font-secondary);
 }
+
+/* ------------------- */
+
+[data-theme="light"] {
+  --theme-background: oklch(0.93 0.01 56.13);
+  --theme-background-secondary: oklch(from var(--theme-background) calc(l/2 + 0.15) c h);
+
+  --theme-text: oklch(0.17 0 0);
+  --theme-text-secondary: #3d403c;
+  
+  --theme-border: oklch(0.37 0.01 0);
+}
+
+[data-theme="cool-maths-games"] {
+  --theme-background: oklch(0 0 0);
+}
+
+/* ------------------- */
 
 * {
   scrollbar-width: thin;
@@ -36,24 +77,92 @@ body {
   border: 3px solid #191817;
 }
 
-:where(a, button):focus-visible {
+:where(a, button):focus-visible,
+label:has(input:focus-visible) {
   outline: 2px solid var(--theme-primary);
   outline-offset: 1px;
 }
 
-.web-developer {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👨‍💻</text></svg>") 16 0, auto;
-}
-.photographic-connoisseur {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📷</text></svg>") 16 0, auto;
-}
-.music-nerd {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥁</text></svg>") 16 0, auto;
-}
-.deloitte {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🟢</text></svg>") 16 0, auto;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--theme-font-primary);
 }
 
+a,
+button {
+  cursor: pointer;
+}
+
+.header-settings {
+  cursor: pointer;
+}
+.header-settings summary {
+  list-style: none;
+}
+
+.header-settings--content {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 12px);
+  right: 0;
+  border: var(--theme-border-width) solid var(--theme-border);
+  padding: 12px;
+  background-color: var(--theme-background);
+}
+
+[data-toggle='closed'] .photo-details {
+  display: none;
+}
+.image-overlay-container:has([name="tags"]:checked) ul {
+  display: flex;
+}
+.photography-detail-page:has([name="info"]:checked) .details {
+  display: flex;
+}
+.image-overlay-button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: calc(var(--spacing) * 2);
+  border-radius: var(--radius-4xl);
+}
+
+.next-previous-container a {
+  transition: opacity 200ms ease;
+  color: #555555;
+  background-color: var(--theme-background);
+}
+
+.photography-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+}
+
+/* ------------------- */
+
+.web-developer {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👨‍💻</text></svg>")
+      16 0,
+    auto;
+}
+.photographic-connoisseur {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📷</text></svg>")
+      16 0,
+    auto;
+}
+.music-nerd {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🥁</text></svg>")
+      16 0,
+    auto;
+}
+.deloitte {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🟢</text></svg>")
+      16 0,
+    auto;
+}
 
 .layout {
   display: flex;
@@ -63,11 +172,9 @@ body {
   padding: 0;
 }
 
-@media (min-width: theme('screens.xl')) {
-  .layout main {
-    flex: 0 1;
-  }
-}
+/* main {
+  flex: 1 0;
+} */
 
 .bi-avoid {
   -moz-column-break-inside: avoid;
@@ -76,7 +183,7 @@ body {
 
 .card-header:before {
   background-color: #191817;
-  content: "";
+  content: '';
   height: calc(100% + 2.6rem);
   position: absolute;
   right: 12px;

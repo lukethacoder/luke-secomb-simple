@@ -1,0 +1,45 @@
+---
+const { socials } = Astro.props;
+
+// const navigation = [
+//   {
+//     label: 'About',
+//     url: '/about'
+//   },
+//   {
+//     label: 'Blog',
+//     url: '/blog'
+//   },
+//   {
+//     label: 'Projects',
+//     url: '/projects'
+//   },
+//   {
+//     label: 'Photography',
+//     url: '/photography'
+//   },
+//   {
+//     label: 'Music',
+//     url: '/music'
+//   },
+// ]
+---
+
+<footer id="footer" class='px-4 py-6 flex justify-between'>
+  <div class="flex items-center">
+    <ul class='flex items-center gap-4 px-4'>
+      {(socials as {
+        icon: string,
+        url: string,
+        title: string,
+      }[]).map(item => <li class='flex items-center'>
+        <a href={item.url} class="font-(family-name:--theme-font-primary)">
+          {item.title}
+        </a>
+      </li>)}
+    </ul>
+  </div>
+  <div class='flex'>
+    <p>Made by <a href="/" class="underline">luke</a>.</p>
+  </div>
+</footer>

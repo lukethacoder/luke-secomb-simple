@@ -12,7 +12,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      // "astro-imagetools/components": ["./node_modules/astro-imagetools/types.d.ts"]
       "astro-imagetools/components": ["./src/astro-imagetools.d.ts"]
     },
     "plugins": [

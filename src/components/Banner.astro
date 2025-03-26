@@ -1,16 +1,12 @@
-<h2 class='uppercase text-xs mb-2 pointer-events-none'>Think differently</h2>
-<h1 class='font-bold text-3xl xxxl:text-4xl leading-tight cursor-default text-balance'>
-  Hi, I'm <span class='text-primary'>Luke</span>
-  <span class='web-developer'>Web developer</span>, <span
-    class='photographic-connoisseur'>Photographic connoisseur</span
-  > and <span class='music-nerd'>Music nerd</span>. Specialist Lead at{' '}
-  <a
-    href='https://deloittedigital.com.au'
-    target='_blank'
-    rel='noopener'
-    class='deloitte focus:underline hover:underline pointer-events-auto'
-    style={{ color: '#777777' }}
-  >
-    Deloitte Digital<span style={{ color: 'rgb(134, 188, 37)' }}>.</span>
-  </a>
-</h1>
+---
+const { title } = Astro.props
+---
+
+<section class="w-full max-w-4xl mx-auto pt-20 pb-20">
+  <h1 class='font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl cursor-default text-balance pb-4'>
+    {title}
+  </h1>
+  <div class="max-w-4xl grid gap-2">
+    <slot/>
+  </div>
+</section>

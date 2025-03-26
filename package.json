@@ -1,6 +1,6 @@
 {
   "name": "luke-secomb-simple",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "type": "module",
   "private": true,
   "description": "luke-secomb-simple",
@@ -10,22 +10,21 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "img": "node ./scripts/compress-images.mjs -d ./src/img/"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.6",
-    "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/ts-plugin": "^1.5.3",
-    "@fontsource/work-sans": "5.0.16",
-    "astro": "^4.4.9",
-    "sharp": "^0.33.2",
-    "tailwindcss": "3.4.1",
-    "tailwindcss-fluid-container": "4.0.0",
-    "tailwindcss-multi-column": "1.0.2",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@fontsource-variable/noto-sans": "^5.2.6",
+    "astro": "^5.5.4",
+    "sharp": "^0.33.5",
+    "tailwindcss": "4.0.15",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^2.0.4",
+    "@astrojs/partytown": "^2.1.4",
+    "@tailwindcss/vite": "^4.0.15",
     "astro-imagetools": "^0.9.0"
   }
 }
