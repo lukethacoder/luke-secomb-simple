@@ -16,8 +16,10 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@expressive-code/plugin-line-numbers": "^0.40.2",
     "@fontsource-variable/noto-sans": "^5.2.6",
     "astro": "^5.5.4",
+    "astro-expressive-code": "^0.40.2",
     "sharp": "^0.33.5",
     "tailwindcss": "4.0.15",
     "typescript": "^5.8.2"
@@ -25,6 +27,9 @@
   "devDependencies": {
     "@astrojs/partytown": "^2.1.4",
     "@tailwindcss/vite": "^4.0.15",
-    "astro-imagetools": "^0.9.0"
+    "astro-imagetools": "^0.9.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "remark-alerts": "^0.0.1"
   }
 }

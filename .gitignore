@@ -1,6 +1,9 @@
+# Node modules
 node_modules/
 .cache/
-public
 .env
 .env.development
 .env.production
+
+# Astro folder
+.astro
