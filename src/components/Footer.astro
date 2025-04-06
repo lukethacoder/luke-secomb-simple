@@ -1,5 +1,27 @@
 ---
-const { socials } = Astro.props;
+import Scrobbler from './Scrobbler.astro'
+
+const socials = [
+  {
+    url: '/rss',
+    title: 'RSS',
+  },
+  {
+    icon: 'github',
+    url: 'https://github.com/lukethacoder',
+    title: 'Github',
+  },
+  {
+    icon: 'instagram',
+    url: 'https://www.instagram.com/lukesecomb',
+    title: 'Instagram',
+  },
+  {
+    icon: 'linkedIn',
+    url: 'https://www.linkedin.com/in/luke-secomb/',
+    title: 'LinkedIn',
+  },
+]
 
 // const navigation = [
 //   {
@@ -25,21 +47,32 @@ const { socials } = Astro.props;
 // ]
 ---
 
-<footer id="footer" class='px-4 py-6 flex justify-between'>
-  <div class="flex items-center">
-    <ul class='flex items-center gap-4 px-4'>
-      {(socials as {
-        icon: string,
-        url: string,
-        title: string,
-      }[]).map(item => <li class='flex items-center'>
-        <a href={item.url} class="font-(family-name:--theme-font-primary)">
-          {item.title}
-        </a>
-      </li>)}
-    </ul>
+<footer id="footer" class='flex flex-col justify-between'>
+  <div class='grid grid-cols-12 flex-1'>
+    <div
+      class='mb-8 md:mb-12 lg:mb-0 lg:mt-40 col-span-12 lg:col-span-5 lg:pl-4 pr-8 flex flex-col'
+    >
+      <div class='flex-1 hidden lg:flex items-end'>
+        <Scrobbler />
+      </div>
+    </div>
   </div>
-  <div class='flex'>
-    <p>Made by <a href="/" class="underline">luke</a>.</p>
+  <div class='px-4 py-6 flex flex-col gap-4 md:flex-row justify-between'>
+    <div class="flex items-center">
+      <ul class='flex flex-wrap items-center gap-y-1 gap-x-4'>
+        {(socials as {
+          icon: string,
+          url: string,
+          title: string,
+        }[]).map(item => <li class='flex items-center'>
+          <a href={item.url} class="font-(family-name:--theme-font-primary)">
+            {item.title}
+          </a>
+        </li>)}
+      </ul>
+    </div>
+    <div class='flex'>
+      <p>Made by <a href="/" class="underline">luke</a>.</p>
+    </div>
   </div>
 </footer>

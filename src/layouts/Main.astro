@@ -5,24 +5,6 @@ import '@fontsource-variable/noto-sans';
 import '../reset.css'
 import '../style.css'
 
-const socials = [
-  {
-    icon: 'github',
-    url: 'https://github.com/lukethacoder',
-    title: 'Github',
-  },
-  {
-    icon: 'instagram',
-    url: 'https://www.instagram.com/lukesecomb',
-    title: 'Instagram',
-  },
-  {
-    icon: 'linkedIn',
-    url: 'https://www.linkedin.com/in/luke-secomb/',
-    title: 'LinkedIn',
-  },
-]
-
 const { title } = Astro.props
 ---
 
@@ -37,11 +19,11 @@ const { title } = Astro.props
     <meta name="author" content="Luke Secomb" />
   </head>
   <body class='layout mx-auto'>
-    <Header siteTitle='hello world' socials={socials} />
+    <Header siteTitle='hello world' />
     <main class='flex flex-1'>
       <slot />
     </main>
-    <Footer socials={socials} />
+    <Footer />
   </body>
   <script
     data-goatcounter='https://luke.goatcounter.com/count'

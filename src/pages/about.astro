@@ -1,0 +1,164 @@
+---
+import LayoutMain from '../layouts/Main.astro'
+import Banner from '../components/Banner.astro'
+
+const SOCIALS = [
+  {
+    label: 'Github',
+    href: 'https://github.com/lukethacoder',
+  },
+  {
+    label: 'last.fm',
+    href: 'https://www.last.fm/user/lu_ke____',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://instagram.com/lukesecomb',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/luke-secomb/',
+  },
+  {
+    label: 'Bluesky',
+    href: 'https://bsky.app/profile/lukethacoder.bsky.social',
+  },
+]
+
+const NOTABLE_PROJECTS_DELOITTE = [
+  {
+    label: 'CoreUI Salesforce Component Library'
+  },
+  {
+    label: 'NextDC (OneDC) Data Centre Management Portal',
+    url: 'https://suppliercentral.coles.com.au/s/'
+  },
+  {
+    label: 'Homes NSW - MyHousing Repair Portal',
+    url: 'https://nsw06.my.site.com/repairs/'
+  },
+  {
+    label: 'Coles Supplier Central',
+    url: 'https://suppliercentral.coles.com.au/s/'
+  },
+  {
+    label: 'ATO Community',
+    url: 'https://community.ato.gov.au/'
+  },
+  {
+    label: 'National Disability Insurance Scheme',
+  },
+]
+const NOTABLE_PROJECTS_SODA = [
+  {
+    label: 'Denman Prospect Interactive Map',
+    url: 'https://www.denmanprospect.com.au/live-here/block-map',
+  },
+  {
+    label: 'Airport Business Parks Booking System',
+  },
+  {
+    label: 'Regional Investment Corporation Loan Applications',
+  },
+]
+---
+
+<LayoutMain title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='About'>
+      <div class='flex gap-8 max-w-3xl'>
+        <span class='w-full'>
+          <p>
+            Hi, I'm Luke, Full Stack Developer currently working at <a
+              class="underline"
+              href='https://deloittedigital.com.au'
+              target='_blank'
+              rel='noreferrer nofollow''>Deloitte Digital</a
+            > as a Senior Specialist Engineer.
+          </p>
+          <br />
+          <p>
+            Day to day I work in and around Salesforce on both the front and backend (LWC/Apex). In my free time I enjoy hacking around with different languages,
+            frameworks and discovering random things on the internet. I primarily use TypeScript/JavaScript, but also dabble in Rust, Go and NixOS.
+          </p>
+          <br />
+          <p>
+            When I'm AFK I enjoy listening to <a href='/music' class='underline'>music</a>, playing drums and <a href='/photography' class='underline'
+              >capturing pixels</a
+            > with my trusty Sony RX100 VII.
+          </p>
+          <br />
+          <p>I can be found in a few other places around the web. Some I'm more active than others.</p>
+          <ul class='list-disc pl-6 pt-2 gap-1 flex flex-col'>
+            {
+              SOCIALS.map((item) => (
+                <li>
+                  <a class='underline font-(family-name:--theme-font-primary)' href={item.href} target='_blank' rel='noreferrer nofollow'>
+                    {item.label}
+                  </a>
+                  {/* TODO: add last.fm scrobbler here? */}
+                </li>
+              ))
+            }
+          </ul>
+        </span>
+        <div class='w-48'>
+          <img class='' src='https://blog.lukesecomb.digital/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F_DSC0593.bc124432.jpg&w=256&q=75' />
+        </div>
+      </div>
+    </Banner>
+    <section class='max-w-4xl mx-auto pt-10 pb-20'>
+      <h3 class='text-4xl mb-4'>Work</h3>
+      <ul class='grid gap-8'>
+        <li class='grid md:grid-cols-2 gap-2'>
+          <span class='text-xl md:text-base font-(family-name:--theme-font-primary)'>Deloitte Digital</span>
+          <span>2021 - Current</span>
+          <span class="font-bold">Senior Specialist Lead</span>
+          <span>
+            <p>
+              Working closely with multiple teams across various disciplines, in addition to working directly with clients. Primarily building fully
+              custom Salesforce Experience cloud sites, but also dabbling in some other technology stacks (React/NextJS, Sitecore).
+            </p>
+            <br />
+            <p>
+              Built a Salesforce Component Library, tightly integrated with Figma Design Tokens (tokens.studio), and with a heavy focus on a11y (Accessibility), reusability and extensibility. The accelerator is used globally and has been attributed to substantial sales.
+            </p>
+            <br />
+            <p>
+              Notable projects: <span set:html={
+                new Intl.ListFormat('en', {
+                  style: 'long',
+                  type: 'conjunction',
+                }).format(NOTABLE_PROJECTS_DELOITTE.map((item) => item.url ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>` : `<strong>${item.label}</strong>`))
+              }></span>.
+            </p>
+          </span>
+        </li>
+        <li class='grid md:grid-cols-2 gap-2'>
+          <span class='text-xl md:text-base font-(family-name:--theme-font-primary)'>Soda Strategic</span>
+          <span>2018 - 2021</span>
+          <span class="font-bold">Web Developer</span>
+          <span>
+            <p>Worked closely with the design and project team to produce pixel perfect Wordpress and Salesforce Experience sites.</p>
+            <br />
+            <p>Wordpress projects were fully custom builds using ACF, TypeScript, SCSS, Timber and Twig, and would usually include Salesforce integration.</p>
+            <br />
+            <p>
+              Salesforce Experience Cloud (Community Cloud at the time) builds were fully custom, not using any out of the box <code>lightning-*</code> components
+              or the SLDS framework. This allowed pixel perfect sites that would not look like your typical Salesforce build.
+            </p>
+            <br />
+            <p>
+              Notable projects: <span set:html={
+                new Intl.ListFormat('en', {
+                  style: 'long',
+                  type: 'conjunction',
+                }).format(NOTABLE_PROJECTS_SODA.map((item) => item.url ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>` : `<strong>${item.label}</strong>`))
+              }></span>.
+            </p>
+          </span>
+        </li>
+      </ul>
+    </section>
+  </div>
+</LayoutMain>
