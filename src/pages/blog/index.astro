@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content'
+// import { Picture } from 'astro:assets'
+// import { Picture } from 'astro-imagetools/components'
+
+import LayoutMain from '../../layouts/Main.astro'
+import Banner from '../../components/Banner.astro'
+import DateTime from "../../components/DateTime.astro"
+
+const allBlog = await getCollection('blog')
+
+// sort by date DESC
+const allBlogDateDesc = allBlog.toSorted((a, b) => b.data.sortDate.getTime() - a.data.sortDate.getTime())
+---
+
+<LayoutMain title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title="Blog">
+      <p>A mixed bag of personal thoughts, exploration and tutorial posts.</p>
+    </Banner>
+    <div class='max-w-4xl w-full mx-auto grid flex-1 gap-8'>
+      {
+        allBlogDateDesc.map((item) => (
+          <article class="relative flex flex-col">
+            <a 
+              href={`/${item.collection}/${item.data.slug}`}
+              class="card-link"
+            ></a>
+            <h3 
+              class="text-xl font-(family-name:--theme-font-primary) hover:underline mt-0"
+            >
+              {item.data.title}
+            </h3>
+            <DateTime date={item.data.sortDate}/>
+            <p>{item.data.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</LayoutMain>
