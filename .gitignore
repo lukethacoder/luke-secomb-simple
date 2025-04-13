@@ -7,3 +7,7 @@ node_modules/
 
 # Astro folder
 .astro
+/dist
+
+# Photos - keep the folder, but ignore all contents
+/.photos/*

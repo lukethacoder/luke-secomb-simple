@@ -42,3 +42,9 @@ pnpm dev
 **Open the code in your IDE of choice and start editing!**
 
 Your site is now running at `http://localhost:8000`.
+
+## Scripts
+
+### Photos
+
+Drop full size images (straight out of lightroom) into the `./.photos` directory. Run the `pnpm photos` script to auto optimise, extract EXIF data, create a blurHash and save metadata to a boilerplate markdown file. This file will still require some edits, but most of the heavy lifting has been sorted.

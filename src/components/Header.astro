@@ -2,148 +2,165 @@
 const navigation = [
   {
     label: 'About',
-    url: '/about'
+    url: '/about',
   },
   {
     label: 'Blog',
-    url: '/blog'
-  },
-  {
-    label: 'Projects',
-    url: '/projects'
+    url: '/blog',
   },
   {
     label: 'Photography',
-    url: '/photography'
+    url: '/photography',
   },
   {
-    label: 'Music',
-    url: '/music'
+    label: 'Projects',
+    url: '/projects',
+  },
+  {
+    label: 'Etc',
+    url: '/etc',
   },
 ]
 
 const THEMES = [
-  { label: 'Dark', value: 'dark', },
-  { label: 'Light', value: 'light', },
-  { label: 'CMG', value: 'cool-maths-games', },
+  { label: 'Dark', value: 'dark' },
+  { label: 'Light', value: 'light' },
+  // { label: 'SF', value: 'sf' },
 ]
 ---
 
-<header id="header" class='px-4 py-6 flex justify-between'>
+<header id='header' class='px-4 py-6 flex justify-between gap-4'>
   <div class='w-12 text-tertiary'>
-    <a href="/">
+    <a href='/' class="flex">
+      <span class="sr-only">Home</span>
       <svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 350 226.86'>
         <g id='Layer_1-2' data-name='Layer 1'>
           <path
             class='fill-current'
             d='M106.94,22.24,19.24,59l87.7,37v22.24L0,71.71V46.48L106.94,0Z'
-          />
+          ></path>
           <path
             class='fill-current'
             d='M243.06,204.62l87.7-36.73-87.7-37V108.67L350,155.15v25.24L243.06,226.86Z'
-          />
+          ></path>
           <path
             class='fill-current'
             d='M242.6,0Q151.42,151.75,136.33,178.45t-15.09,35.39q0,9.77,8.26,9.77,18.25,0,67-68.93,1.08-2.17,2.61-2.17a1.16,1.16,0,0,1,.87,1.3q0,1.3-2.17,3.47l-9.35,12.83q-41.09,56.74-60.64,56.74a19.19,19.19,0,0,1-15.32-7.06q-6-7.06-6-17.91A51.52,51.52,0,0,1,112,178.78q5.54-11.18,37.67-64.59Q189,48.85,215.89.87Z'
-          />
+          ></path>
         </g>
       </svg>
     </a>
   </div>
-  <div>
-    <ul class='flex gap-4 px-4 relative'>
-      {navigation.map(item => <li class='flex items-center'>
-        <a href={item.url} class="font-(family-name:--theme-font-primary)">
-          {item.label}
-        </a>
-      </li>)}
-      <li>
-        <details class="header-settings">
-          <summary class="header-settings--toggle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-palette"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"
-              />
-              <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-              <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-              <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-            </svg>
-          </summary>
-          <div class="header-settings--content" tabindex="-1" role="dialog" aria-labelledby="modal__label" aria-live="assertive" aria-modal="true">
-            <luke-theme-switcher data-themes={JSON.stringify(THEMES)}>
-              <div class="flex flex-col" role="radiogroup">
-                {THEMES.map(item => 
-                  <label>
-                    <input type="radio" name="theme" value={item.value} />
-                    <span>{item.label}</span>
-                  </label>
-                )}
-              </div>
-            </luke-theme-switcher>
-          </div>
-      </details>
-      </li>
+  <div class='flex justify-end gap-x-4 gap-y-2 relative'>
+    <ul class='flex flex-wrap justify-end gap-x-4 gap-y-1 relative'>
+      {
+        navigation.map((item) => (
+          <li class='flex items-center'>
+            <a href={item.url} class='font-(family-name:--theme-font-primary)'>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
+    <details class='header-settings relative'>
+      <summary class='header-settings--toggle'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          class='icon icon-tabler icons-tabler-outline icon-tabler-palette'
+        >
+          <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+          <path
+            d='M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25'
+          ></path>
+          <path d='M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'></path>
+          <path d='M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'></path>
+          <path d='M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0'></path>
+        </svg>
+      </summary>
+      <div
+        class='header-settings--content'
+        tabindex='-1'
+        role='dialog'
+        aria-labelledby='modal__label'
+        aria-live='assertive'
+        aria-modal='true'
+      >
+        <luke-theme-switcher data-themes={JSON.stringify(THEMES)}>
+          <p class="font-bold mb-1">Theme</p>
+          <div class='flex flex-col' role='radiogroup'>
+            {
+              THEMES.map((item) => (
+                <label id={`set-theme-${item.value}`}>  
+                  <input type='radio' name='theme' id={item.value} value={item.value} />
+                  <span>{item.label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </luke-theme-switcher>
+      </div>
+    </details>
   </div>
 </header>
 
 <script>
-  const bodyEl = document.querySelector('body')
-  const headerEl = document.querySelector('#header')
-
-  
   class LukeThemeSwitcher extends HTMLElement {
     static storageKey = 'luke-theme'
-    radioInputEl
+    radioInputEl: HTMLInputElement | null = null
     theme = 'dark'
     themes = []
 
-    setTheme(theme) {
+    setTheme(theme: string) {
       this.theme = theme
       window.localStorage.setItem(LukeThemeSwitcher.storageKey, theme)
 
-      document.body.dataset.theme = theme;
+      document.body.dataset.theme = theme
 
-      if (this.radioInputEl.value !== theme) {
-        const valueToSet = this.querySelector(`[type="radio"][value="${theme}"]`)
-        if (valueToSet) {
-          valueToSet.checked = true;
+      if (this.radioInputEl) {
+        if (this.radioInputEl.value !== theme) {
+          const valueToSet: HTMLInputElement | null = this.querySelector(
+            `[type="radio"][value="${theme}"]`
+          )
+          if (valueToSet) {
+            valueToSet.checked = true
+          }
         }
       }
     }
 
     connectedCallback() {
-      this.themes = JSON.parse(this.dataset.themes || '[]');
+      this.themes = JSON.parse(this.dataset.themes || '[]')
       this.radioInputEl = document.querySelector('[role="radiogroup"]')
-      
+
       // allow url param ?theme=THEME_NAME for directly opening to a specific theme. handy for testing
-      const initialTheme = new URLSearchParams(window.location.search).get('theme') || window.localStorage.getItem(LukeThemeSwitcher.storageKey)
+      const initialTheme =
+        new URLSearchParams(window.location.search).get('theme') ||
+        window.localStorage.getItem(LukeThemeSwitcher.storageKey)
       if (initialTheme) {
         console.log('initialTheme ', initialTheme)
         this.setTheme(initialTheme)
+      } else {
+        this.setTheme('dark')
       }
 
       if (this.radioInputEl) {
         this.radioInputEl.addEventListener('input', (event) => {
-          this.setTheme(event.target.value)
+          this.setTheme((event.target as HTMLInputElement).value)
         })
       }
     }
   }
 
-  customElements.define('luke-theme-switcher', LukeThemeSwitcher);
+  customElements.define('luke-theme-switcher', LukeThemeSwitcher)
 
   // const radioInputEl = document.querySelector('[role="radiogroup"]')
 
@@ -153,12 +170,4 @@ const THEMES = [
 
   //   })
   // }
-
-  function getHeaderHeight() {
-    if (bodyEl && headerEl) {
-      bodyEl.style.setProperty('--header-height', `${(headerEl as HTMLElement).offsetHeight}`)
-    }
-  }
-
-  window.addEventListener('resize', getHeaderHeight)
 </script>

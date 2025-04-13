@@ -2,8 +2,11 @@
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import '@fontsource-variable/noto-sans';
+import '@fontsource/fira-code';
 import '../reset.css'
 import '../style.css'
+
+import { SITE_TITLE } from '../constants';
 
 const { title } = Astro.props
 ---
@@ -17,10 +20,17 @@ const { title } = Astro.props
     <title>{title}</title>
     <meta name='description' content="Hi, I'm Luke Web developer, Photographic connoisseur and Music nerd. Specialist Lead at Deloitte Digital." />
     <meta name="author" content="Luke Secomb" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={new URL("rss.xml", Astro.site)}
+    />
   </head>
   <body class='layout mx-auto'>
+    <a href="#main" class="skip-to">Skip to main content</a>
     <Header siteTitle='hello world' />
-    <main class='flex flex-1'>
+    <main class='flex flex-1' id="main">
       <slot />
     </main>
     <Footer />

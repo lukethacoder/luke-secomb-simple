@@ -1,15 +1,24 @@
 import { defineConfig } from 'astro/config'
+import sitemap from '@astrojs/sitemap'
+import mdx from '@astrojs/mdx'
 import tailwindcss from '@tailwindcss/vite'
 // import partytown from '@astrojs/partytown'
-import { astroImageTools } from 'astro-imagetools'
 import expressiveCode from 'astro-expressive-code'
 import remarkAlerts from 'remark-alerts'
 
+import imageMappingIntegration from './src/integrations/image-mapping.js'
+
+// import { imageServiceConfig } from './src/services/image-service'
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://lukesecomb.digital',
   vite: {
     plugins: [tailwindcss()],
   },
+  // image: {
+  //   service: imageServiceConfig(),
+  // },
   markdown: {
     remarkPlugins: [[remarkAlerts, { sanitize: false }]],
     shikiConfig: {
@@ -19,19 +28,18 @@ export default defineConfig({
     },
   },
   integrations: [
+    imageMappingIntegration(),
     // partytown({
     //   // Adds dataLayer.push as a forwarding-event.
     //   config: {
     //     forward: ['dataLayer.push', 'goatcounter.count'],
     //   },
     // }),
-    astroImageTools,
     expressiveCode({
+      // @ts-ignore
       theme: 'one-dark-pro',
-      styleOverrides: {
-        // uiSelectionBackground: 'var(--theme-primary)',
-        // tooltipSuccessBackground: 'var(--theme-primary)',
-      },
     }),
+    mdx(),
+    sitemap(),
   ],
 })
