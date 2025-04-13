@@ -1,69 +1,44 @@
 ---
-import Scrobbler from './Scrobbler.astro'
-
-const socials = [
+const navigation = [
   {
     url: '/rss',
     title: 'RSS',
   },
   {
-    icon: 'github',
     url: 'https://github.com/lukethacoder',
     title: 'Github',
   },
   {
-    icon: 'instagram',
     url: 'https://www.instagram.com/lukesecomb',
     title: 'Instagram',
   },
   {
-    icon: 'linkedIn',
     url: 'https://www.linkedin.com/in/luke-secomb/',
     title: 'LinkedIn',
   },
 ]
-
-// const navigation = [
-//   {
-//     label: 'About',
-//     url: '/about'
-//   },
-//   {
-//     label: 'Blog',
-//     url: '/blog'
-//   },
-//   {
-//     label: 'Projects',
-//     url: '/projects'
-//   },
-//   {
-//     label: 'Photography',
-//     url: '/photography'
-//   },
-//   {
-//     label: 'Music',
-//     url: '/music'
-//   },
-// ]
 ---
 
-<footer id="footer" class='flex flex-col justify-between'>
+<footer id='footer' class='flex flex-col justify-between'>
   <div class='px-4 py-6 flex flex-col gap-4 md:flex-row justify-between'>
-    <div class="flex items-center">
+    <div class='flex items-center'>
       <ul class='flex flex-wrap items-center gap-y-1 gap-x-4'>
-        {(socials as {
-          icon: string,
-          url: string,
-          title: string,
-        }[]).map(item => <li class='flex items-center'>
-          <a href={item.url} class="font-(family-name:--theme-font-primary)">
-            {item.title}
-          </a>
-        </li>)}
+        {
+          navigation.map((item) => (
+            <li class='flex items-center'>
+              <a
+                href={item.url}
+                class='font-(family-name:--theme-font-primary)'
+              >
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <div class='flex'>
-      <p>Made by <a href="/" class="underline">luke</a>.</p>
+      <p>Made by <a href='/' class='underline'>luke</a>.</p>
     </div>
   </div>
 </footer>

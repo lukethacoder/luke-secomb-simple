@@ -8,8 +8,6 @@ import remarkAlerts from 'remark-alerts'
 
 import imageMappingIntegration from './src/integrations/image-mapping.js'
 
-// import { imageServiceConfig } from './src/services/image-service'
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lukesecomb.digital',

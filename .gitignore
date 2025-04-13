@@ -11,3 +11,4 @@ node_modules/
 
 # Photos - keep the folder, but ignore all contents
 /.photos/*
+/.photos-completed/*
