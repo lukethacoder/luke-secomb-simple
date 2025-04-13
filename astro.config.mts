@@ -6,8 +6,6 @@ import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import remarkAlerts from 'remark-alerts'
 
-import imageMappingIntegration from './src/integrations/image-mapping.js'
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lukesecomb.digital',
@@ -26,7 +24,6 @@ export default defineConfig({
     },
   },
   integrations: [
-    imageMappingIntegration(),
     // partytown({
     //   // Adds dataLayer.push as a forwarding-event.
     //   config: {

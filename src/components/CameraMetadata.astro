@@ -1,0 +1,60 @@
+---
+import { InferEntrySchema } from 'astro:content'
+import {
+  EXIF_MAKE_MAPPING,
+  EXIF_MODEL_MAPPING,
+  EXIF_LENS_MAPPING,
+} from '../constants'
+
+interface Props {
+  metadata: InferEntrySchema<'photography'>['metadata']
+}
+
+const { metadata } = Astro.props
+
+if (!metadata) {
+  return
+}
+
+const { make, model, lens, fStop, shutterSpeed, iso, focalLength } = metadata
+
+function formatShutterSpeed(exposureTime: number): string | null {
+  if (typeof exposureTime !== 'number' || exposureTime <= 0) {
+    return null
+  }
+
+  if (exposureTime >= 1) {
+    return `${exposureTime} sec.`
+  } else {
+    // Convert to a fraction
+    let numerator = 1
+    let denominator = 1 / exposureTime
+
+    // Simplify the fraction (optional, but makes it more readable)
+    for (let i = 2; i <= Math.min(numerator, denominator); i++) {
+      while (numerator % i === 0 && denominator % i === 0) {
+        numerator /= i
+        denominator /= i
+      }
+    }
+
+    return `${numerator}/${Math.round(denominator)} sec.`
+  }
+}
+
+const makeDisplay = EXIF_MAKE_MAPPING[make]
+const modelDisplay = EXIF_MODEL_MAPPING[model]
+const lensDisplay = lens ? EXIF_LENS_MAPPING[lens] : undefined
+
+---
+
+<span class='flex flex-col'>
+  <span class="font-semibold">{makeDisplay} {modelDisplay}</span>
+  {lensDisplay && <span>{lensDisplay}</span>}
+  <small class='flex flex-wrap gap-4 mt-1'>
+    {focalLength && <span>{focalLength}mm</span>}
+    {fStop && <span>ƒ/{fStop}</span>}
+    {shutterSpeed && <span>{formatShutterSpeed(shutterSpeed)}</span>}
+    {iso && <span>ISO {iso}</span>}
+  </small>
+</span>

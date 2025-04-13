@@ -1,6 +1,7 @@
 ---
 import LayoutMain from '../layouts/Main.astro'
 import Banner from '../components/Banner.astro'
+import TopArtists from '../components/TopArtists.astro'
 
 const SOCIALS = [
   {
@@ -20,6 +21,10 @@ const SOCIALS = [
     href: 'https://www.linkedin.com/in/luke-secomb/',
   },
   {
+    label: 'Rate Your Music',
+    href: 'https://rateyourmusic.com/~lu_ke____',
+  },
+  {
     label: 'Bluesky',
     href: 'https://bsky.app/profile/lukethacoder.bsky.social',
   },
@@ -31,7 +36,6 @@ const NOTABLE_PROJECTS_DELOITTE = [
   },
   {
     label: 'NextDC (OneDC) Data Centre Management Portal',
-    url: 'https://suppliercentral.coles.com.au/s/'
   },
   {
     label: 'Homes NSW - MyHousing Repair Portal',
@@ -84,7 +88,7 @@ const NOTABLE_PROJECTS_SODA = [
           <br />
           <p>
             When I'm AFK I enjoy listening to <a href='/music' class='underline'>music</a>, playing drums and <a href='/photography' class='underline'
-              >capturing pixels</a
+              >capturing moments</a
             > with my trusty Sony RX100 VII.
           </p>
           <br />
@@ -96,7 +100,7 @@ const NOTABLE_PROJECTS_SODA = [
                   <a class='underline font-(family-name:--theme-font-primary)' href={item.href} target='_blank' rel='noreferrer nofollow'>
                     {item.label}
                   </a>
-                  {/* TODO: add last.fm scrobbler here? */}
+                  {/* TODO: add minimal last.fm scrobbler here? */}
                 </li>
               ))
             }
@@ -107,6 +111,11 @@ const NOTABLE_PROJECTS_SODA = [
         </div>
       </div>
     </Banner>
+
+    <section class='max-w-4xl mx-auto pt-10 pb-20'>
+      <TopArtists />
+    </section>
+
     <section class='max-w-4xl mx-auto pt-10 pb-20'>
       <h3 class='text-4xl mb-4'>Work</h3>
       <ul class='grid gap-8'>

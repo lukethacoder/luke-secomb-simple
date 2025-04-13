@@ -1,0 +1,19 @@
+---
+// https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/it.svg
+
+const BASE_URL = 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/'
+
+const { name, url, flag } = Astro.props
+---
+
+<span class="flex flex-wrap gap-1 items-start">
+  {name && flag && <img src={`${BASE_URL}/${flag.toLowerCase()}.svg`} class="mt-1.5 h-3"/>}
+  {name && !url && <span>{name}</span>}
+  {
+    name && url && (
+      <a href={url} class='underline' target='_blank' rel='nofollow noreferrer'>
+        {name}
+      </a>
+    )
+  }
+</span>
