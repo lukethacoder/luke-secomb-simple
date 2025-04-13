@@ -18,6 +18,7 @@ import exifr from 'exifr/dist/full.esm.mjs'
 
 const PHOTOS_FOLDER = '.photos'
 const OUTPUT_BASE_FOLDER = 'src/content/photography'
+const PHOTOS_COMPLETED_FOLDER = '.photos-completed'
 
 async function processImages() {
   try {
@@ -36,6 +37,19 @@ async function processImages() {
     console.log('Image processing complete.')
   } catch (error) {
     console.error('Error reading or processing files:', error)
+  }
+}
+
+async function moveOriginalImage(filePath: string, imageName: string) {
+  try {
+    await fs.mkdir(PHOTOS_COMPLETED_FOLDER, { recursive: true })
+    const newPath = path.join(PHOTOS_COMPLETED_FOLDER, imageName)
+    await fs.rename(filePath, newPath)
+    console.log(
+      `Moved original image: ${imageName} to ${PHOTOS_COMPLETED_FOLDER}`
+    )
+  } catch (error) {
+    console.error(`Error moving original image ${imageName}:`, error)
   }
 }
 
@@ -141,6 +155,9 @@ ${
 
       await fs.writeFile(markdownFilePath, markdownContent, 'utf-8')
       console.log(`Created markdown file: ${markdownFilePath}`)
+
+      // Move the original image after successful processing
+      await moveOriginalImage(imagePath, imageName)
     } catch (error) {
       console.error(`Error processing ${imageName} with sharp: `, error)
     }
