@@ -1,8 +1,9 @@
+import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../constants'
+import { SITE_TITLE } from '../../constants'
 
-export async function GET(context) {
+export const GET: APIRoute = async ({ site }) => {
   const allPosts = await getCollection('blog')
 
   // sort by date DESC
@@ -13,7 +14,7 @@ export async function GET(context) {
   return rss({
     title: SITE_TITLE,
     description: 'Collection of recently published blog posts',
-    site: context.site || 'https://lukesecomb.digital',
+    site: site || 'https://lukesecomb.digital',
     stylesheet: '/rss/styles.xsl',
     items: posts.map((post) => ({
       title: post.data.title,
