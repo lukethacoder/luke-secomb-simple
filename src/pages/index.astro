@@ -75,10 +75,10 @@ const allBlogPostsDateDesc = allBlogPosts
           {
             allPhotographyDateDesc.map((item) => (
               <a
-                href={`/${item.collection}/${item.id.replace('/', '-')}`}
+                href={`/${item.collection}/image/${item.id.replace('/', '-')}`}
                 class='flex overflow-hidden relative'
               >
-                <span class="absolute w-full h-full inset-0 bg-cover bg-no-repeat" style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}></span>
+                <span class="blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat" style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}></span>
                 <Picture
                   src={item.data.src}
                   alt={item.data.alt}

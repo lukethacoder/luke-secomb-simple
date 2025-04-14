@@ -1,0 +1,79 @@
+---
+import LayoutMain from '../../layouts/Main.astro'
+import Banner from '../../components/Banner.astro'
+
+const COMMERCIAL_USE = [
+  {
+    title:
+      'Posting on a brand/business/band social media (instagram/facebook) page',
+    description:
+      'These accounts are designed to gain revenue from and are seen as commercial use.<br/><br/>An exception made for any musicians and/or bands that have a small to medium following. This is seen as any artists that has less than <b>250k</b> monthly listeners on Spotify or less than <b>100k</b> Instagram followers. ',
+  },
+  {
+    title: 'Using for branding or advertising, both digital and print',
+    description:
+      'No posters, no print media, no album artwork, no prints for sale.',
+  },
+]
+
+const NON_COMMERCIAL_USE = [
+  {
+    title: 'Posting on a personal social media (instagram/facebook) page',
+    description:
+      "Unless you're an influencer, your personal instagram is not a place of business.",
+  },
+  {
+    title: 'Printing off a small personal copy and sticking it on your fridge',
+    description:
+      "A harmless way to spice up a plain fridge... unless you're a fridge influencer.",
+  },
+]
+---
+
+<LayoutMain
+  title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
+>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='Photo Usage'>
+      <div class='prose max-w-3xl'>
+        <p>
+          Images on this website are not for commercial use. If you like what
+          you see and you{`’`}d like to either work together or purchase an
+          image for commercial use, <a href='/about' class='underline'
+            >let me know</a
+          >. Images on this website have been web optimised and are not ideal
+          for printing.
+        </p>
+        <p>
+          You may use these images for any personal/non-commercial purposes for
+          free. A reference back to this site would be greatly appreciated
+          (and/or tagging <a href='/about' class='underline'>@lukesecomb</a> if posting on socials).
+        </p>
+
+        <p>Unsure if you are using images for commercial use or not?</p>
+        <h3>Here are a few examples of <b>commercial</b> use:</h3>
+        <ol>
+          {
+            COMMERCIAL_USE.map((item) => (
+              <li>
+                <b>{item.title}</b>
+                {item.description && <p set:html={item.description} />}
+              </li>
+            ))
+          }
+        </ol>
+        <h3>Here are a few examples of <b>non-commercial/personal</b> use:</h3>
+        <ol>
+          {
+            NON_COMMERCIAL_USE.map((item) => (
+              <li>
+                <b>{item.title}</b>
+                {item.description && <p set:html={item.description} />}
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </Banner>
+  </div>
+</LayoutMain>

@@ -3,7 +3,7 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "esnext",
     "jsx": "preserve",
     "strict": true,

@@ -417,6 +417,14 @@ input {
   font-family: var(--theme-font-primary);
   line-height: 1;
 }
+
+.blur-hash {
+  animation: fadein 1s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 /* ------------------- */
 
 .web-developer {
