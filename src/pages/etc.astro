@@ -1,0 +1,20 @@
+---
+import Banner from '../components/Banner.astro'
+import LayoutMain from '../layouts/Main.astro'
+---
+
+<LayoutMain title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title="Everything else">
+      <span class="prose">
+        <p>Home to a few extra pages that don't fit in the main navigation</p>
+        <ul>
+          <li><a href="/uses">/uses</a></li>
+          <li><a href="/rss">RSS</a></li>
+          <li><a href="/colophon">Colophon</a></li>
+          <li><a href="/photography/usage">Photo Usage - Can I use these photos?</a></li>
+        </ul>
+      </span>
+    </Banner>
+  </div>
+</LayoutMain>

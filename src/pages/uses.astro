@@ -1,0 +1,167 @@
+---
+import Banner from '../components/Banner.astro'
+import LayoutMain from '../layouts/Main.astro'
+
+const externalLinkProps = {
+  target: '_blank',
+  rel: 'nofollow noreferrer',
+}
+---
+
+<LayoutMain
+  title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
+>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='Uses'>
+      <p>Inspired by <a href="https://wesbos.com/" class="underline" {...externalLinkProps}>Wes Bos</a> and <a href="https://uses.tech/" class="underline" {...externalLinkProps}>uses.tech</a>, here is a list of some of the bits and pieces I use on the regular.</p>
+    </Banner>
+    <section class='max-w-4xl mx-auto pt-10 pb-20'>
+      <div class='prose'>
+        <h3>Hardware</h3>
+        <ul>
+          <li>
+            <p>Desktop rig</p>
+            <ul>
+              <li>RTX 3080</li>
+              <li>Ryzen 7 3700X</li>
+              <li>HyperX Fury 16gb DDR4 3600mhz</li>
+              <li>Samsung 990 Pro 2TB</li>
+              <li>Seagate Barracuda 8TB HDD</li>
+              <li>x2 Seagate 2TB HDD</li>
+              <li>Corsair 900D</li>
+              <li>XPG Core Reactor II 1200W</li>
+            </ul>
+          </li>
+          <li>
+            <p>Home Server</p>
+            <ul>
+              <li>Intel i3-9100</li>
+              <li>Samsung 970 EVO 500GB</li>
+              <li>x4 Seagate EXOS X16 16TB HDDs</li>
+              <li>Fractal Design Meshify 2</li>
+              <li>EVGA SuperNOVA G5 650W</li>
+            </ul>
+          </li>
+          <li>Bose QC35 II</li>
+          <li>Logitech G502 Lightspeed</li>
+          <li>SKYLOONG GK87 + GK21</li>
+          <li>LG 32GR93U-B 31.5"</li>
+          <li>BenQ PD2710QC 27"</li>
+          <li>G.Net WiFi Router</li>
+          <li>Google Pixel 8</li>
+        </ul>
+        <h3>Camera Gear</h3>
+        <ul>
+          <li>Sony RX100 VII</li>
+          <li>Sony A7II with a Ziess Vario-Tessar T* FF FE 24-70mm ƒ4 lens</li>
+          <li>McKinnon Sling 8L</li>
+          <li>McKinnon Camera Pack 25L</li>
+        </ul>
+        <h3>Productivity</h3>
+        <ul>
+          <li>
+            <a href='https://code.visualstudio.com/' {...externalLinkProps}
+              >VS Code</a
+            > is my daily driver. I'd be keen to give <a
+              href='https://zed.dev/'
+              {...externalLinkProps}>Zed</a
+            > a crack when it drops on windows.
+          </li>
+          <li>
+            IDEs and Terminals are always loaded with <a
+              href='https://github.com/tonsky/FiraCode'
+              {...externalLinkProps}
+              class='font-mono'>FiraCode</a
+            >. Once you see ligatures <span class='font-mono'>{`=>`}</span> you can't
+            <span class='font-mono'>{`!==`}</span> go back <span
+              class='font-mono'>{`<-`}</span
+            >.
+          </li>
+          <li>
+            I use my own VS Code theme, <a
+              href='https://marketplace.visualstudio.com/items?itemName=lukethacoder.luke-dark'
+              {...externalLinkProps}>Luke Dark Pro</a
+            >, a theme based on OneDark Pro which I've been using for years.
+          </li>
+          <li>
+            <a href='https://www.jetbrains.com/idea/' {...externalLinkProps}
+              >Intellij</a
+            > is my secondary IDE, primarily used for Apex Development paired with
+            the <a
+              href='https://www.illuminatedcloud.com/'
+              {...externalLinkProps}>Illuminated Cloud 2</a
+            > plugin.
+          </li>
+          <li>
+            <a
+              href='https://en.wikipedia.org/wiki/Adobe_Lightroom'
+              {...externalLinkProps}>Lightroom</a
+            > has been my go to for years for editing photos, but I'm learning <a
+              href='https://www.darktable.org/'
+              {...externalLinkProps}>Darktable</a
+            >.
+          </li>
+          <li>
+            <a href='https://obsidian.md/' {...externalLinkProps}>Obsidian</a> is
+            home to all my notes, thoughts and todos. Hosted on my home server, syncing
+            to my devices via <a
+              href='https://syncthing.net/'
+              {...externalLinkProps}>syncthing</a
+            >.
+          </li>
+          <li>
+            <a href='https://www.figma.com/' {...externalLinkProps}>Figma</a> is
+            my UI/UX design tool of choice. Previously used <a
+              href='https://adobexdplatform.com/'
+              {...externalLinkProps}>Adobe XD</a
+            > and a bit of <a
+              href='https://www.uxpin.com/'
+              {...externalLinkProps}>UX Pin</a
+            >.
+          </li>
+          <li>
+            <a href='https://lmstudio.ai/'>LLM Studio</a> for all things AI. Can
+            easily switch between different models but primarily using <a
+              href='https://huggingface.co/google/gemma-3-4b-it'
+              {...externalLinkProps}>Gemma 3 4B</a
+            > for now.
+          </li>
+          <li>
+            <a href='https://getsharex.com/' {...externalLinkProps}>ShareX</a> for
+            snapping screenshots.
+          </li>
+          <li>
+            <a href='https://thorium.rocks/' {...externalLinkProps}>Thorium</a>,
+            a Chrome alternative.
+          </li>
+          <li>
+            <a href='https://floorp.app/' {...externalLinkProps}>Floorp</a>, a
+            Firefox alternative.
+          </li>
+          <li>
+            <a href='https://store.steampowered.com/' {...externalLinkProps}
+              >Steam</a
+            > for the occasional video game.
+          </li>
+        </ul>
+        <h3>Drum Kit</h3>
+        <ul>
+          <li>
+            <a
+              href='https://www.roland.com/global/products/vad506/'
+              {...externalLinkProps}>Roland VAD506</a
+            > 🥁
+          </li>
+          <li>
+            <a
+              href='https://www.tama.com/eu/products/detail/hp910lwn.html'
+              {...externalLinkProps}>Tama Speed Cobra 910 Twin Pedal</a
+            >
+          </li>
+          <li>Tama 1st Chair</li>
+          <li>Vic Firth Steve Gadd Signature Sticks</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</LayoutMain>

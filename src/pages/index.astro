@@ -18,7 +18,7 @@ const allBlogPosts = await getCollection('blog')
 // sort by date DESC + grab the 3 latest photos
 const allBlogPostsDateDesc = allBlogPosts
   .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .filter((_, key) => key < 6)
+  .filter((_, key) => key < 4)
 ---
 
 <LayoutMain
@@ -26,13 +26,13 @@ const allBlogPostsDateDesc = allBlogPosts
 >
   <div class='flex-1 flex flex-col px-4 mx-auto'>
     <section
-      class='w-full max-w-7xl mx-auto pt-20 pb-20 flex flex-wrap gap-y-8 justify-between'
+      class='w-full max-w-4xl mx-auto pt-20 pb-20 flex flex-wrap gap-y-8 justify-between'
     >
       <div class='w-full md:w-1/2'>
         <h1
-          class='font-bold text-6xl md:text-7xl lg:text-8xl 2xl:text-8xl cursor-default text-balance pb-4'
+          class='font-bold text-6xl md:text-7xl lg:text-7xl cursor-default text-balance pb-4 leading-tight'
         >
-          Luke<br />Secomb
+          Hey, I'm Luke 👋
         </h1>
         <div class='max-w-xl grid gap-2'>
           <p>
@@ -49,29 +49,29 @@ const allBlogPostsDateDesc = allBlogPosts
     </section>
 
     <span
-      class='w-full max-w-7xl mx-auto pt-20 flex flex-col gap-4'
+      class='w-full max-w-4xl mx-auto pt-20 flex flex-col gap-4'
     >
-      <section class='w-full max-w-7xl mx-auto flex flex-col'>
+      <section class='w-full max-w-4xl mx-auto flex flex-col'>
         <h2 class='text-5xl'>Blog</h2>
         <p class="mb-6 mt-2">
-          Latest blog posts. <a class='mt-1 underline ml-auto' href='/blog'
+          A couple of recent posts. <a class='mt-1 underline ml-auto' href='/blog'
             >See more</a>
         </p>
 
-        <div class="grid lg:grid-cols-2 gap-8">
-          {allBlogPostsDateDesc.map((item) => <BlogCard post={item} />)}
+        <div class="blog-card-container grid">
+          {allBlogPostsDateDesc.map((item) => <BlogCard post={item} className="pb-8" />)}
         </div>
       </section>
 
-      <section class='w-full max-w-7xl mx-auto pt-20 pb-20 flex flex-col'>
+      <section class='w-full max-w-4xl mx-auto pt-20 pb-20 flex flex-col'>
         <h2 class='text-5xl break-all'>Photography</h2>
         <p class='mb-6 mt-2'>
-          Latest snaps from the SD card. <a
+          Latest snaps from the <a href="/uses" class="underline">Sony</a>. <a
             class='mt-1 underline ml-auto'
             href='/photography'>See more</a>
         </p>
 
-        <div class='photography-grid'>
+        <div class='photography-grid home-page'>
           {
             allPhotographyDateDesc.map((item) => (
               <a

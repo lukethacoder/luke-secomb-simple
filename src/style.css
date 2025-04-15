@@ -299,6 +299,10 @@ input {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
 }
+.photography-grid.home-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(296px, 100%), 1fr));
+}
 
 /* when new tags are added, they should be added to this list too */
 .photography-page:has([value="all"]:checked) [data-tags],
@@ -822,12 +826,12 @@ input {
   }
 
   .prose ul > li > p {
-    margin-bottom: 0.75em;
+    margin-bottom: 0;
   }
 
   .prose ul > li > ul,
   .prose ul > li > ol {
-    margin-top: 0.75em;
+    margin-top: 0.5em;
     margin-bottom: 0.75em;
   }
 
