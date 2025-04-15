@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 // import partytown from '@astrojs/partytown'
 import expressiveCode from 'astro-expressive-code'
 import remarkAlerts from 'remark-alerts'
+import { remarkReadingTime } from './lib/remark-reading-time'
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,7 +17,7 @@ export default defineConfig({
   //   service: imageServiceConfig(),
   // },
   markdown: {
-    remarkPlugins: [[remarkAlerts, { sanitize: false }]],
+    remarkPlugins: [[remarkAlerts, { sanitize: false }], remarkReadingTime],
     shikiConfig: {
       // TODO: add custom theme
       theme: 'one-dark-pro',

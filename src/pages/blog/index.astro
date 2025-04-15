@@ -22,8 +22,8 @@ const allBlogDateDesc = allBlog.toSorted(
     <Banner title='Blog'>
       <p>A mixed bag of personal thoughts, exploration and tutorial posts.</p>
     </Banner>
-    <div class='max-w-4xl w-full mx-auto grid gap-8'>
-      {allBlogDateDesc.map((item) => <BlogCard post={item} />)}
+    <div class='blog-card-container max-w-4xl w-full mx-auto grid'>
+      {allBlogDateDesc.map((item) => <BlogCard post={item} className="pb-8" />)}
     </div>
   </div>
 </LayoutMain>

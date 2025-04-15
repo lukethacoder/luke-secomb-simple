@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content'
+import readingTime from 'reading-time'
 
 import LayoutMain from '../../../layouts/Main.astro'
 import Banner from '../../../components/Banner.astro'
@@ -35,7 +36,7 @@ export async function getStaticPaths() {
 const post = Astro.props
 const { title, date, editedDate } = post.data
 
-const { Content } = await render(post)
+const { Content, remarkPluginFrontmatter } = await render(post)
 ---
 
 <LayoutMain
@@ -45,22 +46,28 @@ const { Content } = await render(post)
     class='blog-detail-page w-full flex flex-col flex-1 px-4 lg:px-0 mx-auto'
   >
     <Banner title={title}>
-      {
-        editedDate ? (
-          <span>
-            <span>
-              <DateTime date={editedDate} />
-            </span>
-            <span>
-              Originally published <DateTime date={date} />
-            </span>
-          </span>
-        ) : (
-          <span>
-            <DateTime date={date} />
-          </span>
-        )
-      }
+      <span class='flex gap-1'>
+        <small>
+          {
+            editedDate ? (
+              <span>
+                <span>
+                  <DateTime date={editedDate} />
+                </span>
+                <span>
+                  (Originally published <DateTime date={date} />)
+                </span>
+              </span>
+            ) : (
+              <span>
+                <DateTime date={date} />
+              </span>
+            )
+          }
+        </small>
+        <small> — </small>
+        <small>{remarkPluginFrontmatter.readingTime}</small>
+      </span>
     </Banner>
     <div class='max-w-4xl w-full mx-auto flex flex-col'>
       <div class='prose'>

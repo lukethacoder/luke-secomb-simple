@@ -135,32 +135,35 @@ const featuredSideProjects = allSideProjectsDateDesc.filter(
 
     <section class='w-full max-w-4xl mx-auto pb-20'>
       <h2 class='text-4xl mb-8'>Folks I've worked with</h2>
-      <div class='lsd-grid worked-with-grid flex-1 gap-2'>
+      <div class='lsd-grid worked-with-grid relative flex-1 gap-2'>
         {
           allClientWorkDateDesc.map(({ data }) => (
-            <div
-              class='aspect-square overflow-hidden flex items-center object-contain transition ease-in'
-              title={data.title}
-            >
-              {data.imageLogoLight && (
+            <span>
+              <button
+                class='aspect-square overflow-hidden flex items-center object-contain transition ease-in'
+                title={data.title}
+              >
+                {data.imageLogoLight && (
+                  <Picture
+                    src={data.imageLogoLight}
+                    alt={data.title}
+                    class={`image-light object-cover w-full p-6 md:p-8`}
+                    widths={[560, 1080]}
+                    sizes={`(max-width: 1600px) 560px, 1440px`}
+                    formats={['avif', 'webp']}
+                  />
+                )}
                 <Picture
-                  src={data.imageLogoLight}
+                  src={data.imageLogo}
                   alt={data.title}
-                  class={`image-light object-cover w-full p-6 md:p-8`}
+                  class={`object-cover w-full p-6 md:p-8`}
                   widths={[560, 1080]}
                   sizes={`(max-width: 1600px) 560px, 1440px`}
                   formats={['avif', 'webp']}
                 />
-              )}
-              <Picture
-                src={data.imageLogo}
-                alt={data.title}
-                class={`object-cover w-full p-6 md:p-8`}
-                widths={[560, 1080]}
-                sizes={`(max-width: 1600px) 560px, 1440px`}
-                formats={['avif', 'webp']}
-              />
-            </div>
+              </button>
+              <span class="item-title absolute top-full left-0 pt-2 opacity-0">{data.title}</span>
+            </span>
           ))
         }
       </div>

@@ -397,6 +397,17 @@ input {
   opacity: 1;
 }
 
+.blog-card-container:has(:hover,:focus-within) .blog-card:not(:hover,:focus-within) {
+  opacity: 0.5;
+}
+.blog-card {
+  opacity: 1;
+  transition: opacity .3s var(--cubic-bezier-01);
+}
+.blog-card:is(:hover,:focus-within) {
+  opacity: 1;
+}
+
 .worked-with-grid {
   --grid-item-min-width: 84px;
 }
@@ -405,12 +416,24 @@ input {
     --grid-item-min-width: 104px;
   }
 }
-.worked-with-grid div {
+.worked-with-grid button {
   background-color: var(--theme-background-secondary);
-  transition: all 0.3s var(--cubic-bezier-01);
+  padding: 0;
+  margin: 0;
+  border: none;
 }
-.worked-with-grid:has(:hover) div:not(:hover) {
+.worked-with-grid:has(:hover,:focus) button:not(:where(:hover,:focus)) {
   filter: grayscale(100);
+}
+
+.worked-with-grid .item-title {
+  transition: opacity 0.3s var(--cubic-bezier-01);
+}
+/* only hover when users are not keyboard navigating */
+/* focus should act the same as hover */
+.worked-with-grid:has(:hover):not(:has(:focus)) > span:hover:not(:focus-within) .item-title,
+.worked-with-grid:has(:focus) button:focus ~ .item-title {
+  opacity: 1;
 }
 
 .album-name {

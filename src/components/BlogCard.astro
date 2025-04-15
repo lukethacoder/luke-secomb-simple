@@ -1,27 +1,23 @@
 ---
-// import type { ImageMetadata } from 'astro'
-// import { Image, Picture } from 'astro:assets'
 import DateTime from "./DateTime.astro"
 
-// const { image, logo, title, description, url, slug, type } = Astro.props
+const { post, className } = Astro.props
 
-// const imageBasePath = `/src/content/${type || 'client'}/${slug}`
-// const imagePath = `${imageBasePath}/${image.replace('./', '')}`
-// const logoPath = `${imageBasePath}/${logo.replace('./', '')}`
-
-const { post } = Astro.props
+const { readingTime } = post.rendered.metadata.frontmatter
 ---
 
-<article class="relative flex flex-col">
-  <a 
-    href={`/${post.collection}/${post.data.slug}`}
-    class="card-link"
-  ></a>
-  <h3 
-    class="text-xl font-(family-name:--theme-font-primary) hover:underline mt-0"
-  >
-    {post.data.title}
-  </h3>
-  <DateTime date={post.data.sortDate}/>
-  <p>{post.data.description}</p>
+<article class={`blog-card ${className}`}>
+  <span class="relative flex flex-col">
+    <a 
+      href={`/${post.collection}/${post.data.slug}`}
+      class="card-link"
+    ></a>
+    <h3 
+      class="text-xl font-(family-name:--theme-font-primary) hover:underline mt-0"
+    >
+      {post.data.title}
+    </h3>
+    <small><DateTime date={post.data.sortDate}/><span> — </span><span>{readingTime}</span></small>
+    <p class="mt-1">{post.data.description}</p>
+  </span>
 </article>
