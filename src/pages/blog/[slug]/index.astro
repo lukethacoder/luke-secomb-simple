@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from 'astro:content'
-import readingTime from 'reading-time'
 
 import LayoutMain from '../../../layouts/Main.astro'
 import Banner from '../../../components/Banner.astro'
@@ -34,13 +33,14 @@ export async function getStaticPaths() {
 }
 
 const post = Astro.props
-const { title, date, editedDate } = post.data
+const { title, date, editedDate, slug } = post.data
 
 const { Content, remarkPluginFrontmatter } = await render(post)
 ---
 
 <LayoutMain
-  title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
+  title={`${title} | Luke Secomb`}
+  ogImageUrl={`/blog/${slug}/og.webp`}
 >
   <div
     class='blog-detail-page w-full flex flex-col flex-1 px-4 lg:px-0 mx-auto pb-20'

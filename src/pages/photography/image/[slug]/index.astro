@@ -2,10 +2,10 @@
 import { getCollection, render } from 'astro:content'
 import { Picture } from 'astro:assets'
 
-import LayoutMain from '../../../layouts/Main.astro'
-import DateTime from '../../../components/DateTime.astro'
-import CameraMetadata from '../../../components/CameraMetadata.astro'
-import Location from '../../../components/Location.astro'
+import LayoutMain from '../../../../layouts/Main.astro'
+import DateTime from '../../../../components/DateTime.astro'
+import CameraMetadata from '../../../../components/CameraMetadata.astro'
+import Location from '../../../../components/Location.astro'
 
 export async function getStaticPaths() {
   const allPhotography = await getCollection('photography')
@@ -36,17 +36,37 @@ export async function getStaticPaths() {
   })
 }
 
-// const { slug } = Astro.params
+const { slug } = Astro.params
 const post = Astro.props
 const { data, previousId, nextId } = post
 const { title, date, location, src, alt, instagramTags, metadata, blurHash } =
   data
 
 const { Content } = await render(post)
+
+const descriptionArray = [
+  title,
+  location?.name,
+  new Intl.DateTimeFormat(
+    navigator.language || navigator.languages[0] || 'en-AU',
+    {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }
+  ).format(date),
+].filter(item => !!item)
+
+const description = descriptionArray.join(' - ')
+
+// TODO: can we save extra data here?
+// https://www.ogimage.gallery/
 ---
 
 <LayoutMain
-  title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
+  title={`${title} - Photography | Luke Secomb`}
+  description={description}
+  ogImageUrl={`/photography/image/${slug.toLowerCase()}/og.webp`}
 >
   <div class='photography-detail-page'>
     <div
@@ -284,7 +304,7 @@ const { Content } = await render(post)
 </LayoutMain>
 
 <script>
-  import { getSessionStorage, setSessionStorage } from '../../../utils'
+  import { getSessionStorage, setSessionStorage } from '../../../../utils'
 
   const STORAGE_KEY_INFO = 'luke-info-visible'
   const STORAGE_KEY_TAGS = 'luke-tags-visible'

@@ -12,7 +12,7 @@ const allPhotography = await getCollection('photography')
 const allPhotographyDateDesc = allPhotography
   .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .filter((_, key) => key < 12)
-  
+
 const allBlogPosts = await getCollection('blog')
 
 // sort by date DESC + grab the 3 latest photos
@@ -23,6 +23,7 @@ const allBlogPostsDateDesc = allBlogPosts
 
 <LayoutMain
   title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
+  ogImage="home"
 >
   <div class='flex-1 flex flex-col px-4 mx-auto'>
     <section
@@ -41,34 +42,42 @@ const allBlogPostsDateDesc = allBlogPosts
           </p>
         </div>
       </div>
-      <div class="flex flex-col mt-8 lg:mt-0 w-full md:w-auto md:max-w-1/2">
-        <span class="lg:max-w-md">
+      <div class='flex flex-col mt-8 lg:mt-0 w-full md:w-auto md:max-w-1/2'>
+        <span class='lg:max-w-md'>
           <Scrobbler />
         </span>
       </div>
     </section>
 
-    <span
-      class='w-full max-w-4xl mx-auto pt-20 flex flex-col gap-4'
-    >
+    <span class='w-full max-w-4xl mx-auto pt-20 flex flex-col gap-4'>
       <section class='w-full max-w-4xl mx-auto flex flex-col'>
-        <h2 class='text-5xl'>Blog</h2>
-        <p class="mb-6 mt-2">
-          A couple of recent posts. <a class='mt-1 underline ml-auto' href='/blog'
-            >See more</a>
+        <h2 class='text-5xl'>
+          <a href="/blog" class='hover:underline'>Blog</a>
+        </h2>
+        <p class='mb-6 mt-2'>
+          A couple of recent posts. <a
+            class='mt-1 underline ml-auto'
+            href='/blog'>See more</a
+          >
         </p>
 
-        <div class="blog-card-container grid">
-          {allBlogPostsDateDesc.map((item) => <BlogCard post={item} className="pb-8" />)}
+        <div class='blog-card-container grid'>
+          {
+            allBlogPostsDateDesc.map((item) => (
+              <BlogCard post={item} className='pb-8' />
+            ))
+          }
         </div>
       </section>
 
       <section class='w-full max-w-4xl mx-auto pt-20 pb-20 flex flex-col'>
-        <h2 class='text-5xl break-all'>Photography</h2>
+        <h2 class='text-5xl break-all'>
+          <a href='/photography' class='hover:underline'>Photography</a>
+        </h2>
         <p class='mb-6 mt-2'>
-          Latest snaps from the <a href="/uses" class="underline">Sony</a>. <a
-            class='mt-1 underline ml-auto'
-            href='/photography'>See more</a>
+          Latest snaps from the behind the <a href='/uses' class='underline'
+            >camera</a
+          >.
         </p>
 
         <div class='photography-grid home-page'>
@@ -76,9 +85,12 @@ const allBlogPostsDateDesc = allBlogPosts
             allPhotographyDateDesc.map((item) => (
               <a
                 href={`/${item.collection}/image/${item.id.replace('/', '-')}`}
-                class='flex overflow-hidden relative'
+                class='flex overflow-hidden relative aspect-[4/5]'
               >
-                <span class="blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat" style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}></span>
+                <span
+                  class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
+                  style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}
+                />
                 <Picture
                   src={item.data.src}
                   alt={item.data.alt}
@@ -91,7 +103,9 @@ const allBlogPostsDateDesc = allBlogPosts
             ))
           }
         </div>
-        <small class="ml-auto mt-1"><a href="/photography" class="underline">View more</a></small>
+        <small class='ml-auto mt-1'
+          ><a href='/photography' class='underline'>View more</a></small
+        >
       </section>
     </span>
   </div>

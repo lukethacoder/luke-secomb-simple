@@ -103,7 +103,7 @@ const blog = defineCollection({
   schema: () =>
     z
       .object({
-        title: z.string(),
+        title: z.string().max(140),
         slug: z.string(),
         draft: z.boolean().optional(),
         date: z.union([z.string().transform((str) => new Date(str)), z.date()]),
