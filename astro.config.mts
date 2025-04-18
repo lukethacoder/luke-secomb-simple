@@ -23,6 +23,7 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
+          // @ts-ignore - TODO:
           rel: (el) => {
             if (!el.properties.href.includes('lwc.garden')) {
               return ['nofollow noreferrer']
