@@ -1,0 +1,98 @@
+diff --git a/lib/atom1.js b/lib/atom1.js
+index 18c1d2a059da879c382bcf621ad2349c6b7fbdeb..17af1a54e968e6a28c789c4fd8b52919c9bcce53 100644
+--- a/lib/atom1.js
++++ b/lib/atom1.js
+@@ -7,14 +7,32 @@ exports.default = (function (ins) {
+     var options = ins.options;
+     var base = {
+         _declaration: { _attributes: { version: "1.0", encoding: "utf-8" } },
++        _instruction: {},
+         feed: {
+-            _attributes: { xmlns: "http://www.w3.org/2005/Atom" },
++            _attributes: {
++                xmlns: "http://www.w3.org/2005/Atom",
++                "xmlns:content": "http://purl.org/rss/1.0/modules/content/",
++                "xmlns:media": "http://search.yahoo.com/mrss/",
++                "xmlns:atom": "http://www.w3.org/2005/Atom"
++            },
+             id: options.id,
+             title: options.title,
+             updated: options.updated ? options.updated.toISOString() : new Date().toISOString(),
+             generator: utils_1.sanitize(options.generator || config_1.generator)
+         }
+     };
++    console.log('options.stylesheet ', options.stylesheet)
++    if (options.stylesheet) {
++        console.log('atom has stylesheet ')
++        base._instruction = {
++            "xml-stylesheet": {
++                _attributes: {
++                    href: options.stylesheet,
++                    type: "text/xsl"
++                }
++            }
++        }   
++    }
+     if (options.author) {
+         base.feed.author = formatAuthor(options.author);
+     }
+@@ -93,6 +111,10 @@ exports.default = (function (ins) {
+         if (item.copyright) {
+             entry.rights = item.copyright;
+         }
++        if (item.image) {
++            entry['media:thumbnail'] = { _attributes: { url: item.image } };
++            entry['media:content'] = { _attributes: { medium: 'image', url: item.image } };
++        }
+         base.feed.entry.push(entry);
+     });
+     return convert.js2xml(base, { compact: true, ignoreComment: true, spaces: 4 });
+diff --git a/lib/rss2.js b/lib/rss2.js
+index fcff0d41fa50b18eb08fe10b1088c1b6cc03698e..c228a20c03d18b9c7d32fe7a039d4f6d9a6c05f7 100644
+--- a/lib/rss2.js
++++ b/lib/rss2.js
+@@ -20,6 +20,7 @@ exports.default = (function (ins) {
+     var isContent = false;
+     var base = {
+         _declaration: { _attributes: { version: "1.0", encoding: "utf-8" } },
++        _instruction: {},
+         rss: {
+             _attributes: { version: "2.0" },
+             channel: {
+@@ -32,6 +33,16 @@ exports.default = (function (ins) {
+             },
+         },
+     };
++    if (options.stylesheet) {
++        base._instruction = {
++            "xml-stylesheet": {
++                _attributes: {
++                    href: options.stylesheet,
++                    type: "text/xsl"
++                }
++            }
++        }   
++    }
+     if (options.language) {
+         base.rss.channel.language = { _text: options.language };
+     }
+@@ -141,6 +152,7 @@ exports.default = (function (ins) {
+     if (isContent) {
+         base.rss._attributes["xmlns:dc"] = "http://purl.org/dc/elements/1.1/";
+         base.rss._attributes["xmlns:content"] = "http://purl.org/rss/1.0/modules/content/";
++        base.rss._attributes["xmlns:media"] = "http://search.yahoo.com/mrss/";
+     }
+     if (isAtom) {
+         base.rss._attributes["xmlns:atom"] = "http://www.w3.org/2005/Atom";
+diff --git a/lib/typings/index.d.ts b/lib/typings/index.d.ts
+index 6f149197d9e4c9e550e822375e220207fe264501..8a0ba950df36b2999e472ff1dd11a8a5490510cc 100644
+--- a/lib/typings/index.d.ts
++++ b/lib/typings/index.d.ts
+@@ -51,6 +51,7 @@ export interface FeedOptions {
+     description?: string;
+     image?: string;
+     favicon?: string;
++    stylesheet?: string;
+     copyright: string;
+ }
+ export interface Extension {

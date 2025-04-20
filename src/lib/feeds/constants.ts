@@ -1,4 +1,4 @@
-import type { Author } from '../../../lib/feed'
+import type { Author } from 'feed'
 
 export const AUTHOR: Author = {
   name: 'Luke Secomb',
