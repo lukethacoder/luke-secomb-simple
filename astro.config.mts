@@ -10,10 +10,7 @@ import { remarkReadingTime } from './lib/remark-reading-time'
 
 // https://astro.build/config
 export default defineConfig({
-  site:
-    import.meta.env.MODE === 'development'
-      ? 'http://localhost:4321'
-      : 'https://lukesecomb.digital',
+  site: import.meta.env.CF_PAGES_URL,
   vite: {
     plugins: [tailwindcss()],
   },
