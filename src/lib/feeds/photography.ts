@@ -75,8 +75,8 @@ async function addPhotosToFeed(
       published: item.data.date,
       date: item.data.date,
       author: [author],
-      description: await mdxToHtml(imageEl, site),
-      content: await mdxToHtml(imageEl, site),
+      description: await mdxToHtml(imageEl, site, item.filePath || ''),
+      content: await mdxToHtml(imageEl, site, item.filePath || ''),
       image: imageUrl,
     })
   }

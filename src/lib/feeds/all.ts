@@ -87,11 +87,16 @@ async function addArticlesToFeed(
       author: [author],
       description: await mdxToHtml(
         isBlogPost(item) ? item.data.description : '',
-        site
+        site,
+        item.filePath || ''
       ),
       content: isPhotographyPost(item)
-        ? await mdxToHtml(`<img src="${imageUrl}" loading="lazy" />`, site)
-        : await mdxToHtml(item.body || '', site),
+        ? await mdxToHtml(
+            `<img src="${imageUrl}" loading="lazy" />`,
+            site,
+            item.filePath || ''
+          )
+        : await mdxToHtml(item.body || '', site, item.filePath || ''),
       ...(isPhotographyPost(item) ? { image: imageUrl } : {}),
     })
   }
