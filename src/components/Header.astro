@@ -146,7 +146,6 @@ const THEMES = [
         new URLSearchParams(window.location.search).get('theme') ||
         window.localStorage.getItem(LukeThemeSwitcher.storageKey)
       if (initialTheme) {
-        console.log('initialTheme ', initialTheme)
         this.setTheme(initialTheme)
       } else {
         this.setTheme('dark')

@@ -55,7 +55,7 @@ const descriptionArray = [
       year: 'numeric',
     }
   ).format(date),
-].filter(item => !!item)
+].filter((item) => !!item)
 
 const description = descriptionArray.join(' - ')
 
@@ -325,11 +325,38 @@ const description = descriptionArray.join(' - ')
     document.querySelector('[name="tags"]')
 
   // onload check localStorage for user preference of tags and details visibility
-  if (infoCheckboxEl && Boolean(getSessionStorage(STORAGE_KEY_INFO))) {
-    setVisibility(infoCheckboxEl, STORAGE_KEY_INFO, true)
+  if (infoCheckboxEl) {
+    if (getSessionStorage(STORAGE_KEY_INFO)) {
+      setVisibility(
+        infoCheckboxEl,
+        STORAGE_KEY_INFO,
+        getSessionStorage(STORAGE_KEY_INFO) === 'true'
+      )
+    }
+
+    infoCheckboxEl.addEventListener('change', (event) => {
+      setSessionStorage(
+        STORAGE_KEY_INFO,
+        String((event.target as HTMLInputElement).checked ? true : '')
+      )
+    })
   }
-  if (tagsCheckboxEl && Boolean(getSessionStorage(STORAGE_KEY_TAGS))) {
-    setVisibility(tagsCheckboxEl, STORAGE_KEY_INFO, true)
+
+  if (tagsCheckboxEl) {
+    if (getSessionStorage(STORAGE_KEY_TAGS)) {
+      setVisibility(
+        tagsCheckboxEl,
+        STORAGE_KEY_TAGS,
+        getSessionStorage(STORAGE_KEY_TAGS) === 'true'
+      )
+    }
+
+    tagsCheckboxEl.addEventListener('change', (event) => {
+      setSessionStorage(
+        STORAGE_KEY_TAGS,
+        String((event.target as HTMLInputElement).checked ? true : '')
+      )
+    })
   }
 
   window.addEventListener('keyup', (event) => {

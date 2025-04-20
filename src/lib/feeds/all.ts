@@ -31,9 +31,9 @@ function createFeedInstance(site: string, author: SiteAuthor): Feed {
     title: 'Everything Feed | Luke Secomb',
     description: 'Articles and Photography by Luke Secomb',
     id: site,
-    link: site,
+    link: site || 'https://lukesecomb.digital',
     language: 'en-us',
-    favicon: createUrl('/favicon.png', site) as string,
+    favicon: createUrl('/favicon.jpg', site) as string,
     copyright: `Copyright ${new Date().getFullYear()} Luke Secomb`,
     // @ts-ignore - TODO: check
     stylesheet: createUrl('/rss/styles.xsl', site) as string,

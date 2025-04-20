@@ -306,10 +306,11 @@ input {
 
 /* when new tags are added, they should be added to this list too */
 .photography-page:has([value="all"]:checked) [data-tags],
-.photography-page:has([value="automotive"]:checked) [data-tags="automotive"],
-.photography-page:has([value="concert"]:checked) [data-tags="concert"],
-.photography-page:has([value="travel"]:checked) [data-tags="travel"],
-.photography-page:has([value="other"]:checked) [data-tags="other"] {
+.photography-page:has([value="automotive"]:checked) [data-tags*="automotive"],
+.photography-page:has([value="concert"]:checked) [data-tags*="concert"],
+.photography-page:has([value="travel"]:checked) [data-tags*="travel"],
+.photography-page:has([value="street"]:checked) [data-tags*="street"],
+.photography-page:has([value="other"]:checked) [data-tags*="other"] {
   display: block;
   opacity: 1;
   
@@ -318,13 +319,15 @@ input {
     opacity: 0;
   }
 }
+.photography-grid a,
 .photography-page .photography-grid a {
   opacity: 1;
   transition: opacity .3s ease,
   display 0s ease allow-discrete;
 }
+.photography-grid a:hover,
 .photography-page .photography-grid a[data-tags]:hover {
-  opacity: 75%;
+  opacity: 60%;
 }
 
 .photography-detail-page {
@@ -443,6 +446,10 @@ input {
 .album-name {
   font-family: var(--theme-font-primary);
   line-height: 1;
+}
+.last-fm-grid .album:before {
+  background-color: var(--theme-background);
+  transition: opacity .3s var(--cubic-bezier-01);
 }
 
 .blur-hash {
