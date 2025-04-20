@@ -50,6 +50,7 @@ export async function processImage(
     await fs.stat(outputFile)
     // already exists - ignore
     // delete the file to rebuild the Open Graph Image
+    console.log('file already exists ', outputFile)
     return
   } catch (error) {
     // non-error, please continue and create the Open Graph Image

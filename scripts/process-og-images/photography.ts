@@ -14,10 +14,20 @@ async function processPhotoOg(filePath: string, imagePath: string) {
 
   const outputFolder = path.normalize(`${OUTPUT_FOLDER_PHOTOGRAPHY}/${slug}`)
   const outputFile = path.normalize(`${outputFolder}/og.jpg`)
+  const outputFileWebp = path.normalize(`${outputFolder}/img.webp`)
 
   const image = await fs.readFile(imagePath)
 
+  // Open Graph Image (1200x630)
   await processImage(outputFolder, outputFile, image)
+
+  // static version for RSS feeds
+  await processImage(outputFolder, outputFileWebp, image, {
+    // reset the OG image width/height values
+    width: undefined,
+    height: undefined,
+    fit: 'cover',
+  })
 }
 
 const extractImageSource = async (filePath: string): Promise<string | null> => {

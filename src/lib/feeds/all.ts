@@ -77,6 +77,9 @@ async function addArticlesToFeed(
       site
     ) as string
 
+    // only for blog pages
+    const imageUrlBlog = createUrl(`/blog/${item.id}/og.jpg`, site) as string
+
     feed.addItem({
       title: item.data.title,
       id: link || item.id,
@@ -91,6 +94,7 @@ async function addArticlesToFeed(
         site,
         item.filePath || ''
       ),
+      image: isPhotographyPost(item) ? imageUrl : imageUrlBlog,
       content: isPhotographyPost(item)
         ? await mdxToHtml(
             `<img src="${imageUrl}" loading="lazy" />`,
@@ -98,7 +102,6 @@ async function addArticlesToFeed(
             item.filePath || ''
           )
         : await mdxToHtml(item.body || '', site, item.filePath || ''),
-      ...(isPhotographyPost(item) ? { image: imageUrl } : {}),
     })
   }
 }

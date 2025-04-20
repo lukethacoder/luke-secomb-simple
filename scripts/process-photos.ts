@@ -10,8 +10,8 @@
  *
  * Run this script with `node ./scripts/process-photos.ts` (min node v23.6.0)
  */
-import * as fs from 'fs/promises'
-import * as path from 'path'
+import fs from 'fs/promises'
+import path from 'path'
 import sharp from 'sharp'
 // @ts-ignore
 import exifr from 'exifr/dist/full.esm.mjs'

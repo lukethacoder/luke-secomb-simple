@@ -62,6 +62,7 @@ async function addPhotosToFeed(
 
   for (const item of posts) {
     const link = createUrl(`/photography/image/${item.id}`, site) as string
+    const content = await mdxToHtml(item.body || '', site, item.filePath || '')
 
     const imageUrl = createUrl(
       `/photography/image/${item.id}/img.webp`,
@@ -77,7 +78,7 @@ async function addPhotosToFeed(
       date: item.data.date,
       author: [author],
       description: await mdxToHtml(imageEl, site, item.filePath || ''),
-      content: await mdxToHtml(imageEl, site, item.filePath || ''),
+      content,
       image: imageUrl,
     })
   }

@@ -60,6 +60,8 @@ async function addArticlesToFeed(
     const link = createUrl(`/blog/${item.data.slug}`, site) as string
     const content = await mdxToHtml(item.body || '', site, item.filePath || '')
 
+    const imageUrl = createUrl(`/blog/${item.id}/og.jpg`, site) as string
+
     feed.addItem({
       title: item.data.title,
       id: link,
@@ -70,6 +72,7 @@ async function addArticlesToFeed(
       description: 'test',
       // description: await mdxToHtml(item.data.description, site, link),
       content,
+      image: imageUrl,
     })
   }
 }
