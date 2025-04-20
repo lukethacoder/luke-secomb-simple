@@ -185,7 +185,7 @@ const description = descriptionArray.join(' - ')
 
         {
           instagramTags && instagramTags.length > 0 && (
-            <ul class='hidden z-10 absolute w-full h-full'>
+            <ul class='hidden z-10 absolute w-full h-full pointer-events-none'>
               {instagramTags.map((item) => {
                 const top = item.position[0]
                 const left = item.position[1]
@@ -205,7 +205,7 @@ const description = descriptionArray.join(' - ')
                 return (
                   <li
                     style={`${topOrBottom}: ${topOrBottomValue}%; ${leftOrRight}: ${leftOrRightValue}%;`}
-                    class='absolute'
+                    class='absolute pointer-events-auto'
                   >
                     {/* may not work out so well for values too close to the edge, and/or long tags? */}
                     <a
