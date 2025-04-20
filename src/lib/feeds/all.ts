@@ -32,6 +32,7 @@ function createFeedInstance(site: string, author: SiteAuthor): Feed {
     description: 'Articles and Photography by Luke Secomb',
     id: site,
     link: site || 'https://lukesecomb.digital',
+    generator: site || 'https://lukesecomb.digital',
     language: 'en-us',
     favicon: createUrl('/favicon.jpg', site) as string,
     copyright: `Copyright ${new Date().getFullYear()} Luke Secomb`,
