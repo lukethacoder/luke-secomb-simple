@@ -1,0 +1,25 @@
+---
+import fs from 'node:fs/promises'
+// import path from 'node:path'
+
+import LayoutMain from '../layouts/Main.astro'
+import Banner from '../components/Banner.astro'
+
+const fileContents = await fs.readFile('./pnpm-lock.yaml')
+const fileContentsFeed = await fs.readFile('./node_modules/feed/lib/atom1.js')
+
+---
+
+<LayoutMain title={`Debug | Luke Secomb`}>
+  <div
+    class='blog-detail-page w-full flex flex-col flex-1 px-4 lg:px-0 mx-auto pb-20'
+  >
+    <Banner title='PNPM Debug' />
+    <div class='max-w-4xl w-full mx-auto flex flex-col'>
+      <h1 class="pt-4 pb-2"><code>./pnpm-lock.yaml</code> contents</h1>
+      <pre class="overflow-auto border p-4 max-h-[50vh]">{fileContents}</pre>
+      <h1 class="pt-4 pb-2"><code>./node_modules/feed/lib/atom1.js</code> contents</h1>
+      <pre class="overflow-auto border p-4 max-h-[50vh]">{fileContentsFeed}</pre>
+    </div>
+  </div>
+</LayoutMain>
