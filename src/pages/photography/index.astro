@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
 import { Picture } from 'astro:assets'
-// import { Picture } from 'astro-imagetools/components'
 
 import LayoutMain from '../../layouts/Main.astro'
 import Banner from '../../components/Banner.astro'
@@ -19,8 +18,8 @@ const tags = ['all', ...PHOTOGRAPHY_TAGS]
 
 <LayoutMain
   title='Photography | Luke Secomb'
-  description="I was behind a camera long before I was in front of a computer. Capturing anything that caught my eye. In recent years I enjoy automotive and concert photography, as well as snapping away while on my travels."
-  ogImageId="photography"
+  description='I was behind a camera long before I was in front of a computer. Capturing anything that caught my eye. In recent years I enjoy automotive and concert photography, as well as snapping away while on my travels.'
+  ogImageId='photography'
 >
   <div class='photography-page'>
     <span class='flex px-4'>
@@ -69,7 +68,10 @@ const tags = ['all', ...PHOTOGRAPHY_TAGS]
             class='aspect-[4/5] overflow-hidden relative hidden'
             data-tags={item.data.tags}
           >
-            <span class="blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat" style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}></span>
+            <span
+              class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
+              style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}
+            />
             <Picture
               src={item.data.src}
               alt={item.data.alt}

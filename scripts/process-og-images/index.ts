@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 
 import { processBlogPosts } from './blog.ts'
 import { processPhotos } from './photography.ts'
-import { processStaticPages } from './general.ts'
+import { processStaticPages } from './static.ts'
 
 const INPUT_FOLDER_BLOG = './src/content/blog'
 const INPUT_FOLDER_PHOTOGRAPHY = './src/content/photography'

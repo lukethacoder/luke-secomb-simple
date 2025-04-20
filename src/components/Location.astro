@@ -7,7 +7,7 @@ const { name, url, flag } = Astro.props
 ---
 
 <span class="flex flex-wrap gap-1 items-start">
-  {name && flag && <img src={`${BASE_URL}/${flag.toLowerCase()}.svg`} class="mt-1.5 h-3"/>}
+  {name && flag && <img src={`${BASE_URL}/${flag.toLowerCase()}.svg`} class="mt-1 h-3"/>}
   {name && !url && <span>{name}</span>}
   {
     name && url && (

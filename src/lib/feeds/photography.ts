@@ -55,9 +55,9 @@ async function addPhotosToFeed(
   const allPhotography = await getCollection('photography')
 
   // sort by date DESC
-  const posts = allPhotography
-    .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    .slice(0, 3)
+  const posts = allPhotography.toSorted(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  )
 
   for (const item of posts) {
     const link = createUrl(`/photography/image/${item.id}`, site) as string

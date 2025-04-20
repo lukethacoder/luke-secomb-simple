@@ -14,7 +14,8 @@ export const PHOTOGRAPHY_TAGS = [
   'concert',
   'automotive',
   'travel',
-  // 'other',
+  'street',
+  'other',
 ] as const
 
 export const ExifMakeKeyEnum = z.enum(

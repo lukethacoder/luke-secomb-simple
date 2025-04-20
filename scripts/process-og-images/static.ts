@@ -9,7 +9,7 @@ import {
   staticPageToOgHtmlTemplate,
 } from './utils.ts'
 
-const OUTPUT_FOLDER_BLOG = './public/og'
+const OUTPUT_FOLDER = './public/og'
 
 const STATIC_PAGES = [
   {
@@ -62,8 +62,10 @@ export const processStaticPages = async (): Promise<number> => {
     const page = await browser.newPage()
 
     for (const staticPage of STATIC_PAGES) {
-      const outputFolder = path.normalize(`${OUTPUT_FOLDER_BLOG}/${staticPage}`)
-      const outputFile = path.normalize(`${outputFolder}/og.jpg`)
+      const outputFolder = path.normalize(OUTPUT_FOLDER)
+      const outputFile = path.normalize(
+        `${outputFolder}/${staticPage.page}.jpg`
+      )
 
       await page.setContent(
         await prepHtmlTemplate(

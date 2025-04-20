@@ -39,7 +39,7 @@ if (!title) {
 }
 ---
 
-<aside aria-label={title} class={`markdown-alert markdown-alert-${type}`}>
+<blockquote aria-label={title} class={`markdown-alert markdown-alert-${type}`}>
   <p class='markdown-alert-title'>
     <svg
       class='octicon octicon-info mr-2'
@@ -55,4 +55,4 @@ if (!title) {
     {titleMapping[type]}
   </p>
   <slot />
-</aside>
+</blockquote>
