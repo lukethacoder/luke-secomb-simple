@@ -1,4 +1,9 @@
-import { CollectionEntry } from 'astro:content'
+import { CollectionEntry, InferEntrySchema } from 'astro:content'
+import {
+  EXIF_LENS_MAPPING,
+  EXIF_MAKE_MAPPING,
+  EXIF_MODEL_MAPPING,
+} from './constants'
 
 export const getUrlParam = (key: string): string | null =>
   new URL(window.location.href).searchParams.get(key)
@@ -58,4 +63,40 @@ export function isPhotographyPost(
   item: CollectionEntry<'blog'> | CollectionEntry<'photography'>
 ): item is CollectionEntry<'photography'> {
   return item.collection === 'photography'
+}
+
+export function cameraMetadataToString(
+  metadata: InferEntrySchema<'photography'>['metadata']
+): string {
+  if (metadata) {
+    const { make, model, lens, fStop, shutterSpeed, iso, focalLength } =
+      metadata
+
+    const makeDisplay = EXIF_MAKE_MAPPING[make]
+    const modelDisplay = EXIF_MODEL_MAPPING[model]
+    const lensDisplay = lens ? EXIF_LENS_MAPPING[lens] : undefined
+
+    const items: string[] = lensDisplay
+      ? [`${makeDisplay} ${modelDisplay} - ${lensDisplay}`]
+      : [`${makeDisplay} ${modelDisplay}`]
+    if (shutterSpeed) {
+      const formattedShutterSpeed = formatShutterSpeed(shutterSpeed)
+      if (formattedShutterSpeed) {
+        items.push(formattedShutterSpeed)
+      }
+    }
+    if (fStop) {
+      items.push(`ƒ/${fStop}`)
+    }
+    if (focalLength) {
+      items.push(`${focalLength}mm`)
+    }
+    if (iso) {
+      items.push(`ISO ${iso}`)
+    }
+
+    return items.join(' — ')
+  }
+
+  return ''
 }

@@ -29,9 +29,9 @@ const lensDisplay = lens ? EXIF_LENS_MAPPING[lens] : undefined
   <span class="font-semibold">{makeDisplay} {modelDisplay}</span>
   {lensDisplay && <span>{lensDisplay}</span>}
   <small class='flex flex-wrap gap-4 mt-1'>
-    {focalLength && <span>{focalLength}mm</span>}
-    {fStop && <span>ƒ/{fStop}</span>}
     {shutterSpeed && <span>{formatShutterSpeed(shutterSpeed)}</span>}
+    {fStop && <span>ƒ/{fStop}</span>}
+    {focalLength && <span>{focalLength}mm</span>}
     {iso && <span>ISO {iso}</span>}
   </small>
 </span>

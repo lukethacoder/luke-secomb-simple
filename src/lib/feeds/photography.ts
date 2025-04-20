@@ -6,6 +6,7 @@ import type { Author, FeedOptions } from 'feed'
 
 import { createUrl, mdxToHtml } from './utils'
 import { AUTHOR } from './constants'
+import { cameraMetadataToString } from '../../utils'
 // import { isBlogPost, isPhotographyPost } from '../../utils'
 
 interface SiteAuthor extends Author {
@@ -62,7 +63,11 @@ async function addPhotosToFeed(
 
   for (const item of posts) {
     const link = createUrl(`/photography/image/${item.id}`, site) as string
-    const content = await mdxToHtml(item.body || '', site, item.filePath || '')
+    const content = await mdxToHtml(
+      `${`${cameraMetadataToString(item.data.metadata)}<br/>`}${item.body ? item.body : ''}`,
+      site,
+      item.filePath || ''
+    )
 
     const imageUrl = createUrl(
       `/photography/image/${item.id}/img.webp`,
@@ -77,7 +82,7 @@ async function addPhotosToFeed(
       published: item.data.date,
       date: item.data.date,
       author: [author],
-      description: await mdxToHtml(imageEl, site, item.filePath || ''),
+      description: cameraMetadataToString(item.data.metadata),
       content,
       image: imageUrl,
     })

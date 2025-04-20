@@ -6,7 +6,11 @@ import type { Author, FeedOptions } from 'feed'
 
 import { createUrl, mdxToHtml } from './utils'
 import { AUTHOR } from './constants'
-import { isBlogPost, isPhotographyPost } from '../../utils'
+import {
+  cameraMetadataToString,
+  isBlogPost,
+  isPhotographyPost,
+} from '../../utils'
 
 interface SiteAuthor extends Author {
   link: string
@@ -89,11 +93,9 @@ async function addArticlesToFeed(
         ? item.data.sortDate || item.data.date
         : item.data.date,
       author: [author],
-      description: await mdxToHtml(
-        isBlogPost(item) ? item.data.description : '',
-        site,
-        item.filePath || ''
-      ),
+      description: isBlogPost(item)
+        ? item.data.description
+        : cameraMetadataToString(item.data.metadata),
       image: isPhotographyPost(item) ? imageUrl : imageUrlBlog,
       content: isPhotographyPost(item)
         ? await mdxToHtml(
