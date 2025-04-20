@@ -13,8 +13,14 @@ export default (ins: Feed) => {
 
   const base: any = {
     _declaration: { _attributes: { version: '1.0', encoding: 'utf-8' } },
+    _instruction: {},
     feed: {
-      _attributes: { xmlns: 'http://www.w3.org/2005/Atom' },
+      _attributes: {
+        xmlns: 'http://www.w3.org/2005/Atom',
+        'xmlns:content': 'http://purl.org/rss/1.0/modules/content/',
+        'xmlns:media': 'http://search.yahoo.com/mrss/',
+        'xmlns:atom': 'http://www.w3.org/2005/Atom',
+      },
       id: options.id,
       title: options.title,
       updated: options.updated
@@ -22,6 +28,17 @@ export default (ins: Feed) => {
         : new Date().toISOString(),
       generator: sanitize(options.generator || generator),
     },
+  }
+
+  if (options.stylesheet) {
+    base._instruction = {
+      'xml-stylesheet': {
+        _attributes: {
+          href: options.stylesheet,
+          type: 'text/xsl',
+        },
+      },
+    }
   }
 
   if (options.author) {
@@ -168,6 +185,13 @@ export default (ins: Feed) => {
     // rights
     if (item.copyright) {
       entry.rights = item.copyright
+    }
+
+    if (item.image) {
+      entry['media:thumbnail'] = { _attributes: { url: item.image } }
+      entry['media:content'] = {
+        _attributes: { medium: 'image', url: item.image },
+      }
     }
 
     base.feed.entry.push(entry)

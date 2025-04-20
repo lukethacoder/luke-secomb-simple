@@ -1,8 +1,8 @@
 import type { APIContext } from 'astro'
-import type { Author, FeedOptions } from 'feed'
-
 import { getCollection } from 'astro:content'
-import { Feed } from 'feed'
+
+import { Feed } from '../../../lib/feed'
+import type { Author, FeedOptions } from '../../../lib/feed'
 
 import { createUrl, mdxToHtml } from './utils'
 import { AUTHOR } from './constants'
