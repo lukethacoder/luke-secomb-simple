@@ -99,7 +99,7 @@ async function addArticlesToFeed(
       image: isPhotographyPost(item) ? imageUrl : imageUrlBlog,
       content: isPhotographyPost(item)
         ? await mdxToHtml(
-            `<img src="${imageUrl}" loading="lazy" />`,
+            `${`${cameraMetadataToString(item.data.metadata)}<br/>`}${item.body ? item.body : ''}`,
             site,
             item.filePath || ''
           )
