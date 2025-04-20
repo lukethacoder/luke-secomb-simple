@@ -73,7 +73,6 @@ async function addPhotosToFeed(
       `/photography/image/${item.id}/img.webp`,
       site
     ) as string
-    const imageEl = `<img src="${imageUrl}" loading="lazy" />`
 
     feed.addItem({
       title: item.data.title,
