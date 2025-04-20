@@ -1,7 +1,7 @@
 <div align="center">
   <br>
   <br>
-  <img alt="luke-secomb-simple" src="./public/favicon.svg" width="180">
+  <img alt="luke-secomb-simple" src="./public/favicon.jpg" width="180">
   <br>
   <br>
   <strong>Personal site built using AstroJS</strong>
@@ -19,6 +19,7 @@ pnpm install
 **Edit the Environment variables.**
 
 ```env
+CF_PAGES_URL=http://localhost:4321
 PUBLIC_LAST_FM_API_KEY=abcdefghijklmnopqrstuvwxyz123456
 PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=abcdefghijklmnopqrstuvwxyz123456
 PUBLIC_CLARITY_ANALYTICS_TRACKING_CODE=cthbfzqwds
