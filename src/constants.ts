@@ -6,6 +6,7 @@ export const SITE_DESCRIPTION =
  * Override mapping of EXIF.Make to display strings
  */
 export const EXIF_MAKE_MAPPING = {
+  'PENTAX Corporation': 'Pentax',
   'NIKON CORPORATION': 'Nikon',
   SONY: 'Sony',
   Google: 'Google',
@@ -18,6 +19,7 @@ export const EXIF_MODEL_MAPPING = {
   'ILCE-7M2': 'A7II',
   'DSC-RX100M7': 'RX100 VII',
   'NIKON D200': 'D200',
+  'PENTAX *ist DL': '*ist DL',
   'Pixel 8': 'Pixel 8',
 } as const
 
@@ -28,7 +30,8 @@ export const EXIF_LENS_MAPPING = {
   'FE 24-70mm F4 ZA OSS': 'FE 24-70mm ƒ/4 ZA OSS',
   '24-200mm F2.8-4.5': '24-200mm ƒ/2.8-4.5',
   '18.0-70.0 mm f/3.5-4.5': 'Nikon 18-70mm ƒ/3.5-4.5',
-  'Pixel 8 back camera 6.9mm f/1.68': 'Pixel 8 6.9mm f/1.68',
+  'smc PENTAX-F 35-105mm F4-5.6': 'PENTAX-F 35-105mm ƒ/4-5.6',
+  'Pixel 8 back camera 6.9mm f/1.68': 'Pixel 8 6.9mm ƒ/1.68',
 } as const
 
 export const ISO_COUNTRIES = {

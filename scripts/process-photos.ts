@@ -28,7 +28,7 @@ async function processImages() {
       const filePath = path.join(PHOTOS_FOLDER, file)
       const stats = await fs.stat(filePath)
 
-      if (stats.isFile() && /\.(jpg|jpeg|png)$/i.test(file)) {
+      if (stats.isFile() && /\.(jpg|jpeg|png|tif)$/i.test(file)) {
         console.log(`Processing image: ${file}`)
         await processImage(filePath, file)
       }
