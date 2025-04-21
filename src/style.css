@@ -454,6 +454,7 @@ input {
 
 .blur-hash {
   animation: fadein 1s;
+  filter: blur(7px);
 }
 @keyframes fadein {
   from { opacity: 0; }
