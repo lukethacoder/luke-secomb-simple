@@ -134,7 +134,6 @@ date: ${dateTaken.toISOString()}
 tags: []
 src: "./${fileNameWithExtension}"
 alt: image
-blurHash: "data:image/avif;base64,${blurHash.toString('base64')}"
 ${
   make && model
     ? `metadata:
@@ -148,6 +147,7 @@ ${
 `
     : ''
 }
+blurHash: "data:image/avif;base64,${blurHash.toString('base64')}"
 ---`
 
       const markdownFileName = `${year}-${month}-${day}-${fileNameRaw}.md`
