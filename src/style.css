@@ -486,9 +486,16 @@ input {
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: calc(100vh + 16px);
+  max-height: calc(100vh + 16px);
   padding: 0;
+}
+
+@supports (height: 100dvh) {
+  .layout {
+    min-height: 100dvh;
+    max-height: 100dvh;
+  }
 }
 
 /* main {
