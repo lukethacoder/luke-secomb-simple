@@ -114,7 +114,6 @@ const blog = defineCollection({
         // TODO: validate this is a color?
         color: z.string().optional(),
         description: z.string(),
-        excerpt: z.string(),
         tags: z.array(z.string()).optional(),
       })
       .transform((item) => ({

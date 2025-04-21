@@ -4,7 +4,6 @@ slug: local-lwc-development-with-aura-enabled-apex
 date: 2025-01-26
 color: '#199245'
 description: Call real AuraEnabled apex methods from your local LWC dev server
-excerpt: Call real AuraEnabled apex methods from your local LWC dev server
 tags: ['salesforce', 'lwc', 'apex']
 ---
 
