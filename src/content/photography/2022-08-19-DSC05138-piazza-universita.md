@@ -1,0 +1,25 @@
+---
+src: ./2022-08-19-DSC05138-piazza-universita.avif
+title: Piazza Università
+date: 2022-08-19T02:22:51.000Z
+tags:
+  - travel
+  - street
+alt: Courtyard in an old building with clear blue skies above
+metadata:
+  make: SONY
+  model: ILCE-7M2
+  lens: FE 24-70mm F4 ZA OSS
+  fStop: 22
+  shutterSpeed: 0.01
+  iso: 100
+  focalLength: 24
+blurHash: >-
+  data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAAChwAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAAo9tZGF0EgAKCjsqr/9/4QENBpAy9gRM8AKRWFDy1E+h3QLlb8sGWUEjAogZcO2oQZ36AtA2px5yfBn8t/T6nnRlb0QJryseX0b+M6Iz8Yz48aipPOMinmfGTOqSiTFiVRS2B1RPxkySOHaoJKDMCp2nMck7z2fB+XbqdxdDl1ofHfLde2YXHuuz4GmP2b1DZghwZ5w+Br4w7NYBeBEdAnsgB1FeZY8bNjbGkyVCNz1pqLcnEVQdTF+28y47SRNT7ocq10QK3HZHunSTyhJ1frPbS3IYCo3UAT+0f0NCgVuumcbAy30nTm5iO2orYdwmbX1Pwnx8ePv/BONn+/nDFx2L52eCldPTSodpXB77rfTfADmuZZBj43Tr8zRnDABuajbrDspOfeJSCocM/cXfoK+UpMo9lA78y7bTh58p0J7UIFaRh4QQPZiCW60Nxd1UcccKaJfQY78tpcZ0T8Scu2V1wMqCFffOmMFht+tqfJXNnIvDwt+KkEpf8RM8OndEqhtWwQMXEUZaSygstre6b1Oz6uEYVDOx4Q2tBcpJCnDv/4C2TwT86Nbg4HHSoylURwuFSO4OLiamv0+3BS76VosRGb3+bMPCVhlrPPoyv4HtDWdyrNw7mLlIxo20qyZRq4vtyGYoIYl4wTLcNfXw1eGsKP8BIJzqJOlB2W7WqCGBibxFtGE9n5t3z9EkKpnU/0rRxLFeFEZnGNzr+ZtQ8CvCrzByOcqlifyQsNUWhrZ5tfSc6KcS4kZ1GvOZU+P9HeAiuB/3pFw0Qfdp9buUWYLFdRC/u3RQj19HgxyfsWWIdwFJ4l0XiBW40D9Mbck33EDoEWPAXSlDfK8UyvEhrdc0rE+iBjaoxL9xWC4=
+location:
+  name: 'Catania, Sicily'
+  url: 'https://maps.app.goo.gl/ByoKoEzAmxpFPhUb9'
+  flag: IT
+instagramTags: []
+---
+

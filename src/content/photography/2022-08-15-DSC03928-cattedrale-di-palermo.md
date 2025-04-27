@@ -1,0 +1,25 @@
+---
+src: ./2022-08-15-DSC03928-cattedrale-di-palermo.avif
+title: Cattedrale di Palermo
+date: 2022-08-15T00:39:07.000Z
+tags:
+  - travel
+alt: Bright blue sky over the Cattedrale di Palermo in Sicily
+metadata:
+  make: SONY
+  model: ILCE-7M2
+  lens: FE 24-70mm F4 ZA OSS
+  fStop: 20
+  shutterSpeed: 0.0125
+  iso: 200
+  focalLength: 53
+blurHash: >-
+  data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAADhgAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAeAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAA45tZGF0EgAKCjsqu/9/4QENBpAy9QZM8AIL+hLCFuCLdyCmqe9I5w5qjU1krRvBq8Miq5PmTcAFJwoUYbitLnVaQiHJy4WVjrEmoBiFBk+CyaC8Ni96u2yEKb/zCQZBjeRs+GQ8zs4RQAkfxnu0ecaMHz6gzz4IqeepgY+QW4+YLEak5RJWVTxYT1ZHsIjYdzY/R6PJgqLSP2FPhYaxPscs5RllelNDmf4cAIxYhi+yGJuJ7eyNeVpqoHtvpAMSttltH9ODg6p8gQbFeabs6qmLzB6UHG0uRBbzUNG5U1g0ixZvK2+Wrf8BGhUUaiRe30YWCiJIGbvkPDZKt8DQAq7s2EJ0hwZe3yJFFy8HSe5Fdj8xl02vHxg8xLIIR2Ypnfa1qp8PsW+fyWCNbC4K56iL9fzWrCNnt0iMNDujOkq/9YmTSnoKa3krP4NhupD0HNTeAQ6n/TUhdI6Kiu+EtIUaqLQsPoMt5R9dR61JXepvGY68DqWi2eO4aNXHi03hizcIh8aKaorbyCIgFGl8+PesQ+FZfunCdwKyC4fGeCq7mzy/nhtU7Hmv8owtpNn2YkjXypgy85xGP1aWxktf6564mBZX1Hp89+lDsXl/3jCLVA5WH4EkI8nVKOM9EGVDNf/AtJYl4l4pKV6mkD3LY4iCcdIbzG0HjmDiiqEwgFDin/AEbmkFxfHmuVWVz5HoRt4p5uncAVhMPjms1ynU7Au1VXDw95L7XiY8DcoSl6+fuz30of+2GJgNk+Xu24Lru7aY3NRxPCga7L4oKp1YHHux5Ss4afua5VxS6CgffeOPjw3AQ2QoZs3t1TyS42eY5IZYEL1aVJTHQH1HmpRfKt38wRlXbd+I9BchEvq/BQAszA9TpOn2wvYTunCpMV2xBJrHDXpPPdBbvnOjpAS89F5/C82cVFKT5uPhPcchjRLb/8cORsinijAgBPGU3XEzL3MyKi0yF94mENSGYRYa+bngMvwYjGEGwu9Frr/my4bFn+vyyGS/LTyvw0hTDIuoTnoEMBlnAYLgI4uDBL6Nde2MTdRq1DMs/P491jPwrKoQ5cW+jLuarxficLutoRjbobiYvGQoxnOP030I3tIsLiyaSnUgH2UPydjBIlRRGVKixFMyCPrlLYB+qMoVV9DeHhYDE7a7HAtIqTb6FIq4qOoju7eBFVq5mFufqUGkoCHoEnB6BERTQlTqgvw=
+instagramTags: []
+location:
+  name: Cattedrale di Palermo
+  url: 'https://maps.app.goo.gl/pZcbPSqUtm3LFHdZ8'
+  flag: IT
+---
+
+4 bell towers top this architecturally diverse church dating from the 1100s & housing royal tombs.
