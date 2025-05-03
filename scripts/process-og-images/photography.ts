@@ -36,9 +36,9 @@ const extractImageSource = async (filePath: string): Promise<string | null> => {
     const { data } = await getMarkdownData(filePath)
 
     // Check if the 'src' property exists in the frontmatter
-    if (data.src) {
-      // Resolve the image path relative to the Markdown file's directory
-      return path.resolve(path.dirname(filePath), data.src)
+    if (data.srcPath) {
+      // Resolve the image path from the /public/ folder path
+      return path.resolve(path.join(OUTPUT_FOLDER_PHOTOGRAPHY, data.srcPath))
     }
 
     // If no 'src' property, return null
