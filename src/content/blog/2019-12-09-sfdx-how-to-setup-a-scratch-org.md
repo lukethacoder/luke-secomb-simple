@@ -3,7 +3,6 @@ title: 'SFDX: How to setup a Scratch Org'
 slug: sfdx-how-to-setup-a-scratch-org
 date: 2019-12-09
 editedDate: 2023-04-12
-color: '#8e1b0b'
 description: How the heck do I set up a scratch org using sfdx? Well, you're in the right place
 tags: ['salesforce', 'javascript']
 ---

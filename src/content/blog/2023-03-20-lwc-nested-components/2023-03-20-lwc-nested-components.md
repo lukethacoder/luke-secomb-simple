@@ -2,9 +2,8 @@
 title: 'Lightning Web Components: Custom Nested Components'
 slug: 'lwc-nested-components'
 date: 2023-03-20
-color: '#ee8d40'
 description: A quick look into how to build LWCs with slots to allow for nesting of LWCs
-tags: ['salesforce', 'lwc', 'lwr', 'experience-cloud']
+tags: ['salesforce', 'lwc', 'lwr', 'experience cloud']
 ---
 
 Lightning Web Runtime, or LWR for short was released back in [Spring 21 (v51.0)](https://help.salesforce.com/s/articleView?id=release-notes.rn_experiences_developers_lwr.htm&release=230&type=5). Even before the release of LWR, most developers dreamed of being able to build custom nested components. We could see that OOTB (Out Of The Box) components could use them (see Tabs component).

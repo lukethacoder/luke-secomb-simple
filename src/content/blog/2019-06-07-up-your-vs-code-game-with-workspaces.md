@@ -2,7 +2,6 @@
 title: Up Your VS Code Game with Workspaces
 slug: up-your-vs-code-game-with-workspaces
 date: 2019-06-07
-color: '#0079ba'
 description: VS Code's Workspaces allow you to customise both the UI and functionality of the IDE at a project level.
 tags: ['vscode', 'config']
 dev_to_id: '118546'

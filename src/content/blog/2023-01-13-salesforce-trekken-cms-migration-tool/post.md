@@ -2,7 +2,6 @@
 title: 'Salesforce Trekken: Salesforce CMS Migration Tool'
 slug: salesforce-trekken-cms-migration-tool
 date: 2023-01-13
-color: '#c23a3a'
 description: Exporing the new Salesforce CMS Migration Tool built with Tauri, React, TailwindCSS & Vite
 tags: ['salesforce', 'tool']
 ---

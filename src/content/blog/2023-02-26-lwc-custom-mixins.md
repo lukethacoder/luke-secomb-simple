@@ -3,7 +3,6 @@ title: 'Lightning Web Components: Custom Mixins'
 slug: 'lwc-custom-mixins'
 date: 2023-02-26
 editedDate: 2023-03-08
-color: '#57476b'
 description: A short guide on how to implement your own custom mixins in LWC
 tags: ['salesforce', 'lwc']
 ---

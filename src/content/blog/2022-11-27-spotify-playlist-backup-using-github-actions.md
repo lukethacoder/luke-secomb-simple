@@ -3,7 +3,6 @@ title: Spotify Playlist Backup using Github Actions
 slug: spotify-playlist-backup-using-github-actions
 description: Platforms come and go, and Spotify most likely wont be around forever. What would you do if you woke up tomorrow and Spotify was gone?
 date: 2022-11-27
-color: '#1db954'
 tags: ['spotify', 'python', 'github actions']
 ---
 

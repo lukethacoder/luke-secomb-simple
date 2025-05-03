@@ -19,6 +19,23 @@ export const PHOTOGRAPHY_TAGS = [
   'other',
 ] as const
 
+export const BLOG_TAGS = [
+  'apex',
+  'config',
+  'experience cloud',
+  'github actions',
+  'javascript',
+  'lwc',
+  'lwr',
+  'music',
+  'tool',
+  'python',
+  'salesforce',
+  'spotify',
+  'thoughts',
+  'vscode',
+] as const
+
 export const ExifMakeKeyEnum = z.enum(
   Object.keys(EXIF_MAKE_MAPPING) as [
     keyof typeof EXIF_MAKE_MAPPING,
@@ -116,14 +133,15 @@ const blog = defineCollection({
         title: z.string().max(140),
         slug: z.string(),
         draft: z.boolean().optional(),
+        // UTC Date/time
         date: z.union([z.string().transform((str) => new Date(str)), z.date()]),
+        // UTC Date/time
         editedDate: z
           .union([z.string().transform((str) => new Date(str)), z.date()])
           .optional(),
-        // TODO: validate this is a color?
-        color: z.string().optional(),
         description: z.string(),
-        tags: z.array(z.string()).optional(),
+        // not really being used atm - maybe one day we'll add a filter or something?
+        tags: z.array(z.enum(BLOG_TAGS)).optional(),
       })
       .transform((item) => ({
         ...item,
