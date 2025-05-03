@@ -5,6 +5,7 @@ import { Picture } from 'astro:assets'
 import LayoutMain from '../../layouts/Main.astro'
 import Banner from '../../components/Banner.astro'
 import { PHOTOGRAPHY_TAGS } from '../../content.config'
+import { Image } from 'astro:assets'
 
 const allPhotography = await getCollection('photography')
 
@@ -59,7 +60,7 @@ const tags = ['all', ...PHOTOGRAPHY_TAGS]
         </div>
       </Banner>
     </span>
-    <div class='photography-grid'>
+    <div class='photography-grid w-full max-w-6xl mx-auto'>
       {
         allPhotographyDateDesc.map((item, key) => (
           <a
@@ -72,14 +73,15 @@ const tags = ['all', ...PHOTOGRAPHY_TAGS]
               class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
               style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}
             />
-            <Picture
-              src={item.data.src}
+            <Image
+              src={item.data.srcPath}
               alt={item.data.alt}
-              loading={key < 12 ? 'eager' : 'lazy'}
+              width={item.data.imgWidth}
+              height={item.data.imgHeight}
+              loading={key < 6 ? 'eager' : 'lazy'}
               class={`relative object-cover h-full`}
               widths={[560, 1080]}
               sizes={`(max-width: 1600px) 560px, 1440px`}
-              formats={['avif', 'webp']}
             />
           </a>
         ))

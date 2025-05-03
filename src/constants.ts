@@ -2,6 +2,8 @@ export const SITE_TITLE = 'Luke Secomb'
 export const SITE_DESCRIPTION =
   'Welcome to my part of the internet, a personal site for me to share my passion for web development, photography and music.'
 
+export const PHOTOGRAPHY_BASE_PATH = '/photography/image'
+
 /**
  * Override mapping of EXIF.Make to display strings
  */

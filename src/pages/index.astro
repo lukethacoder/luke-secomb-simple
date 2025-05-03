@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import { Picture } from 'astro:assets'
+import { Image, Picture } from 'astro:assets'
 
 import LayoutMain from '../layouts/Main.astro'
 import BlogCard from '../components/BlogCard.astro'
@@ -23,7 +23,7 @@ const allBlogPostsDateDesc = allBlogPosts
 
 <LayoutMain
   title='Luke Secomb | Web Developer, Photographic connoisseur and Music nerd'
-  ogImageId="home"
+  ogImageId='home'
 >
   <div class='flex-1 flex flex-col px-4 mx-auto'>
     <section
@@ -52,7 +52,7 @@ const allBlogPostsDateDesc = allBlogPosts
     <span class='w-full max-w-4xl mx-auto pt-20 flex flex-col gap-4'>
       <section class='w-full max-w-4xl mx-auto flex flex-col'>
         <h2 class='text-5xl'>
-          <a href="/blog" class='hover:underline'>Blog</a>
+          <a href='/blog' class='hover:underline'>Blog</a>
         </h2>
         <p class='mb-6 mt-2'>
           A couple of recent posts. <a
@@ -91,13 +91,14 @@ const allBlogPostsDateDesc = allBlogPosts
                   class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
                   style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}
                 />
-                <Picture
-                  src={item.data.src}
+                <Image
+                  src={item.data.srcPath}
                   alt={item.data.alt}
+                  width={item.data.imgWidth}
+                  height={item.data.imgHeight}
                   class={`relative object-cover h-full`}
                   widths={[560, 1080]}
                   sizes={`(max-width: 1600px) 560px, 1440px`}
-                  formats={['avif', 'webp']}
                 />
               </a>
             ))

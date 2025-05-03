@@ -18,6 +18,7 @@ import exifr from 'exifr/dist/full.esm.mjs'
 
 const PHOTOS_FOLDER = '.photos'
 const OUTPUT_BASE_FOLDER = 'src/content/photography'
+const OUTPUT_PHOTO_BASE_FOLDER = 'public/photography/image'
 const PHOTOS_COMPLETED_FOLDER = '.photos-completed'
 
 async function processImages() {
@@ -89,8 +90,12 @@ async function processImage(imagePath: string, imageName: string) {
     const fileNameRaw = path.parse(imageName).name
     const fileName = `${year}-${month}-${day}-${fileNameRaw}`
     const fileNameWithExtension = `${fileName}.avif`
-    const outputAvifPath = path.join(OUTPUT_BASE_FOLDER, fileNameWithExtension)
+    const outputImageFolder = path.join(OUTPUT_PHOTO_BASE_FOLDER, fileName)
+    const outputAvifPath = path.join(outputImageFolder, `img.avif`)
 
+    console.log('outputAvifPath ', outputAvifPath)
+
+    await fs.mkdir(outputImageFolder, { recursive: true })
     await fs.mkdir(OUTPUT_BASE_FOLDER, { recursive: true })
 
     try {
@@ -110,6 +115,9 @@ async function processImage(imagePath: string, imageName: string) {
         // quality 50 seems to be good middle ground of file size and quality retention
         .avif({ quality: 50 })
         .toFile(outputAvifPath)
+
+      // read image metadata to write to markdown file
+      const image = await sharp(outputAvifPath).metadata()
 
       // small placeholder image - ideally this is real small and loads nice and fast before the main image
       const blurHash = await sharp(imagePath)
@@ -132,8 +140,10 @@ async function processImage(imagePath: string, imageName: string) {
 title: ${fileNameRaw}
 date: ${dateTaken.toISOString()}
 tags: []
-src: "./${fileNameWithExtension}"
+srcPath: "${OUTPUT_PHOTO_BASE_FOLDER.replace('public', '')}/${fileName}/img.avif"
 alt: image
+imgWidth: ${image.width}
+imgHeight: ${image.height}
 ${
   make && model
     ? `metadata:
