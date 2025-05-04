@@ -89,7 +89,6 @@ async function processImage(imagePath: string, imageName: string) {
 
     const fileNameRaw = path.parse(imageName).name
     const fileName = `${year}-${month}-${day}-${fileNameRaw}`
-    const fileNameWithExtension = `${fileName}.avif`
     const outputImageFolder = path.join(OUTPUT_PHOTO_BASE_FOLDER, fileName)
     const outputAvifPath = path.join(outputImageFolder, `img.avif`)
 

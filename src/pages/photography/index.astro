@@ -1,11 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
-import { Picture } from 'astro:assets'
+import { Image } from 'astro:assets'
 
 import LayoutMain from '../../layouts/Main.astro'
 import Banner from '../../components/Banner.astro'
 import { PHOTOGRAPHY_TAGS } from '../../content.config'
-import { Image } from 'astro:assets'
 
 const allPhotography = await getCollection('photography')
 
