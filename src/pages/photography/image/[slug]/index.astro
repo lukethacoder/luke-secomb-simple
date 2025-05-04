@@ -43,6 +43,7 @@ const {
   title,
   date,
   location,
+  srcPath,
   alt,
   imgWidth,
   imgHeight,
@@ -67,8 +68,6 @@ const descriptionArray = [
 ].filter((item) => !!item)
 
 const description = descriptionArray.join(' - ')
-
-const imagePath = `/public/photography/image/${slug}/img.avif`
 
 // TODO: can we save extra data here?
 // https://www.ogimage.gallery/
@@ -238,7 +237,7 @@ const imagePath = `/public/photography/image/${slug}/img.avif`
           style={`background-image: ${blurHash ? `url("${blurHash}")` : 'none'};`}
         ></span>
         <Image
-          src={imagePath}
+          src={srcPath}
           alt={alt}
           width={imgWidth || 1080}
           height={imgHeight || 1080}
