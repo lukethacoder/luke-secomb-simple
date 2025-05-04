@@ -65,7 +65,7 @@ export const IsoCountriesKeyEnum = z.enum(
 const photography = defineCollection({
   // loader: file('src/data/photography.json'),
   loader: glob({ pattern: '**/*.md', base: './src/content/photography' }),
-  schema: ({ image }) =>
+  schema: () =>
     z
       .object({
         title: z.string(),
