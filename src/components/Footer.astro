@@ -1,0 +1,47 @@
+---
+const navigation = [
+  {
+    url: '/rss',
+    title: 'RSS',
+    target: '_self'
+  },
+  {
+    url: '/colophon',
+    title: 'Colophon',
+    target: '_self'
+  },
+  {
+    url: 'https://github.com/lukethacoder',
+    title: 'Github',
+  },
+  {
+    url: 'https://www.instagram.com/lukesecomb',
+    title: 'Instagram',
+  },
+]
+---
+
+<footer id='footer' class='flex flex-col justify-between'>
+  <div class='px-4 py-6 flex flex-col gap-4 md:flex-row justify-between'>
+    <div class='flex items-center'>
+      <ul class='flex flex-wrap items-center gap-y-1 gap-x-4'>
+        {
+          navigation.map((item) => (
+            <li class='flex items-center'>
+              <a
+                href={item.url}
+                class='font-(family-name:--theme-font-primary)'
+                target={item.target || '_blank'}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class='flex'>
+      <p>Made by <a href='https://lukesecomb.digital' class='underline'>luke</a>.</p>
+    </div>
+  </div>
+</footer>

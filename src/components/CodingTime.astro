@@ -1,0 +1,76 @@
+---
+/**
+ * Component will run at build time - the response will be cached until a new build is run.
+ */
+interface PayloadResponse {
+  data: Data
+}
+
+interface Data {
+  grand_total: GrandTotal
+  range: Range
+}
+
+interface GrandTotal {
+  daily_average: number
+  daily_average_including_other_language: number
+  human_readable_daily_average: string
+  human_readable_daily_average_including_other_language: string
+  human_readable_total: string
+  human_readable_total_including_other_language: string
+  total_seconds: number
+  total_seconds_including_other_language: number
+}
+
+interface Range {
+  days_including_holidays: number
+  days_minus_holidays: number
+  end: string
+  holidays: number
+  range: string
+  start: string
+}
+
+const response: PayloadResponse = await (
+  await fetch(
+    'https://wakatime.com/share/@lukethacoder/46358a0e-f157-4d06-8d43-a082a3ab005e.json'
+  )
+).json()
+
+console.log('Wakatime response ', response)
+
+const dateFormat = new Intl.DateTimeFormat('en-AU', {
+  month: 'short',
+  year: 'numeric',
+})
+const numberFormat = new Intl.NumberFormat('en-AU', {
+  maximumFractionDigits: 0,
+})
+
+const startDate = new Date(response?.data?.range?.start || '2018-02-23')
+const codingTimeHrs = numberFormat.format(
+  (response?.data?.grand_total?.total_seconds_including_other_language ||
+    9395.25 * 3600) / 3600
+)
+---
+
+<div class='flex'>
+  <div
+    class='py-3 px-4 rounded-xl my-3 flex flex-col'
+    style='background-color: var(--theme-background-secondary);'
+  >
+    <span class='text-sm'
+      >{codingTimeHrs} hours spent coding since {
+        dateFormat.format(startDate)
+      }</span
+    >
+    <small
+      ><a
+        href='https://wakatime.com/@lukethacoder'
+        target='_blank'
+        rel='noreferrer nofollow'
+        class='underline'>Wakatime</a
+      > - last updated {dateFormat.format(new Date())}</small
+    >
+  </div>
+</div>

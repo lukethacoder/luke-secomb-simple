@@ -7,6 +7,7 @@ devDescription: 'Visualforce / Angular / APEX / SCSS'
 date: 2019-09-01
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
+imageLogoLight: './image-logo-color.svg'
 url: 'https://denman.secure.force.com/booking/SportLeisureBooking'
 published: true
 ---

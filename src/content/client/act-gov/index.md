@@ -7,6 +7,7 @@ devDescription: 'LWC / APEX'
 date: 2021-03-21
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
+imageLogoLight: './image-logo-color.svg'
 url: ''
 published: true
 ---

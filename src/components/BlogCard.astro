@@ -1,0 +1,23 @@
+---
+import DateTime from "./DateTime.astro"
+
+const { post, className } = Astro.props
+
+const { readingTime } = post.rendered.metadata.frontmatter
+---
+
+<article class={`blog-card ${className}`}>
+  <span class="relative flex flex-col">
+    <a 
+      href={`/${post.collection}/${post.data.slug}`}
+      class="card-link"
+    ></a>
+    <h3 
+      class="text-xl font-(family-name:--theme-font-primary) hover:underline mt-0"
+    >
+      {post.data.title}
+    </h3>
+    <small><DateTime date={post.data.sortDate}/><span> — </span><span>{readingTime}</span></small>
+    <p class="mt-1">{post.data.description}</p>
+  </span>
+</article>

@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content'
+import { Picture } from 'astro:assets'
+
+import LayoutMain from '../../../layouts/Main.astro'
+
+const allPhotography = await getCollection('photography')
+
+// sort by date DESC
+const allPhotographyDateDesc = allPhotography.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+---
+
+<LayoutMain title={`Photography | Open Graph Image Test`}>
+  <span class='flex bg-black p-4'>
+    <div class='grid grid-cols-3 gap-4 mx-auto'>
+      {
+        allPhotographyDateDesc.map((item) => (
+          <div class="flex flex-col gap-2">
+            <Picture
+              src={`/photography/image/${item.id.toLowerCase()}/og.jpg`}
+              alt='test'
+              width={1200}
+              height={630}
+            />
+            <span>{item.id}</span>
+          </div>
+        ))
+      }
+    </div>
+  </span>
+</LayoutMain>

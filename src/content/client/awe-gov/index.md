@@ -7,6 +7,7 @@ devDescription: 'LWC / APEX / REST API'
 date: 2020-04-20
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
+imageLogoLight: './image-logo-black.svg'
 url: ''
 published: true
 ---

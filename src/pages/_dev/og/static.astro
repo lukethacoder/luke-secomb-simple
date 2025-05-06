@@ -1,0 +1,74 @@
+---
+import { Picture } from 'astro:assets'
+
+import LayoutMain from '../../../layouts/Main.astro'
+
+const STATIC_PAGES = [
+  {
+    page: 'home',
+    label: '',
+  },
+  {
+    page: 'photography',
+    label: 'Photography',
+  },
+  {
+    page: 'photography-usage',
+    label: 'Photography Usage',
+  },
+  {
+    page: 'blog',
+    label: 'Blog',
+  },
+  {
+    page: 'about',
+    label: 'About',
+  },
+  {
+    page: 'projects',
+    label: 'Projects',
+  },
+  {
+    page: 'colophon',
+    label: 'Colophon',
+  },
+  {
+    page: 'rss',
+    label: 'RSS',
+  },
+  {
+    page: 'etc',
+    label: 'Everything Else',
+  },
+  {
+    page: 'uses',
+    label: '/uses',
+  },
+]
+
+const isDev = !import.meta.env.DEV
+console.log('isDev ', isDev)
+if (!isDev) {
+  return null;
+}
+---
+
+<LayoutMain title={`Static | Open Graph Image Test`}>
+  <span class='flex bg-black p-4'>
+    <div class='grid grid-cols-3 gap-4 mx-auto'>
+      {
+        STATIC_PAGES.map((item) => (
+          <div>
+            <Picture
+              src={`/og/${item.page}.jpg`}
+              alt='test'
+              width={1200}
+              height={630}
+            />
+            <span>{item.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </span>
+</LayoutMain>

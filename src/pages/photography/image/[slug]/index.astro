@@ -1,0 +1,400 @@
+---
+import { getCollection, render } from 'astro:content'
+import { Image } from 'astro:assets'
+
+import LayoutMain from '../../../../layouts/Main.astro'
+import DateTime from '../../../../components/DateTime.astro'
+import CameraMetadata from '../../../../components/CameraMetadata.astro'
+import Location from '../../../../components/Location.astro'
+
+export async function getStaticPaths() {
+  const allPhotography = await getCollection('photography')
+
+  // sort by date DESC
+  const allPhotographyDateDesc = allPhotography.toSorted(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  )
+
+  const allIds = allPhotographyDateDesc.map((item) => item.id.replace('/', '-'))
+
+  return allPhotographyDateDesc.map((item, index) => {
+    const slug = item.id.replace('/', '-')
+
+    const previousId = index > 0 ? allIds.at(index - 1) : undefined
+    const nextId = index < allIds.length ? allIds.at(index + 1) : undefined
+
+    return {
+      params: {
+        slug,
+      },
+      props: {
+        ...item,
+        previousId,
+        nextId,
+      },
+    }
+  })
+}
+
+const { slug } = Astro.params
+const post = Astro.props
+const { data, previousId, nextId } = post
+const {
+  title,
+  date,
+  location,
+  srcPath,
+  alt,
+  imgWidth,
+  imgHeight,
+  instagramTags,
+  metadata,
+  blurHash,
+} = data
+
+const { Content } = await render(post)
+
+const descriptionArray = [
+  title,
+  location?.name,
+  new Intl.DateTimeFormat(
+    navigator.language || navigator.languages[0] || 'en-AU',
+    {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }
+  ).format(date),
+].filter((item) => !!item)
+
+const description = descriptionArray.join(' - ')
+
+// TODO: can we save extra data here?
+// https://www.ogimage.gallery/
+---
+
+<LayoutMain
+  title={`${title} - Photography | Luke Secomb`}
+  description={description}
+  ogImageUrl={`/photography/image/${slug.toLowerCase()}/og.jpg`}
+>
+  <div class='photography-detail-page'>
+    <div
+      class='details hidden absolute left-0 top-0 bg-background max-w-sm z-20 px-4 pb-2'
+    >
+      <div class='relative'>
+        <span class='z-0 absolute w-full h-full'></span>
+        <div class='z-10 relative grid gap-2'>
+          <span class='flex flex-col'>
+            <h2 class='text-xl mt-2 leading-tight'>{title}</h2>
+            <small
+              >{
+                location && (
+                  <Location
+                    name={location?.name}
+                    url={location?.url}
+                    flag={location?.flag}
+                  />
+                )
+              }</small
+            >
+            <small
+              ><p class='sr-only'>Date taken</p><DateTime date={date} /></small
+            >
+            <!-- <span>Reference URL: <a href={API_URL}>{API_URL}</a></span> -->
+          </span>
+          <hr />
+          {
+            metadata && (
+              <>
+                <>
+                  <CameraMetadata metadata={metadata} />
+                  <hr />
+                </>
+              </>
+            )
+          }
+          <div class='prose'>
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='absolute w-full h-full pb-8'>
+      <div
+        class='relative flex m-auto max-h-full overflow-hidden image-overlay-container'
+        data-aspect={imgWidth < imgHeight ? 'portrait' : 'landscape'}
+        style={`aspect-ratio: ${imgWidth} / ${imgHeight}`}
+      >
+        <div
+          class='absolute z-10 bottom-2 left-2 flex flex-col gap-1 justify-start'
+        >
+          {
+            instagramTags && instagramTags.length > 0 && (
+              <label
+                id='toggle-tags'
+                class='image-overlay-button relative z-10 p-2 cursor-pointer flex items-center overflow-hidden justify-center'
+              >
+                <span class='sr-only'>Toggle tags</span>
+                <input
+                  type='checkbox'
+                  name='tags'
+                  title='Toggle tags - press "T" to toggle'
+                  class='absolute w-full h-full opacity-0 cursor-pointer'
+                />
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  class='icon icon-tabler icons-tabler-outline icon-tabler-tag w-4 h-4'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                >
+                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                  <path d='M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0' />
+                  <path d='M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z' />
+                </svg>
+              </label>
+            )
+          }
+          <label
+            id='toggle-info'
+            class='image-overlay-button flex items-center relative'
+          >
+            <span class='sr-only'>Toggle info</span>
+            <input
+              type='checkbox'
+              name='info'
+              title='Toggle tags - press "T" to toggle'
+              class='absolute w-full h-full opacity-0 cursor-pointer'
+            />
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              class='icon icon-tabler icon-tabler-info-circle w-4 h-4'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              stroke-width='2'
+              stroke='currentColor'
+              fill='none'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+            >
+              <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+              <circle cx='12' cy='12' r='9'></circle>
+              <line x1='12' y1='8' x2='12.01' y2='8'></line>
+              <polyline points='11 12 12 12 12 16 13 16'></polyline>
+            </svg>
+          </label>
+        </div>
+
+        {
+          instagramTags && instagramTags.length > 0 && (
+            <ul class='hidden z-10 absolute w-full h-full pointer-events-none'>
+              {instagramTags.map((item) => {
+                const top = item.position[0]
+                const left = item.position[1]
+
+                // any value above 75% should be "inverted" so the label renders correctly
+
+                const topOrBottom = top < 75 ? 'top' : 'bottom'
+                const topOrBottomValue = top < 75 ? top : 100 - top
+
+                const leftOrRight = left < 75 ? 'left' : 'right'
+                const leftOrRightValue = left < 75 ? left : 100 - left
+
+                // any value above 90 should drop the "x center" offset
+                const shouldTranslateX =
+                  leftOrRightValue < 95 && leftOrRightValue > 5
+
+                return (
+                  <li
+                    style={`${topOrBottom}: ${topOrBottomValue}%; ${leftOrRight}: ${leftOrRightValue}%;`}
+                    class='absolute pointer-events-auto'
+                  >
+                    {/* may not work out so well for values too close to the edge, and/or long tags? */}
+                    <a
+                      href={`https://instagram.com/${item.username}`}
+                      target='_blank'
+                      rel='noreferrer nofollow'
+                      class={`flex bg-black text-white p-1 rounded text-sm pointer-events-auto ${shouldTranslateX ? '-translate-x-1/2' : ''}`}
+                    >
+                      {item.username}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          )
+        }
+        <span
+          class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
+          style={`background-image: ${blurHash ? `url("${blurHash}")` : 'none'};`}
+        ></span>
+        <Image
+          src={srcPath}
+          alt={alt}
+          width={imgWidth || 1080}
+          height={imgHeight || 1080}
+          loading='eager'
+          class={`absolute inset-0 w-full h-full object-contain pointer-events-none`}
+        />
+      </div>
+
+      <div
+        class='next-previous-container absolute bottom-0 left-0 w-full flex justify-center z-10'
+      >
+        <span class='flex w-8 h-8 items-center justify-center'>
+          {
+            previousId && (
+              <a
+                type='button'
+                class='btn-arrow pointer-events-auto bg-amber-500 p-1'
+                title='Previous - press "ArrowRight" to navigate'
+                aria-label='previous button'
+                data-previous={previousId}
+                href={`/photography/image/${previousId}`}
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  class='icon icon-tabler icons-tabler-outline icon-tabler-circle-chevron-left w-full h-full'
+                >
+                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                  <path d='M13 15l-3 -3l3 -3' />
+                  <path d='M21 12a9 9 0 1 0 -18 0a9 9 0 0 0 18 0z' />
+                </svg>
+              </a>
+            )
+          }
+        </span>
+        <span class='flex w-8 h-8 items-center justify-center'>
+          {
+            nextId && (
+              <a
+                class='btn-arrow pointer-events-auto p-1'
+                title='Next - press "ArrowLeft" to navigate'
+                aria-label='next button'
+                data-next={nextId}
+                href={`/photography/image/${nextId}`}
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  class='icon icon-tabler icons-tabler-outline icon-tabler-circle-chevron-right w-full h-full'
+                >
+                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
+                  <path d='M11 9l3 3l-3 3' />
+                  <path d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0z' />
+                </svg>
+              </a>
+            )
+          }
+        </span>
+      </div>
+    </div>
+  </div>
+</LayoutMain>
+
+<script>
+  import { getSessionStorage, setSessionStorage } from '../../../../utils'
+
+  const STORAGE_KEY_INFO = 'luke-info-visible'
+  const STORAGE_KEY_TAGS = 'luke-tags-visible'
+
+  function setVisibility(
+    inputElement: HTMLInputElement,
+    localStorageKey: string,
+    value: boolean
+  ) {
+    inputElement.checked = value
+    setSessionStorage(localStorageKey, String(value))
+  }
+
+  const infoCheckboxEl: HTMLInputElement | null =
+    document.querySelector('[name="info"]')
+
+  const tagsCheckboxEl: HTMLInputElement | null =
+    document.querySelector('[name="tags"]')
+
+  // onload check localStorage for user preference of tags and details visibility
+  if (infoCheckboxEl) {
+    if (getSessionStorage(STORAGE_KEY_INFO)) {
+      setVisibility(
+        infoCheckboxEl,
+        STORAGE_KEY_INFO,
+        getSessionStorage(STORAGE_KEY_INFO) === 'true'
+      )
+    }
+
+    infoCheckboxEl.addEventListener('change', (event) => {
+      setSessionStorage(
+        STORAGE_KEY_INFO,
+        String((event.target as HTMLInputElement).checked ? true : '')
+      )
+    })
+  }
+
+  if (tagsCheckboxEl) {
+    if (getSessionStorage(STORAGE_KEY_TAGS)) {
+      setVisibility(
+        tagsCheckboxEl,
+        STORAGE_KEY_TAGS,
+        getSessionStorage(STORAGE_KEY_TAGS) === 'true'
+      )
+    }
+
+    tagsCheckboxEl.addEventListener('change', (event) => {
+      setSessionStorage(
+        STORAGE_KEY_TAGS,
+        String((event.target as HTMLInputElement).checked ? true : '')
+      )
+    })
+  }
+
+  window.addEventListener('keyup', (event) => {
+    const previousEl = document.querySelector('[data-previous]')
+    if (event.code === 'ArrowLeft' && previousEl) {
+      // @ts-ignore
+      window.location = previousEl.href
+    }
+
+    if (event.code === 'Escape') {
+      // @ts-ignore
+      window.location = '/photography'
+    }
+
+    const nextEl = document.querySelector('[data-next]')
+    if (event.code === 'ArrowRight' && nextEl) {
+      // @ts-ignore
+      window.location = nextEl.href
+    }
+
+    if (event.code === 'KeyI' && infoCheckboxEl) {
+      setVisibility(infoCheckboxEl, STORAGE_KEY_INFO, !infoCheckboxEl.checked)
+    }
+
+    if (event.code === 'KeyT' && tagsCheckboxEl) {
+      setVisibility(tagsCheckboxEl, STORAGE_KEY_TAGS, !tagsCheckboxEl.checked)
+    }
+  })
+</script>

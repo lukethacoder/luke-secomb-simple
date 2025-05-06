@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content'
+
+import LayoutMain from '../../layouts/Main.astro'
+import Banner from '../../components/Banner.astro'
+import BlogCard from '../../components/BlogCard.astro'
+
+const allBlog = await getCollection('blog')
+
+// sort by date DESC
+const allBlogDateDesc = allBlog.toSorted(
+  (a, b) => b.data.sortDate.getTime() - a.data.sortDate.getTime()
+)
+---
+
+<LayoutMain
+  title='Blog | Luke Secomb'
+  ogImageId="blog"
+>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='Blog'>
+      <p>A mixed bag of personal thoughts, exploration and tutorial posts.</p>
+    </Banner>
+    <div class='blog-card-container max-w-4xl w-full mx-auto grid'>
+      {allBlogDateDesc.map((item) => <BlogCard post={item} className="pb-8" />)}
+    </div>
+  </div>
+</LayoutMain>

@@ -1,15 +1,19 @@
-<div>
-  <div class='text-xs uppercase mb-1 skeleton' id="track-status"></div>
-  <div class='flex items-end'>
-    <img
-      class='w-12 h-12 skeleton'
-      id="track-artwork"
-    />
-    <a class='ml-2 hover:underline' href="https://www.last.fm/user/lu_ke____" target="_blank">
-      <p class='text-2xs skeleton' id="track-name"></p>
-      <p class='text-2xs font-bold text-tertiary no-underline skeleton' id="track-artist"></p>
-    </a>
+<div class="flex flex-col min-w-3xs w-full">
+  <!-- TODO: add a couple other previously tracks here? -->
+  <div class="p-3 md:p-4 rounded-xl" style="background-color: var(--theme-background-secondary);">
+    <p class='font-(family-name:--theme-font-primary) text-xs leading-1 mt-2 mb-3 skeleton' id="track-status"></p>
+    <div class='flex pr-2'>
+      <img
+        class='w-12 h-12 skeleton'
+        id="track-artwork"
+      />
+      <a class='mt-0.5 ml-2 hover:underline' href="https://www.last.fm/user/lu_ke____" target="_blank">
+        <p class='text-2xs line-clamp-1 font-bold skeleton' id="track-name"></p>
+        <small class='line-clamp-1 text-tertiary no-underline skeleton' id="track-artist"></small>
+      </a>
+    </div>
   </div>
+  <small class="ml-auto mt-1">View more on <a href="https://www.last.fm/user/lu_ke____" class="underline" target="_blank" rel="nofollow noreferrer">last.fm</a>.</small>
 </div>
 
 <style>
@@ -33,8 +37,6 @@
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: skeletonShimmer;
     -webkit-animation-timing-function: linear;
-    /* background: #50535a;
-    background-image: linear-gradient(to right, #50535a 0%, #656871 20%, #50535a 40%, #50535a 100%); */
     background: #2f2f2f;
     background-image: linear-gradient(to right, #2f2f2f 0%, #4f4f4f 20%, #2f2f2f 40%, #2f2f2f 100%);
     background-repeat: no-repeat;

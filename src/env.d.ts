@@ -11,3 +11,12 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+// Extend the Astro frontmatter type to include 'readingTime'
+declare module 'astro' {
+  interface AstroFrontmatter {
+    readingTime?: string
+  }
+}
+
+export {}

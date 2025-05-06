@@ -1,0 +1,61 @@
+---
+import Banner from '../components/Banner.astro'
+import LayoutMain from '../layouts/Main.astro'
+
+const FEEDS = [
+  {
+    label: 'All posts',
+    url: '/rss.xml', // feed.xml should redirect too
+    description: 'default feed with everything',
+    rssUrl: '/rss.xml',
+    atomUrl: '/atom.xml',
+  },
+  {
+    label: 'Photography',
+    url: '/photography/rss.xml',
+    description: 'feed of just photos',
+    rssUrl: '/photography/rss.xml',
+    atomUrl: '/photography/atom.xml',
+  },
+  {
+    label: 'Blog',
+    description: 'blog posts, articles and thoughts',
+    rssUrl: '/blog/rss.xml',
+    atomUrl: '/blog/atom.xml',
+  },
+]
+---
+
+<LayoutMain
+  title='RSS | Luke Secomb'
+  ogImageId="rss"
+>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='RSS Feeds'>
+    </Banner>
+    <div class='w-full max-w-4xl mx-auto'>
+      <span class='prose'>
+        <blockquote>
+          RSS (RDF Site Summary or Really Simple Syndication) is a web feed that
+          allows users and applications to access updates to websites in a
+          standardized, computer-readable format. Subscribing to RSS feeds can
+          allow a user to keep track of many different websites in a single news
+          aggregator, which constantly monitors sites for new content, removing
+          the need for the user to manually check them. - <a href="https://en.wikipedia.org/wiki/RSS" target="_blank" rel="noreferrer nofollow">Wikipedia</a>
+        </blockquote>
+        <p>RSS feeds, in {new Date().getFullYear()}? Heck yeah!</p>
+        <p>This site offers a few different flavours:</p>
+        <ul class='grid flex-1'>
+          {
+            FEEDS.map((item) => (
+              <li>
+                <b>{item.label}</b>
+                <span>{item.description}</span> (<a href={item.atomUrl} class='underline'>Atom</a> or <a href={item.rssUrl} class='underline'>RSS</a>)
+              </li>
+            ))
+          }
+        </ul>
+      </span>
+    </div>
+  </div>
+</LayoutMain>

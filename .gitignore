@@ -1,6 +1,14 @@
+# Node modules
 node_modules/
 .cache/
-public
 .env
 .env.development
 .env.production
+
+# Astro folder
+.astro
+/dist
+
+# Photos - keep the folder, but ignore all contents
+/.photos/*
+/.photos-completed/*

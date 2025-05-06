@@ -7,6 +7,7 @@ devDescription: 'Wordpress / Google Maps'
 date: 2019-04-01
 imageMain: './image.jpg'
 imageLogo: './image-logo.png'
+imageLogoLight: './image-logo-black.svg'
 url: 'https://rbdprojects.com.au/'
 published: true
 ---

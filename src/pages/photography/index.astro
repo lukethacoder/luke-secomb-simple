@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+
+import LayoutMain from '../../layouts/Main.astro'
+import Banner from '../../components/Banner.astro'
+import { PHOTOGRAPHY_TAGS } from '../../content.config'
+
+const allPhotography = await getCollection('photography')
+
+// sort by date DESC
+const allPhotographyDateDesc = allPhotography.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+
+const tags = ['all', ...PHOTOGRAPHY_TAGS]
+---
+
+<LayoutMain
+  title='Photography | Luke Secomb'
+  description='I was behind a camera long before I was in front of a computer. Capturing anything that caught my eye. In recent years I enjoy automotive and concert photography, as well as snapping away while on my travels.'
+  ogImageId='photography'
+>
+  <div class='photography-page'>
+    <span class='flex px-4'>
+      <Banner title='Photography'>
+        <p>
+          I was behind a camera long before I was in front of a computer.
+          Capturing anything that caught my eye. In recent years I enjoy
+          automotive and concert photography, as well as snapping away while on
+          my travels.
+        </p>
+        <p>
+          This page is available as an <a
+            href='/photography/rss.xml'
+            class='underline'>RSS feed</a
+          > (what the heck is an <a href='/rss' class='underline'>RSS feed</a
+          >?).
+        </p>
+        <p>
+          <a href='/photography/usage' class='underline'
+            >Can I use these photos?</a
+          >.
+        </p>
+        <div id='tags' class='flex gap-2 mt-4'>
+          {
+            tags.map((item) => (
+              <label class='relative font-(family-name:--theme-font-primary)'>
+                <input
+                  type='radio'
+                  name='tags'
+                  value={item}
+                  class='peer/tag-input absolute h-full w-full opacity-0'
+                />
+                <span class='peer-checked/tag-input:underline'>{item}</span>
+              </label>
+            ))
+          }
+        </div>
+      </Banner>
+    </span>
+    <div class='photography-grid w-full max-w-6xl mx-auto pb-20'>
+      {
+        allPhotographyDateDesc.map((item, key) => (
+          <a
+            href={`/${item.collection}/image/${item.id.replace('/', '-')}`}
+            id={item.id.replace('/', '-')}
+            class='md:aspect-[4/5] overflow-hidden relative hidden focus-visible:z-10'
+            data-tags={item.data.tags}
+          >
+            <span
+              class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
+              style={`background-image: ${item.data.blurHash ? `url("${item.data.blurHash}")` : 'none'};`}
+            />
+            <Image
+              src={item.data.srcPath}
+              alt={item.data.alt}
+              width={item.data.imgWidth}
+              height={item.data.imgHeight}
+              loading={key < 6 ? 'eager' : 'lazy'}
+              class={`relative object-cover h-full`}
+              widths={[560, 1080]}
+              sizes={`(max-width: 1600px) 560px, 1440px`}
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</LayoutMain>
+
+<script>
+  import {
+    getUrlParam,
+    setUrlParam,
+    getSessionStorage,
+    setSessionStorage,
+  } from '../../utils'
+
+  const STORAGE_KEY = 'photography-tags'
+
+  const tags = document.querySelectorAll('#tags input')
+
+  function setDefaultValue(value: string) {
+    const radioInput: HTMLInputElement | null = document.querySelector(
+      `#tags [value=${value}]`
+    )
+    if (radioInput) {
+      radioInput.checked = true
+
+      // align all values (url params/sessionStorage)
+      setUrlParam('t', value)
+      setSessionStorage(STORAGE_KEY, value)
+    }
+  }
+
+  const fromUrlParam = getUrlParam('t')
+  const fromSessionStorage = getSessionStorage(STORAGE_KEY)
+  if (fromUrlParam) {
+    // URL param takes
+    setDefaultValue(fromUrlParam)
+  } else if (fromSessionStorage) {
+    // session storage
+    setDefaultValue(fromSessionStorage)
+  } else {
+    // fallback to 'all'
+    setDefaultValue('all')
+  }
+
+  tags.forEach((item) =>
+    item.addEventListener('input', (event) => {
+      const value = (event.target as HTMLInputElement).value
+
+      setUrlParam('t', value)
+      setSessionStorage(STORAGE_KEY, value)
+    })
+  )
+</script>

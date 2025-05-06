@@ -1,0 +1,29 @@
+---
+title: Voodoo Acid Space Kings
+date: 2025-01-23T10:03:58.000Z
+tags:
+  - concert
+srcPath: /2025-01-23-DSC01813-voodoo-acid-space-kings/img.avif
+alt: 'Man playing a bass guitar, wearing sunglasses with blue concert lights.'
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4
+  shutterSpeed: 0.005
+  iso: 4000
+  focalLength: 102
+location:
+  name: 'The Baso, Canberra'
+  url: 'https://www.thebaso.com.au/'
+instagramTags:
+  - username: voodooacidspacekings
+    position:
+      - 1
+      - 99
+imgWidth: 1536
+imgHeight: 1920
+blurHash: >-
+  data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAAD/gAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAABAZtZGF0EgAKCjsqr/9/4QENBpAy7QdM8AK+G560ooZdnUOr7VVDCbAQHX+GpxXaLKGlzMn1X/gunLa7ZAYPJJdFjYC8qGOuhMigW/+C0CJ+4CpKrk+HMqGC0RZAnyuDYfS1s4kxOenWY+NHJq410yLMWSAezuqh37mLPTE2e9lSjyn6LoOYcv2WPYj7XvvSv8KN7aW+dttIqyleQ7U6lIuL3LuY8bDzmpPEzaeSG8/avf9szlJEc/M8FNSyP/bconQVVJzYRAZZixBgrf7i3SZ9dxVjT1b6L/GhSgZkRUvZvvTo9BsLYNs5H11iQZy8WI4jg2tzIBjy3sb/I8NGws8ELUxYLLFkuB0uy++VBaye7POT1Aqpq0tZEHzeQi2eItqM7PYsn6TPJC7WVED5iUZ+LMXJSn56dhyhY2gS1RfFr5dlQcUe1+jxDQDf7XuEdWuLKDWZMXurJnsoTRv3omHI5cttF474E4F0GjFi/jsu1gFOkD9HJA3f9tfnQlG6CkAu72VLDIvB+GbyWt8jHGib7Jm4UUEFnIvNXPG+25oaVVEQN+kzbB2mqfzBl3GxScywOjsHHsViQVOk7XONgt7VKwLiqIlvRUf9Bgyf8YnoX4ldCF6V8yD5tYItGnohWn1U5OfqaGm1TrPRbqXhp4NlQt3mp9Ckjmgs2iTZSupwzRIDw5m6gq42IAYJ6se7oduKmq1lmvkYgm3cXuKcm2qfD/nWNuxE7omXOqQJAle5XbWzHwWOxfVOunD1urwJTAx1JXdzXMVTg5M+Pi6ozEvNQ/hZ8P8zCDbKh+WE6pQwuo4tJJ7pWWY92zuxPXRmZJmqj7C/USrDVGghmF7xEw0HYmIiw8VQbuQ7GmET/Pb5MAWf7fYtjwdgW8SPb4IEgOm2DzlHFvIpIKM9Wxe4MGiQmYjYt7aTcs9CiMr43jMS73EJbmcHnd1458IVFMggNsc/3vbutVaOBrZBJOlOnF2zctlXbSOJ8bdYHx6HGb68VVzdTQCG09OgAusmsapSKcRDrQhsnyHaeIWBtURo8vR0AruJvlRwjW6akG6NhVU7JiiZXaQH08w8ULyy8Z3Gu2xwdnEoPh+p0O0hzTFmA9aOVzyIwH14c1TpngdIgw727XUE9Eimb7qXaCt4/2aj12QBetl8K40wW42/PswWzjWl0L75oiL+lEqh4cYZ7tN38X6mdIOWx1DIFDCNAIKEfuxsbaR3VDqPU7vMSFVmzjxl6yYPH3djWcrWMy/O2GZinUm5hrBJp5gelGljDWlxbnegnHfqO1fdphCK9nsjk2SkyE8Dqvy/HmXTbcLBs1PMrlToUZxOlYRY0jfyfrgbKkhJQcckh1JBixo6XFcAUMmD3gg=
+---
+

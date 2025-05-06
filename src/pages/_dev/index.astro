@@ -1,0 +1,29 @@
+---
+import Banner from '../../components/Banner.astro'
+import Aside from '../../components/Aside.astro'
+import LayoutMain from '../../layouts/Main.astro'
+---
+
+<LayoutMain title={`Dev`}>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='dev' />
+
+    <section class="w-full max-w-4xl mx-auto prose">
+      <Aside type='note'>
+        <p>note test</p>
+      </Aside>
+      <Aside type='tip'>
+        <p>tip test</p>
+      </Aside>
+      <Aside type='warning'>
+        <p>warning test</p>
+      </Aside>
+      <Aside type='caution'>
+        <p>caution test</p>
+      </Aside>
+      <Aside type='important'>
+        <p>important test</p>
+      </Aside>
+    </section>
+  </div>
+</LayoutMain>

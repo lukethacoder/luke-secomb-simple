@@ -1,7 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "esnext",
     "jsx": "preserve",
     "strict": true,
@@ -11,10 +13,7 @@
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      // "astro-imagetools/components": ["./node_modules/astro-imagetools/types.d.ts"]
-      "astro-imagetools/components": ["./src/astro-imagetools.d.ts"]
-    },
+    "verbatimModuleSyntax": false,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"

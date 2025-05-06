@@ -1,0 +1,78 @@
+---
+import { getCollection, render } from 'astro:content'
+
+import LayoutMain from '../../../layouts/Main.astro'
+import Banner from '../../../components/Banner.astro'
+import DateTime from '../../../components/DateTime.astro'
+
+export async function getStaticPaths() {
+  const allBlog = await getCollection('blog')
+
+  // sort by date DESC
+  const allBlogDateDesc = allBlog.toSorted(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  )
+
+  const allIds = allBlogDateDesc.map((item) => item.id)
+
+  return allBlogDateDesc.map((item, index) => {
+    const previousId = index > 0 ? allIds.at(index - 1) : undefined
+    const nextId = index < allIds.length ? allIds.at(index + 1) : undefined
+
+    return {
+      params: {
+        slug: item.data.slug,
+      },
+      props: {
+        ...item,
+        previousId,
+        nextId,
+      },
+    }
+  })
+}
+
+const post = Astro.props
+const { title, date, editedDate, slug } = post.data
+
+const { Content, remarkPluginFrontmatter } = await render(post)
+---
+
+<LayoutMain
+  title={`${title} | Luke Secomb`}
+  ogImageUrl={`/blog/${slug}/og.jpg`}
+>
+  <div
+    class='blog-detail-page w-full flex flex-col flex-1 px-4 lg:px-0 mx-auto pb-20'
+  >
+    <Banner title={title}>
+      <span class='flex gap-1'>
+        <small>
+          {
+            editedDate ? (
+              <span>
+                <span>
+                  <DateTime date={editedDate} />
+                </span>
+                <span>
+                  (Originally published <DateTime date={date} />)
+                </span>
+              </span>
+            ) : (
+              <span>
+                <DateTime date={date} />
+              </span>
+            )
+          }
+        </small>
+        <small> — </small>
+        <small>{remarkPluginFrontmatter.readingTime}</small>
+      </span>
+    </Banner>
+    <div class='max-w-4xl w-full mx-auto flex flex-col'>
+      <div class='prose'>
+        <Content />
+      </div>
+    </div>
+  </div>
+</LayoutMain>

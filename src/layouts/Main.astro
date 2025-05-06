@@ -1,26 +1,24 @@
 ---
 import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '@fontsource-variable/noto-sans'
+import '@fontsource/fira-code'
+import '../reset.css'
 import '../style.css'
 
-const socials = [
-  {
-    icon: 'github',
-    url: 'https://github.com/lukethacoder',
-    title: 'Github',
-  },
-  {
-    icon: 'instagram',
-    url: 'https://www.instagram.com/lukesecomb',
-    title: 'Instagram',
-  },
-  {
-    icon: 'linkedIn',
-    url: 'https://www.linkedin.com/in/luke-secomb/',
-    title: 'LinkedIn',
-  },
-]
+import { SITE_TITLE } from '../constants'
 
-const { title } = Astro.props
+const { title, description, ogImageId, ogImageUrl } = Astro.props
+
+const permalink = new URL(Astro.url.pathname, Astro.site).href
+const descriptionNormalised =
+  description ||
+  "Hi, I'm Luke Web developer, Photographic connoisseur and Music nerd. Specialist Lead at Deloitte Digital."
+
+const ogImageNormalised = new URL(
+  ogImageUrl ? ogImageUrl : ogImageId ? `/og/${ogImageId}.jpg` : '/og.jpg',
+  Astro.site
+).href
 ---
 
 <html lang='en'>
@@ -30,19 +28,37 @@ const { title } = Astro.props
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
-    <meta name='description' content="Hi, I'm Luke Web developer, Photographic connoisseur and Music nerd. Senior Specialist Lead at Deloitte Digital." />
-    <meta name="author" content="Luke Secomb" />
-    <link href="https://github.com/lukethacoder" rel="me">
+    <meta name='description' content={descriptionNormalised} />
+    <meta name='author' content='Luke Secomb' />
+    <link
+      rel='alternate'
+      type='application/rss+xml'
+      title={SITE_TITLE}
+      href={new URL('rss.xml', Astro.site)}
+    />
+    <link href='https://github.com/lukethacoder' rel='me' />
+
+    <!-- Open Graph / Facebook -->
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={permalink} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={descriptionNormalised} />
+    <meta property='og:image' content={ogImageNormalised} />
+
+    <!-- Twitter -->
+    <meta property='twitter:card' content='summary_large_image' />
+    <meta property='twitter:url' content={permalink} />
+    <meta property='twitter:title' content={title} />
+    <meta property='twitter:description' content={descriptionNormalised} />
+    <meta property='twitter:image' content={ogImageNormalised} />
   </head>
-  <body>
-    <div
-      class='layout lsd-container max-w-container-xxxl mx-auto overflow-auto lg:overflow-hidden'
-    >
-      <Header siteTitle='hello world' socials={socials} />
-      <main class='flex overflow-auto h-full'>
-        <slot />
-      </main>
-    </div>
+  <body class='layout mx-auto'>
+    <a href='#main' class='skip-to'>Skip to main content</a>
+    <Header siteTitle='hello world' />
+    <main class='flex flex-1' id='main'>
+      <slot />
+    </main>
+    <Footer />
   </body>
   <script
     data-goatcounter='https://luke.goatcounter.com/count'
@@ -58,20 +74,6 @@ const { title } = Astro.props
     function gtag() {
       window.dataLayer.push(arguments)
     }
-    gtag('js', new Date());
-  </script>
-  <script is:inline>
-    ;(function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          ;(c[a].q = c[a].q || []).push(arguments)
-        }
-      t = l.createElement(r)
-      t.async = 1
-      t.src = 'https://www.clarity.ms/tag/' + i
-      y = l.getElementsByTagName(r)[0]
-      y.parentNode.insertBefore(t, y)
-    })(window, document, 'clarity', 'script', 'cthbfzqwds')
+    gtag('js', new Date())
   </script>
 </html>

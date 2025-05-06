@@ -1,0 +1,16 @@
+---
+const { date } = Astro.props
+---
+
+<time datetime={date.toString()} class="uppercase">
+  {
+    new Intl.DateTimeFormat(
+      navigator.language || navigator.languages[0] || 'en-AU',
+      {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      }
+    ).format(date)
+  }
+</time>

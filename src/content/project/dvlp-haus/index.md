@@ -9,4 +9,5 @@ imageMain: './image.jpg'
 imageLogo: './image-logo.png'
 url: 'https://dvlp.haus'
 published: true
+isFeatured: true
 ---

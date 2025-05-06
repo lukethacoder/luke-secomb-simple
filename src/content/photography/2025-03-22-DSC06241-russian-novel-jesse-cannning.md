@@ -1,0 +1,33 @@
+---
+title: 'Russian Novel: Jesse Canning'
+date: 2025-03-22T09:48:44.000Z
+tags:
+  - concert
+srcPath: /2025-03-22-DSC06241-russian-novel-jesse-cannning/img.avif
+alt: image
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4
+  shutterSpeed: 0.01
+  iso: 1250
+  focalLength: 65
+location:
+  name: 'The Baso, Canberra'
+  url: 'https://www.thebaso.com.au/'
+instagramTags:
+  - username: jessecannning
+    position:
+      - 55
+      - 47
+  - username: russiannovelband
+    position:
+      - 1
+      - 99
+imgWidth: 1536
+imgHeight: 1920
+blurHash: >-
+  data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAAD/AAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAABARtZGF0EgAKCjsqr/9/4QENBpAy6wdM8AJzSz2/AUbXtiXF9yPcbgQPRqTyXYWkK8gEPqlJ03gYSZheEIbKgg1EuCWiT3+N6V0yatS65PpUw39FupzaQB/LDdRPYIU08OVEjbvYJWUP1RiErCOKUbdSW6ECj1SzyylI3/WQOJsA1uFdnD3tr2+u6547d66N5xfdmHQFuy51Q8KeT1L4Futw/WlcN7BTlifwtpcyLuP5C9aAMhceW/cawLads4d5Hq30+hRESr+z2GRDAJE3DTykkreW4gEMCTMwB/6p1+iYChXYvWgwHjpia+4CeLFqw+ZoNfYkvyJsWUY+pVjh2aE55Xvv//Eu3PaTGamKHPfmfqdoqXl06lKv0WDkKmjWnxWwVDrkzkeMjwTEGb43cTaOX2J3IkbHbY/O4gIjNpcK/buMX9iJzzLvcF4E+PXC+GqHh+TrZzEzdKpE0uu5a8GWfO8MaPqQ8ZqgQXIeuCTM2AcR1y+g9oZHpBrkHc4hsDMvD0Mp+FDac+8BLKhVrS7CoBN62rMDg9m6wlDO31vcIkg7tpD+2WNhFXFC1vgdwnJud6wMdbDatJRvEtZoNa80fYxNf9f4qZUmY9AM2pR8L6kxdhIrUJxKQiryWn5v0sA3NmkzuV9g3alzqMVGr3eyCQkwssInGN9CvwdQu+Aer+mVYmLYNVc7a8U1Y2X9IP6C8H5JamhpXt3i15fQamfoCiN7oLzdB1olMo4WE4feTlzYGGkYjJmOVAG8IXhQOMlaKAFQ3k8Ul287i4ssxQ8UiLH02UTaeFJUga1HBDYwoEa9N4PdPhLfA5VuJSiqJCOK7WFtZE3D/T2sgXQWwCOHsqP4+Dk+kFTxCjThjgdf2slB8f0Vlf2XRRa6eLQ2W+b1jhXuC9hl73KHBP4FBk0sXt8ig1ARyiHQaSaTxmyblCSkstdNLrOiTqI93qL2SEj1w54akP94V0sUJeOFdM8J+hVajK6N0NxJnUOJSiAruJQ6vfFJD4nQJ5+/ojcPg3u4Gwb6GG7uZC4IcaR1kGQfEdUlaI2HgT/BuLjtDa64w3TLcILHiotmTXBN75dJRpyxKF9LfpbgOqZWNZG+ZNRcUJ/owkhnIYnZdQLTYUVK4oCf6yVxFgC7MZxjM2LY2T2/n2qPLRD8NarqiCXng/UEKQZG1ggUr0nek5hffYuMT7yy3y3xBVQVFyBGTnlAvh7wRQ8HhBtJUIZwO5TJJ62xTZf+0yp6cgZQ+b6jjUcift4xAbA+ZJTne/b0N4msdxmr/HrR2p+BlaO/MQ7B4mlDKhKvBmSLBX6FhKp5TFjcHx8hfLu+Cr04ubnSSGWVqNTSeLz7kTDXBDQiKeRls78Y
+---
+

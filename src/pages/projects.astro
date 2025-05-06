@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content'
+import { Picture } from 'astro:assets'
+
+import Banner from '../components/Banner.astro'
+import LayoutMain from '../layouts/Main.astro'
+
+/* Client Work */
+const allClientWork = await getCollection(
+  'projects',
+  ({ data }) => data.type === 'client' && data.published !== false
+)
+// sort by date DESC
+const allClientWorkDateDesc = allClientWork.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+const featuredClientWork = allClientWorkDateDesc.filter(
+  ({ data }) => data.isFeatured
+)
+
+/* Side Projects */
+const allSideProjects = await getCollection(
+  'projects',
+  ({ data }) => data.type === 'project' && data.published !== false
+)
+// sort by date DESC
+const allSideProjectsDateDesc = allSideProjects.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+const featuredSideProjects = allSideProjectsDateDesc.filter(
+  ({ data }) => data.isFeatured
+)
+---
+
+<LayoutMain
+  title='Projects | Luke Secomb'
+  description="Showcase of a couple of Side Projects and Client work"
+  ogImageId="projects"
+>
+  <div class='flex-1 px-4 lg:px-0 mx-auto'>
+    <Banner title='Projects' />
+
+    <section class='w-full max-w-4xl mx-auto pb-20'>
+      <h2 class='text-4xl mb-1'>Side Projects</h2>
+      <p class='mb-8'>
+        Couple of side projects I've built over the years. All of these projects
+        and more can be found on <a
+          href='https://github.com/lukethacoder'
+          target='_blank'
+          rel='noreferrer nofollow'
+          class='underline'>Github</a
+        >.
+      </p>
+      <div class='project-list grid flex-1'>
+        {
+          featuredSideProjects.map(({ data }) => (
+            <div class='project-item grid md:grid-cols-2 gap-2'>
+              <span>
+                <h3 class='text-xl md:text-base font-(family-name:--theme-font-primary)'>
+                  {data.title}
+                </h3>
+                <div class='image absolute z-10 w-full overflow-hidden'>
+                  <Picture
+                    src={data.imageMain}
+                    alt={data.title}
+                    title={data.title}
+                    class={`object-cover w-full`}
+                    widths={[560, 1080]}
+                    sizes={`(max-width: 1600px) 560px, 1440px`}
+                    formats={['avif', 'webp']}
+                  />
+                </div>
+              </span>
+              <div class='grid'>
+                <p>{data.description}</p>
+                {data.url && (
+                  <a
+                    href={`${data.url}?utm_campaign=lukesecombdigital`}
+                    target='_blank'
+                    class='mt-4 underline mr-auto'
+                  >
+                    <strong>View project</strong>
+                  </a>
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class='w-full max-w-4xl mx-auto pb-20'>
+      <h2 class='text-4xl mb-1'>Client Work</h2>
+      <p class='mb-8'>
+        Projects I've worked on over the past couple years. Some of my work is
+        hidden away behind authenticated in portals, other work is out in the
+        open for all to see.
+      </p>
+      <div class='project-list grid flex-1'>
+        {
+          featuredClientWork.map(({ data }) => (
+            <div class='project-item grid md:grid-cols-2 gap-2'>
+              <span>
+                <h3 class='text-xl md:text-base font-(family-name:--theme-font-primary)'>
+                  {data.title}
+                </h3>
+                <div class='image absolute z-10 w-full overflow-hidden'>
+                  <Picture
+                    src={data.imageMain}
+                    alt={data.title}
+                    title={data.title}
+                    class={`object-cover w-full`}
+                    widths={[560, 1080]}
+                    sizes={`(max-width: 1600px) 560px, 1440px`}
+                    formats={['avif', 'webp']}
+                  />
+                </div>
+              </span>
+              <div class='grid'>
+                <p>{data.description}</p>
+                {data.url && (
+                  <a
+                    href={data.url}
+                    target='_blank'
+                    rel='noreferrer nofollow'
+                    class='mt-4 underline mr-auto'
+                  >
+                    <strong>View project</strong>
+                  </a>
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class='w-full max-w-4xl mx-auto pb-20'>
+      <h2 class='text-4xl mb-10 md:mb-8'>Folks I've worked with</h2>
+      <div class='lsd-grid worked-with-grid relative flex-1 gap-2'>
+        {
+          allClientWorkDateDesc.map(({ data }) => (
+            <span>
+              <button
+                class='aspect-square overflow-hidden flex items-center object-contain transition ease-in'
+                title={data.title}
+              >
+                {data.imageLogoLight && (
+                  <Picture
+                    src={data.imageLogoLight}
+                    alt={data.title}
+                    class={`image-light object-cover w-full p-6 md:p-8`}
+                    widths={[560, 1080]}
+                    sizes={`(max-width: 1600px) 560px, 1440px`}
+                    formats={['avif', 'webp']}
+                  />
+                )}
+                <Picture
+                  src={data.imageLogo}
+                  alt={data.title}
+                  class={`object-cover w-full p-6 md:p-8`}
+                  widths={[560, 1080]}
+                  sizes={`(max-width: 1600px) 560px, 1440px`}
+                  formats={['avif', 'webp']}
+                />
+              </button>
+              <span class="md:hidden item-title leading-tight absolute bottom-full left-0 pb-2 opacity-0">{data.title}</span>
+              <span class="item-title leading-tight absolute top-full left-0 pt-2 opacity-0">{data.title}</span>
+            </span>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</LayoutMain>
