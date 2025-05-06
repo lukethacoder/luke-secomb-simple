@@ -2,40 +2,42 @@
 /**
  * Component will run at build time - the response will be cached until a new build is run.
  */
-const ACCESS_TOKEN = import.meta.env.WAKATIME_API_TOKEN
-
 interface PayloadResponse {
-  data: {
-    daily_average: number
-    decimal: string
-    digital: string
-    is_up_to_date: boolean
-    percent_calculated: number
-    range: {
-      end: string
-      end_date: string
-      end_text: string
-      start: string
-      start_date: string
-      start_text: string
-      timezone: string
-    }
-    text: string
-    timeout: number
-    total_seconds: number
-  }
+  data: Data
+}
+
+interface Data {
+  grand_total: GrandTotal
+  range: Range
+}
+
+interface GrandTotal {
+  daily_average: number
+  daily_average_including_other_language: number
+  human_readable_daily_average: string
+  human_readable_daily_average_including_other_language: string
+  human_readable_total: string
+  human_readable_total_including_other_language: string
+  total_seconds: number
+  total_seconds_including_other_language: number
+}
+
+interface Range {
+  days_including_holidays: number
+  days_minus_holidays: number
+  end: string
+  holidays: number
+  range: string
+  start: string
 }
 
 const response: PayloadResponse = await (
   await fetch(
-    'https://wakatime.com//api/v1/users/@lukethacoder/all_time_since_today',
-    {
-      headers: {
-        Authorization: 'Bearer ' + ACCESS_TOKEN,
-      },
-    }
+    'https://wakatime.com/share/@lukethacoder/46358a0e-f157-4d06-8d43-a082a3ab005e.json'
   )
 ).json()
+
+console.log('Wakatime response ', response)
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', {
   month: 'short',
@@ -45,9 +47,10 @@ const numberFormat = new Intl.NumberFormat('en-AU', {
   maximumFractionDigits: 0,
 })
 
-const startDate = new Date(response.data.range.start_date || '2018-02-23')
+const startDate = new Date(response?.data?.range?.start || '2018-02-23')
 const codingTimeHrs = numberFormat.format(
-  parseFloat(`${response.data.decimal || '9395.25'}`)
+  (response?.data?.grand_total?.total_seconds_including_other_language ||
+    9395.25 * 3600) / 3600
 )
 ---
 
@@ -56,7 +59,7 @@ const codingTimeHrs = numberFormat.format(
     class='py-3 px-4 rounded-xl my-3 flex flex-col'
     style='background-color: var(--theme-background-secondary);'
   >
-    <span class="text-sm"
+    <span class='text-sm'
       >{codingTimeHrs} hours spent coding since {
         dateFormat.format(startDate)
       }</span
