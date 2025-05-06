@@ -136,7 +136,7 @@ const featuredSideProjects = allSideProjectsDateDesc.filter(
     </section>
 
     <section class='w-full max-w-4xl mx-auto pb-20'>
-      <h2 class='text-4xl mb-8'>Folks I've worked with</h2>
+      <h2 class='text-4xl mb-10 md:mb-8'>Folks I've worked with</h2>
       <div class='lsd-grid worked-with-grid relative flex-1 gap-2'>
         {
           allClientWorkDateDesc.map(({ data }) => (
@@ -164,7 +164,8 @@ const featuredSideProjects = allSideProjectsDateDesc.filter(
                   formats={['avif', 'webp']}
                 />
               </button>
-              <span class="item-title absolute top-full left-0 pt-2 opacity-0">{data.title}</span>
+              <span class="md:hidden item-title leading-tight absolute bottom-full left-0 pb-2 opacity-0">{data.title}</span>
+              <span class="item-title leading-tight absolute top-full left-0 pt-2 opacity-0">{data.title}</span>
             </span>
           ))
         }

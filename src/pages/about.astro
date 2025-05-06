@@ -2,6 +2,7 @@
 import LayoutMain from '../layouts/Main.astro'
 import Banner from '../components/Banner.astro'
 import TopArtists from '../components/TopArtists.astro'
+import CodingTime from '../components/CodingTime.astro'
 
 const SOCIALS = [
   {
@@ -40,22 +41,22 @@ const SOCIALS = [
 
 const NOTABLE_PROJECTS_DELOITTE = [
   {
-    label: 'CoreUI Salesforce Component Library'
+    label: 'CoreUI Salesforce Component Library',
   },
   {
     label: 'NextDC (OneDC) Data Centre Management Portal',
   },
   {
     label: 'Homes NSW - MyHousing Repair Portal',
-    url: 'https://nsw06.my.site.com/repairs/'
+    url: 'https://nsw06.my.site.com/repairs/',
   },
   {
     label: 'Coles Supplier Central',
-    url: 'https://suppliercentral.coles.com.au/s/'
+    url: 'https://suppliercentral.coles.com.au/s/',
   },
   {
     label: 'ATO Community',
-    url: 'https://community.ato.gov.au/'
+    url: 'https://community.ato.gov.au/',
   },
   {
     label: 'National Disability Insurance Scheme',
@@ -75,41 +76,57 @@ const NOTABLE_PROJECTS_SODA = [
 ]
 ---
 
-<LayoutMain 
+<LayoutMain
   title='About | Luke Secomb'
-  ogImageId="about"
+  ogImageId='about'
   description="Hi, I'm Luke, Full Stack Developer currently working at Deloitte digital as a Senior Specialist Engineer."
 >
   <div class='flex-1 px-4 lg:px-0 mx-auto'>
     <Banner title='About'>
-      <div class='flex gap-8 max-w-3xl'>
-        <span class='w-full'>
+      <div class='flex flex-col md:flex-row gap-8 max-w-3xl'>
+        <span class='w-full order-2 md:order-1'>
           <p>
             Hi, I'm Luke, Full Stack Developer currently working at <a
-              class="underline"
+              class='underline'
               href='https://deloittedigital.com.au'
               target='_blank'
-              rel='noreferrer nofollow''>Deloitte Digital</a
+              rel='noreferrer nofollow'
+              '>Deloitte Digital</a
             > as a Senior Specialist Engineer.
           </p>
           <br />
           <p>
-            Day to day I work in and around Salesforce on both the frontend and backend (LWC/Apex). In my free time I enjoy hacking around with different languages,
-            frameworks and discovering random things on the internet. I primarily use TypeScript/JavaScript, but also dabble in Rust, Go and NixOS.
+            Day to day I work in and around Salesforce on both the frontend and
+            backend (LWC/Apex). In my free time I enjoy hacking around with
+            different languages + frameworks and discovering random things on
+            the internet. I primarily use TypeScript/JavaScript, but also dabble
+            in Rust, Go and NixOS.
+          </p>
+
+          <CodingTime />
+
+          <p>
+            When I'm <span title='Away From Keyboard'>AFK</span> I enjoy listening
+            to music, playing drums and <a href='/photography' class='underline'
+              >capturing moments</a
+            > with my trusty <a href='/uses' class='underline'>Sony RX100 VII</a
+            >.
           </p>
           <br />
           <p>
-            When I'm <span title="Away From Keyboard">AFK</span> I enjoy listening to music, playing drums and <a href='/photography' class='underline'
-              >capturing moments</a
-            > with my trusty <a href="/uses" class="underline">Sony RX100 VII</a>.
+            I can be found in a few other places around the web. Some I'm more
+            active than others.
           </p>
-          <br />
-          <p>I can be found in a few other places around the web. Some I'm more active than others.</p>
           <ul class='list-disc pl-6 pt-2 gap-1 flex flex-col'>
             {
               SOCIALS.map((item) => (
                 <li>
-                  <a class='underline font-(family-name:--theme-font-primary)' href={item.href} target='_blank' rel='noreferrer nofollow'>
+                  <a
+                    class='underline font-(family-name:--theme-font-primary)'
+                    href={item.href}
+                    target='_blank'
+                    rel='noreferrer nofollow'
+                  >
                     {item.label}
                   </a>
                   {/* TODO: add minimal last.fm scrobbler here? */}
@@ -118,7 +135,7 @@ const NOTABLE_PROJECTS_SODA = [
             }
           </ul>
         </span>
-        <div class='w-48'>
+        <div class='w-48 order-1 md:order-2'>
           <img src='/luke.webp' />
         </div>
       </div>
@@ -132,50 +149,97 @@ const NOTABLE_PROJECTS_SODA = [
       <h3 class='text-4xl mb-4'>Work</h3>
       <ul class='grid gap-8'>
         <li class='grid md:grid-cols-2 gap-2'>
-          <span class='text-xl md:text-base font-(family-name:--theme-font-primary)'>Deloitte Digital</span>
+          <span
+            class='text-xl md:text-base font-(family-name:--theme-font-primary)'
+            >Deloitte Digital</span
+          >
           <span>2021 - Current</span>
-          <span class="font-bold">Senior Specialist Lead</span>
+          <span class='font-bold'>Senior Specialist Lead</span>
           <span>
             <p>
-              Working closely with multiple teams across various disciplines, in addition to working directly with clients. Primarily building fully
-              custom Salesforce Experience Cloud sites, but also dabbling in some other technology stacks (React/NextJS, Sitecore).
+              Working closely with multiple teams across various disciplines, in
+              addition to working directly with clients. Primarily building
+              fully custom Salesforce Experience Cloud sites, but also dabbling
+              in some other technology stacks (React/NextJS, Sitecore).
             </p>
             <br />
             <p>
-              Built a Salesforce Component Library, tightly integrated with Figma Design Tokens (tokens.studio), and with a heavy focus on a11y (Accessibility), reusability and extensibility. The accelerator is used globally and has been attributed to substantial sales.
+              Built a Salesforce Component Library, tightly integrated with
+              Figma Design Tokens (tokens.studio), and with a heavy focus on
+              a11y (Accessibility), reusability and extensibility. The
+              accelerator is used globally and has been attributed to
+              substantial sales.
             </p>
             <br />
             <p>
-              Notable projects: <span set:html={
-                new Intl.ListFormat('en', {
+              Notable projects: <span
+                set:html={new Intl.ListFormat('en', {
                   style: 'long',
                   type: 'conjunction',
-                }).format(NOTABLE_PROJECTS_DELOITTE.map((item) => item.url ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>` : `<strong>${item.label}</strong>`))
-              }></span>.
+                }).format(
+                  NOTABLE_PROJECTS_DELOITTE.map((item) =>
+                    item.url
+                      ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>`
+                      : `<strong>${item.label}</strong>`
+                  )
+                )}
+              />.
             </p>
           </span>
         </li>
         <li class='grid md:grid-cols-2 gap-2'>
-          <span class='text-xl md:text-base font-(family-name:--theme-font-primary)'>Soda Strategic</span>
+          <span
+            class='text-xl md:text-base font-(family-name:--theme-font-primary)'
+            >Soda Strategic</span
+          >
           <span>2018 - 2021</span>
-          <span class="font-bold">Web Developer</span>
+          <span class='font-bold'>Web Developer</span>
           <span>
-            <p>Worked closely with the design and project team to produce pixel perfect Wordpress and Salesforce Experience sites.</p>
-            <br />
-            <p>Wordpress projects were fully custom builds using ACF, TypeScript, SCSS, Timber and Twig, and would usually include Salesforce integration.</p>
-            <br />
             <p>
-              Salesforce Experience Cloud (Community Cloud at the time) builds were fully custom, not using any out of the box <code>lightning-*</code> components
-              or the SLDS framework. This allowed pixel perfect sites that would not look like your typical Salesforce build.
+              Worked closely with the design and project team to produce pixel
+              perfect Wordpress and Salesforce Experience sites.
             </p>
             <br />
             <p>
-              Notable projects: <span set:html={
-                new Intl.ListFormat('en', {
+              Wordpress projects were fully custom builds using ACF, TypeScript,
+              SCSS, Timber and Twig, and would usually include Salesforce
+              integration.
+            </p>
+            <br />
+            <p>
+              Salesforce Experience Cloud (Community Cloud at the time) builds
+              were fully custom, not using any out of the box <code
+                >lightning-*</code
+              > components or the SLDS framework. This allowed pixel perfect sites
+              that would not look like your typical Salesforce build.
+            </p>
+            <br />
+            <p>
+              Notable projects: <span
+                set:html={new Intl.ListFormat('en', {
                   style: 'long',
                   type: 'conjunction',
-                }).format(NOTABLE_PROJECTS_SODA.map((item) => item.url ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>` : `<strong>${item.label}</strong>`))
-              }></span>.
+                }).format(
+                  NOTABLE_PROJECTS_SODA.map((item) =>
+                    item.url
+                      ? `<a href="${item.url}" class="underline"><strong>${item.label}</strong></a>`
+                      : `<strong>${item.label}</strong>`
+                  )
+                )}
+              />.
+            </p>
+          </span>
+        </li>
+        <li class='grid md:grid-cols-2 gap-2'>
+          <span
+            class='text-xl md:text-base font-(family-name:--theme-font-primary)'
+            >Freelance</span
+          >
+          <span>2016 - current</span>
+          <span class='font-bold'>Web Developer</span>
+          <span>
+            <p>
+              Building the occasional website here and there. Older sites were mostly Wordpress. Newer sites are JAM stack of some flavour (NextJS/Astro).
             </p>
           </span>
         </li>

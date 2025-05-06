@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
-import { Image } from 'astro:assets'
+import { Image, Picture } from 'astro:assets'
 
 import LayoutMain from '../layouts/Main.astro'
 import BlogCard from '../components/BlogCard.astro'
@@ -11,7 +11,7 @@ const allPhotography = await getCollection('photography')
 // sort by date DESC + grab the 3 latest photos
 const allPhotographyDateDesc = allPhotography
   .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .filter((_, key) => key < 12)
+  .filter((_, key) => key < 9)
 
 const allBlogPosts = await getCollection('blog')
 
@@ -19,6 +19,32 @@ const allBlogPosts = await getCollection('blog')
 const allBlogPostsDateDesc = allBlogPosts
   .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .filter((_, key) => key < 4)
+
+/* Client Work */
+const allClientWork = await getCollection(
+  'projects',
+  ({ data }) => data.type === 'client' && data.published !== false
+)
+// sort by date DESC
+const allClientWorkDateDesc = allClientWork.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+const featuredClientWork = allClientWorkDateDesc
+  .filter(({ data }) => data.isFeatured)
+  .slice(0, 3)
+
+/* Side Projects */
+const allSideProjects = await getCollection(
+  'projects',
+  ({ data }) => data.type === 'project' && data.published !== false
+)
+// sort by date DESC
+const allSideProjectsDateDesc = allSideProjects.toSorted(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+)
+const featuredSideProjects = allSideProjectsDateDesc
+  .filter(({ data }) => data.isFeatured)
+  .slice(0, 3)
 ---
 
 <LayoutMain
@@ -85,7 +111,7 @@ const allBlogPostsDateDesc = allBlogPosts
             allPhotographyDateDesc.map((item) => (
               <a
                 href={`/${item.collection}/image/${item.id.replace('/', '-')}`}
-                class='flex overflow-hidden relative md:aspect-[4/5]'
+                class='flex overflow-hidden relative md:aspect-[4/5] focus-visible:z-10'
               >
                 <span
                   class='blur-hash absolute w-full h-full inset-0 bg-cover bg-no-repeat'
@@ -107,6 +133,132 @@ const allBlogPostsDateDesc = allBlogPosts
         <small class='ml-auto mt-1'
           ><a href='/photography' class='underline'>View more</a></small
         >
+      </section>
+
+      <section class='w-full max-w-4xl mx-auto flex flex-col pb-20'>
+        <h2 class='text-5xl'>
+          <a href='/projects' class='hover:underline'>Projects</a>
+        </h2>
+        <p class='mb-6 mt-2'>
+          Latest side projects & client work. <a
+            class='mt-1 underline ml-auto'
+            href='/projects'>See more</a
+          >
+        </p>
+
+        <h3 class='text-xl mb-4 mt-4'>Side Projects</h3>
+        <div class='project-list grid flex-1'>
+          {
+            featuredSideProjects.map(({ data }) => (
+              <div class='project-item grid md:grid-cols-2 gap-2'>
+                <span>
+                  <h3 class='text-xl md:text-base font-(family-name:--theme-font-primary)'>
+                    {data.title}
+                  </h3>
+                  <div class='image absolute z-10 w-full overflow-hidden'>
+                    <Picture
+                      src={data.imageMain}
+                      alt={data.title}
+                      title={data.title}
+                      class={`object-cover w-full`}
+                      widths={[560, 1080]}
+                      sizes={`(max-width: 1600px) 560px, 1440px`}
+                      formats={['avif', 'webp']}
+                    />
+                  </div>
+                </span>
+                <div class='grid'>
+                  <p>{data.description}</p>
+                  {data.url && (
+                    <a
+                      href={`${data.url}?utm_campaign=lukesecombdigital`}
+                      target='_blank'
+                      class='mt-4 underline mr-auto'
+                    >
+                      <strong>View project</strong>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <h3 class='text-xl mb-4 mt-12'>Client Work</h3>
+        <div class='project-list grid flex-1'>
+          {
+            featuredClientWork.map(({ data }) => (
+              <div class='project-item grid md:grid-cols-2 gap-2'>
+                <span>
+                  <h3 class='text-xl md:text-base font-(family-name:--theme-font-primary)'>
+                    {data.title}
+                  </h3>
+                  <div class='image absolute z-10 w-full overflow-hidden'>
+                    <Picture
+                      src={data.imageMain}
+                      alt={data.title}
+                      title={data.title}
+                      class={`object-cover w-full`}
+                      widths={[560, 1080]}
+                      sizes={`(max-width: 1600px) 560px, 1440px`}
+                      formats={['avif', 'webp']}
+                    />
+                  </div>
+                </span>
+                <div class='grid'>
+                  <p>{data.description}</p>
+                  {data.url && (
+                    <a
+                      href={data.url}
+                      target='_blank'
+                      rel='noreferrer nofollow'
+                      class='mt-4 underline mr-auto'
+                    >
+                      <strong>View project</strong>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+      
+      <section class='w-full max-w-4xl mx-auto pb-20'>
+        <h2 class='text-4xl mb-10 md:mb-8'>Folks I've worked with</h2>
+        <div class='lsd-grid worked-with-grid relative flex-1 gap-2'>
+          {
+            allClientWorkDateDesc.map(({ data }) => (
+              <span>
+                <button
+                  class='aspect-square overflow-hidden flex items-center object-contain transition ease-in'
+                  title={data.title}
+                >
+                  {data.imageLogoLight && (
+                    <Picture
+                      src={data.imageLogoLight}
+                      alt={data.title}
+                      class={`image-light object-cover w-full p-6 md:p-8`}
+                      widths={[560, 1080]}
+                      sizes={`(max-width: 1600px) 560px, 1440px`}
+                      formats={['avif', 'webp']}
+                    />
+                  )}
+                  <Picture
+                    src={data.imageLogo}
+                    alt={data.title}
+                    class={`object-cover w-full p-6 md:p-8`}
+                    widths={[560, 1080]}
+                    sizes={`(max-width: 1600px) 560px, 1440px`}
+                    formats={['avif', 'webp']}
+                  />
+                </button>
+                <span class="md:hidden item-title leading-tight absolute bottom-full left-0 pb-2 opacity-0">{data.title}</span>
+                <span class="item-title leading-tight absolute top-full left-0 pt-2 opacity-0">{data.title}</span>
+              </span>
+            ))
+          }
+        </div>
       </section>
     </span>
   </div>

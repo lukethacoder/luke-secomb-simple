@@ -59,13 +59,13 @@ const tags = ['all', ...PHOTOGRAPHY_TAGS]
         </div>
       </Banner>
     </span>
-    <div class='photography-grid w-full max-w-6xl mx-auto'>
+    <div class='photography-grid w-full max-w-6xl mx-auto pb-20'>
       {
         allPhotographyDateDesc.map((item, key) => (
           <a
             href={`/${item.collection}/image/${item.id.replace('/', '-')}`}
             id={item.id.replace('/', '-')}
-            class='md:aspect-[4/5] overflow-hidden relative hidden'
+            class='md:aspect-[4/5] overflow-hidden relative hidden focus-visible:z-10'
             data-tags={item.data.tags}
           >
             <span
