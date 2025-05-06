@@ -22,8 +22,8 @@ pnpm install
 CF_PAGES_URL=http://localhost:4321
 PUBLIC_LAST_FM_API_KEY=abcdefghijklmnopqrstuvwxyz123456
 PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=abcdefghijklmnopqrstuvwxyz123456
-PUBLIC_CLARITY_ANALYTICS_TRACKING_CODE=cthbfzqwds
 PUBLIC_GOAT_COUNTER_CODE=goat
+WAKATIME_API_TOKEN=waka_tok_ihbESuEWW1TzYnSE2w9pLEDo4ndePnvoxcgNCeEO4dWn77Noj03y8lZtwaaHwswcbqRIrPju5mCrI0yB
 ```
 
 **Start the site in `dev` mode.**

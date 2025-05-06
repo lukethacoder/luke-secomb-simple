@@ -1,0 +1,73 @@
+---
+/**
+ * Component will run at build time - the response will be cached until a new build is run.
+ */
+const ACCESS_TOKEN = import.meta.env.WAKATIME_API_TOKEN
+
+interface PayloadResponse {
+  data: {
+    daily_average: number
+    decimal: string
+    digital: string
+    is_up_to_date: boolean
+    percent_calculated: number
+    range: {
+      end: string
+      end_date: string
+      end_text: string
+      start: string
+      start_date: string
+      start_text: string
+      timezone: string
+    }
+    text: string
+    timeout: number
+    total_seconds: number
+  }
+}
+
+const response: PayloadResponse = await (
+  await fetch(
+    'https://wakatime.com//api/v1/users/@lukethacoder/all_time_since_today',
+    {
+      headers: {
+        Authorization: 'Bearer ' + ACCESS_TOKEN,
+      },
+    }
+  )
+).json()
+
+const dateFormat = new Intl.DateTimeFormat('en-AU', {
+  month: 'short',
+  year: 'numeric',
+})
+const numberFormat = new Intl.NumberFormat('en-AU', {
+  maximumFractionDigits: 0,
+})
+
+const startDate = new Date(response.data.range.start_date || '2018-02-23')
+const codingTimeHrs = numberFormat.format(
+  parseFloat(`${response.data.decimal || '9395.25'}`)
+)
+---
+
+<div class='flex'>
+  <div
+    class='py-3 px-4 rounded-xl my-3 flex flex-col'
+    style='background-color: var(--theme-background-secondary);'
+  >
+    <span class="text-sm"
+      >{codingTimeHrs} hours spent coding since {
+        dateFormat.format(startDate)
+      }</span
+    >
+    <small
+      ><a
+        href='https://wakatime.com/@lukethacoder'
+        target='_blank'
+        rel='noreferrer nofollow'
+        class='underline'>Wakatime</a
+      > - last updated {dateFormat.format(new Date())}</small
+    >
+  </div>
+</div>
