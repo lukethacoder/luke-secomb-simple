@@ -128,7 +128,7 @@ async function processImage(imagePath: string, imageName: string) {
         })
         // nice blur to reduce file size
         .blur(95)
-        // quality 50 seems to be good middle ground of file size and quality retention
+        // drop the quality as we want this to be a nice and short string to load with the dom (inline background-image)
         .avif({ quality: 5 })
         .toBuffer()
 
