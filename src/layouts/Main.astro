@@ -13,7 +13,7 @@ const { title, description, ogImageId, ogImageUrl } = Astro.props
 const permalink = new URL(Astro.url.pathname, Astro.site).href
 const descriptionNormalised =
   description ||
-  "Hi, I'm Luke Web developer, Photographic connoisseur and Music nerd. Specialist Lead at Deloitte Digital."
+  "Hi, I'm Luke Web developer, Photographic connoisseur and Music nerd. Senior Specialist Lead at Deloitte Digital."
 
 const ogImageNormalised = new URL(
   ogImageUrl ? ogImageUrl : ogImageId ? `/og/${ogImageId}.jpg` : '/og.jpg',
