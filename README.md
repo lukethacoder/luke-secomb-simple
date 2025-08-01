@@ -39,7 +39,7 @@ Your site is now running at `http://localhost:4321`.
 
 ### `photos`
 
-Drop full size images (straight out of lightroom) into the `./.photos` directory. Run the `pnpm photos` script to auto optimise, extract EXIF data, create a blurHash and save metadata to a boilerplate markdown file. This file will still require some edits, but most of the heavy lifting has been sorted.
+Drop full size images (straight out of lightroom) into the `./.photos` directory. Its a smart idea to rename the files/slugs before running this script. Run the `pnpm photos` script to auto optimise, extract EXIF data, create a blurHash and save metadata to a boilerplate markdown file. This file will still require some edits, but most of the heavy lifting has been sorted.
 
 Once completed, images will be moved to the `./.photos-completed` folder.
 

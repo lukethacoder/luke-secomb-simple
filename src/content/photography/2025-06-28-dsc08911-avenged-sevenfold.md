@@ -1,0 +1,22 @@
+---
+title: "Avenged Sevenfold: Synyster Gates"
+date: 2025-06-28T11:26:53.000Z
+tags:
+  - concert
+srcPath: "/2025-06-28-dsc08911-avenged-sevenfold-synyster-gates/img.avif"
+alt: image
+imgWidth: 1536
+imgHeight: 1920
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4.5
+  shutterSpeed: 0.003125
+  iso: 250
+  focalLength: 200
+location:
+  name: 'Tons of Rock, Norway'
+  url: 'https://www.tonsofrock.no'
+blurHash: "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAABuQAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAAcFtZGF0EgAKCjsqr/9/4QENBpAyqANE8ADzwABQAKlWzn1f4zwuTHln6033LnhCa94FA/t1Wtzsk/UH4fdv/tB6BVvlSBLK4lVWc72XWSpQ1KOxkGkYKsWvJPCJHeVTP/qPvNhygKlh9yX+TbnyBdceBYk8LqlsrYadrKLOvkHWf4qoVNVirO5vdhX6JXArVuRgihD8g+gk5+IuC/OAT7q5Cffrd/JCke152LuDbOURPCCLXH3ys63A8BG2E6S8XZPmEpEanVSpB3Jua7Kjyqkz9qB33STqme0gRS4LmxeOyLikjWsBXaLNf3ttEKcSGYVGJcgAsxXsfQ3+6BDWn+nm5yPofvquEx4GaLPyreSBIHedFRdc0jTYP1E22LfC2Y84wpKWMO45FPIV0Osqauvv+m8zx2/0uw4PaIRd8bpzfSTVOJDE9ATssJM1GTVnpumtHBimxUlOcJmNJGkEDc7b5zfRFTVnIGFl+IfioFg7O3j2cFNkivf5hNtfT20YA/iTc36WNoiKSAHKoVuZf8MMUkDv5iy1Z5Lyi7Az3/j7VGFvd4JJ81Vt1hBl6Coykrx1Oob0+Vzo7HJptW2I"
+---

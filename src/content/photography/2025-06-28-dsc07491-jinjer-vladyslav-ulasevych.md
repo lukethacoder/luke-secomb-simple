@@ -1,0 +1,22 @@
+---
+title: "Jinjer: Vladyslav Ulasevych"
+date: 2025-06-28T05:42:50.000Z
+tags:
+  - concert
+srcPath: "/2025-06-28-dsc07491-jinjer-vladyslav-ulasevych/img.avif"
+alt: image
+imgWidth: 1536
+imgHeight: 1920
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4.5
+  shutterSpeed: 0.00125
+  iso: 1000
+  focalLength: 200
+location:
+  name: 'Tons of Rock, Norway'
+  url: 'https://www.tonsofrock.no'
+blurHash: "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAABdAAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAAXxtZGF0EgAKCjsqr/9/4QENBpAy4wJE8ADzwABQceybkBSD+8fwZ1LGUgfIUzwlhFXlGU/+93n4Ez6W2x9CmoDWSrLOhhNG34y3KBbW0ReuR3MLPDKfSR+K2jHBY59NaN5okBjGchgNPsLUeivlisU3zzyXIYtdW5d5fFKauD3VaC34Jf6kzcjI94egPPyM1vUgIdbBNI475VUvQyRHyX7Noqwzj4Gt+8MEP29jeTm8JQQ3YJt9svSiyR9WgF7qx8ZSqP0QP3b2IugGmp98384tLiqswV7ESTjnYB6bQInMOpKsy0ss9hA2qCrk46T/woDxUViuYXT2p957QwtQB5cxinPc46eGmsAcycMJ18qDZnF+5NKb68D7ZXtlavwo+9AU0fH7YCkwx+wCa1tPMbGLZB52ewj9gBxjzdYgwHXdqmdLICs2L5jqnGpyp5ynQpXthXjONUov8a0KUllKNRwoyrt8tDDw2K7Xeh3/S1ijHNYwyCjTp5t4"
+---

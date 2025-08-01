@@ -1,0 +1,22 @@
+---
+title: "Hence the Testbed: Sam Harris"
+date: 2025-05-09T11:03:42.000Z
+tags:
+  - concert
+srcPath: "/2025-05-09-dsc09511-hence-the-testbed-sam-harris/img.avif"
+alt: image
+imgWidth: 1536
+imgHeight: 1920
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4
+  shutterSpeed: 0.0125
+  iso: 320
+  focalLength: 100
+location:
+  name: 'The Baso, Canberra'
+  url: 'https://www.thebaso.com.au/'
+blurHash: "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAACmQAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAAqFtZGF0EgAKCjsqr/9/4QENBpAyiAVM8AK+GOwiBWLOgbehJZl9YArxzFxoOPGKkSKEsUx/TgjFhE9ZSfzX8ch5hatgtrZsGzKYAS+2sg0zgBWRR1LzP89mwtHKWN/XVOou6tT1kSIQf83PtVJaZ7duCNc3x6agfvBuHuuQiuaajC90bMbRUdpoQ7kg8w4CV+vTa+wfv6hSWqeLG4AgeJz0o738/YTuzcSXbcdSH13R5qT8sxgtcmgvCR1Gk9doK/jQYbbtIid39bSqR+PMUg3k9u3TvYM3hnd37y1XJ4biAEMPWoTrkx06GP6oP0feRBShyOsi+IcVftx2s89xcIpbP4VhUOmW4F52vaCtcVs+J1olhLw1rBnbPVTcLtJYto3Fz3xfy1amm9X9QPlb0rg2UeHBaNZbYlwjL8mgpprMCKupwG1+t6/AQHFBY8+gM1KPA+5k1okYlg6zENYSltWKV6NAUxj3cH6dQ1aeUIqIDElYRz3rl06hYLotyhmB1YAyySUAdOBYuBB8b/iRuTuHCr0USagMk2zy6GzFnMt9BO8kSiwz6ADjj/H6sbujetM5+0zxmtM27W1GMg2FZwzYl42MGfr8BLlhWtb0XbcRWf7KdMxjbmw6tMA0DhbFHain3REoJbksJSaE9mWV/88Fb/x3DxYgVD7Qco+DByjn5JmH8KEVE/+E+vcR5ktyqPcq1dI0KW+giDFT/Bbqgf8excmHvsc0vd4gKwYgaZNX5NxyPDPgUrCE35fdHpglAnPblHGqEKu4KcK5FRUisXl+Sxi8VVYKdeGTnvMRW+Yw1iR7BqprgV0PVLsWk4vp9dWn9ovBAzdzJ903ps12gsrE1qvG4cTYXiwUvROm8Kch0TpMf3eGUYM+jB8ddfk="
+---

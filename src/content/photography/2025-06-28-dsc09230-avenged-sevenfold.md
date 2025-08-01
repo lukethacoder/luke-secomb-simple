@@ -1,0 +1,22 @@
+---
+title: "Avenged Sevenfold: Johnny Christ"
+date: 2025-06-28T11:49:34.000Z
+tags:
+  - concert
+srcPath: "/2025-06-28-dsc09230-avenged-sevenfold-johnny-christ/img.avif"
+alt: image
+imgWidth: 1536
+imgHeight: 1920
+metadata:
+  make: SONY
+  model: DSC-RX100M7
+  lens: 24-200mm F2.8-4.5
+  fStop: 4.5
+  shutterSpeed: 0.003125
+  iso: 320
+  focalLength: 200
+location:
+  name: 'Tons of Rock, Norway'
+  url: 'https://www.tonsofrock.no'
+blurHash: "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZgAAAOptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAAA5waXRtAAAAAAABAAAAImlsb2MAAAAAREAAAQABAAAAAAEOAAEAAAAAAAABuwAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAAamlwcnAAAABLaXBjbwAAABNjb2xybmNseAABAA0ABoAAAAAMYXYxQ4EsAgAAAAAUaXNwZQAAAAAAAAYAAAAHgAAAABBwaXhpAAAAAAMICAgAAAAXaXBtYQAAAAAAAAABAAEEAYIDBAAAAcNtZGF0EgAKCjsqr/9/4QENBpAyqgNE8ADzwABQZqqvfQjMyHf1XwEDaOAiuxjeQ839oZ6AmpX+0iCObUvCXtYDWhOtjnCJXCUUV1LX6Ym+sBLvQdTmXzX/d60qqIGMCE248iJ70KZwtujWzx73gSmd00SF6swUwmqFrnl/mm0DqrrtuxRErLaDHT0jbsFNKM8BswNqbe1NoOOLpoeKleovfGF7GwypV3Usjqz5Rc23YL4wXs8r7UqbjHe03hzWR3weP/Mkfg368XF8jrWJBm1Xd7jzzMCoNe1oUi7czfgY8WolUXm7MrOHHhljbN4Yc44Lx2xCqETefLXFqaP8D7KEAz5VECA28D2qxAUuI+I7mm+XWFGCvvjpIyA/Bbd8VYXwddYUtI7WhYcleQeGIKsCYfza/frskQP2bYFJ4HDswMC3JuTAnUoZiva3Pp9pib3IUNNKhoOurCzbGVEJE31d/X3CGAqo2ozHaC2QxdHPMH5tEPzdnb2Au2/yFbpGr0ZNsWkXvuColE7SazrRLi4c/JGsu/S5xFYK8EbVEJD3OO41ePXp1IuFTcbv3fQ2KHfHzONC7w9n/kFmXoJzc4A="
+---
