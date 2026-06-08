@@ -108,17 +108,24 @@ body {
   }
 }
 
-picture:has(.image-light) {
+picture:has(.image-light),
+img.image-light {
   display: none;
   pointer-events: none;
 }
 /* add other 'light' themes here as required */
-:is([data-theme="light"], [data-theme="sf"]) picture:has(.image-light) ~ picture {
+:is([data-theme="light"], [data-theme="sf"]) picture:has(.image-light) ~ picture,
+:is([data-theme="light"], [data-theme="sf"]) picture:has(.image-light) ~ img,
+:is([data-theme="light"], [data-theme="sf"]) img.image-light ~ picture,
+:is([data-theme="light"], [data-theme="sf"]) img.image-light ~ img {
   display: none;
   pointer-events: none;
 }
 :is([data-theme="light"], [data-theme="sf"]) picture:has(.image-light) {
   display: flex;
+}
+:is([data-theme="light"], [data-theme="sf"]) img.image-light {
+  display: block;
 }
 
 /* ------------------- */
@@ -420,11 +427,15 @@ input {
     --grid-item-min-width: 104px;
   }
 }
+.worked-with-grid > span {
+  display: block;
+}
 .worked-with-grid button {
   background-color: var(--theme-background-secondary);
   padding: 0;
   margin: 0;
   border: none;
+  width: 100%;
 }
 .worked-with-grid:has(:hover,:focus) button:not(:where(:hover,:focus)) {
   filter: grayscale(100);

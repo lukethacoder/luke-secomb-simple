@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { z } from 'astro/zod'
 
 // import { glob, file } from 'astro/loaders'
 import { glob } from 'astro/loaders'
@@ -111,10 +112,10 @@ const photography = defineCollection({
           .array(
             z.object({
               username: z.string(),
-              position: z.array(
+              position: z.tuple([
                 z.number().max(100).min(0),
-                z.number().max(100).min(0)
-              ),
+                z.number().max(100).min(0),
+              ]),
             })
           )
           .optional(),

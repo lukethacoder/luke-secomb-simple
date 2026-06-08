@@ -8,6 +8,7 @@ import expressiveCode from 'astro-expressive-code'
 import remarkAlerts from 'remark-alerts'
 import rehypeExternalLinks from 'rehype-external-links'
 import { remarkReadingTime } from './lib/remark-reading-time'
+import { unified } from '@astrojs/markdown-remark'
 
 const { CF_PAGES_URL } = loadEnv(
   process.env.NODE_ENV || 'development',
@@ -22,22 +23,24 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
-    remarkPlugins: [[remarkAlerts, { sanitize: false }], remarkReadingTime],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          // @ts-ignore - TODO:
-          rel: (el) => {
-            if (!el.properties.href.includes('lwc.garden')) {
-              return ['nofollow noreferrer']
-            }
-            return []
+    processor: unified({
+      remarkPlugins: [[remarkAlerts, { sanitize: false }], remarkReadingTime],
+      rehypePlugins: [
+        [
+          rehypeExternalLinks,
+          {
+            // @ts-ignore - TODO:
+            rel: (el) => {
+              if (!el.properties.href.includes('lwc.garden')) {
+                return ['nofollow noreferrer']
+              }
+              return []
+            },
+            target: '_blank',
           },
-          target: '_blank',
-        },
+        ],
       ],
-    ],
+    }),
     shikiConfig: {
       // TODO: add custom theme
       theme: 'one-dark-pro',

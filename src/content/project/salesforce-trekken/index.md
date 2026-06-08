@@ -1,7 +1,7 @@
 ---
 type: 'project'
 title: 'Salesfore Trekken'
-slug: 'aoe-counters'
+slug: 'salesforce-trekken'
 description: 'Salesforce CMS Migration Desktop App'
 devDescription: 'Tauri / React / Vite / TailwindCSS'
 date: 2023-01-13

@@ -1,7 +1,7 @@
 ---
 type: 'client'
 title: 'National Disability Insurance Agency'
-slug: 'asf'
+slug: 'ndia'
 description: 'Salesforce Implementation'
 devDescription: 'Salesforce'
 date: 2021-04-01

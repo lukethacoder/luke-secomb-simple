@@ -1,0 +1,25 @@
+patchedDependencies:
+  feed@4.2.2: patches/feed@4.2.2.patch
+
+overrides:
+  feed: "4.2.2"
+
+onlyBuiltDependencies:
+  - esbuild
+  - puppeteer
+  - sharp
+
+allowBuilds:
+  esbuild: true
+  puppeteer: true
+  sharp: true
+
+minimumReleaseAgeExclude:
+  - '@expressive-code/core@0.43.0'
+  - '@expressive-code/plugin-frames@0.43.0'
+  - '@expressive-code/plugin-line-numbers@0.43.0'
+  - '@expressive-code/plugin-shiki@0.43.0'
+  - '@expressive-code/plugin-text-markers@0.43.0'
+  - astro-expressive-code@0.43.0
+  - expressive-code@0.43.0
+  - rehype-expressive-code@0.43.0

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Salesforce Sans';
+  src: url('https://a.sfdcstatic.com/shared/fonts/salesforce-sans/SalesforceSans-Regular.woff2') format('woff');
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Salesforce Sans';
+  src: url('https://a.sfdcstatic.com/shared/fonts/salesforce-sans/SalesforceSans-Bold.woff2') format('woff');
+  font-display: swap;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'ITC Avant Garde';
+  src: url('https://a.sfdcstatic.com/shared/fonts/avant-garde/AvantGardeForSalesforceW05-Dm.woff2') format('woff');
+  font-display: swap;
+  font-weight: 500;
+}
+
+[data-theme="sf"] {
+  --theme-background: oklch(1 0 0);
+  --theme-background-secondary: oklch(0.96 0 0);
+
+  --theme-font-primary: "ITC Avant Garde",system-ui,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --theme-font-secondary: "Salesforce Sans",system-ui,-apple-system,blinkmacsystemfont,"Segoe UI",roboto,"Helvetica Neue",arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+  --theme-text: oklch(0.21 0 0);
+  --theme-text-secondary: #3d403c;
+
+  --theme-primary: oklch(0.66 0.1386 235.65);
+  --theme-secondary: oklch(0.3 0.101 256.47);
+  
+  --theme-border: oklch(0.37 0.01 0);
+  
+  --alert-border-color-note: transparent;
+  --alert-border-color-tip: transparent;
+  --alert-border-color-warning: transparent;
+  --alert-border-color-severe: transparent;
+  --alert-border-color-caution: transparent;
+  --alert-border-color-important: transparent;
+
+  --alert-background-color-note: oklch(0.99 0.0404 102.58);
+  --alert-background-color-tip: oklch(0.99 0.0404 102.58);
+  --alert-background-color-warning: oklch(0.99 0.0404 102.58);
+  --alert-background-color-severe: oklch(0.99 0.0404 102.58);
+  --alert-background-color-caution: oklch(0.99 0.0404 102.58);
+  --alert-background-color-important: oklch(0.99 0.0404 102.58);
+}
