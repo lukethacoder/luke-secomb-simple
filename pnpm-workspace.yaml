@@ -1,3 +1,6 @@
+packages:
+  - '.'
+
 patchedDependencies:
   feed@4.2.2: patches/feed@4.2.2.patch
 
