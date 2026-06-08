@@ -1,0 +1,68 @@
+---
+import { Picture } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  data: CollectionEntry<'projects'>[]
+}
+
+const { data } = Astro.props
+---
+
+<section class='w-full max-w-4xl mx-auto pb-20'>
+  <h2 class='text-4xl mb-10 md:mb-8'>Folks I've worked with</h2>
+  <div class='lsd-grid worked-with-grid relative flex-1 gap-2'>
+    {
+      data.map(({ data }) => (
+        <span>
+          <button
+            class='aspect-square overflow-hidden flex items-center object-contain transition ease-in'
+            title={data.title}
+            data-format={data?.imageLogo?.format}
+            data-light-format={data?.imageLogoLight?.format}
+          >
+            {data.imageLogoLight &&
+              (data.imageLogoLight.format === 'svg' ? (
+                <img
+                  src={data.imageLogoLight.src}
+                  alt={data.title}
+                  class={`image-light object-cover w-full p-6 md:p-8`}
+                />
+              ) : (
+                <Picture
+                  src={data.imageLogoLight}
+                  alt={data.title}
+                  class={`image-light object-cover w-full p-6 md:p-8`}
+                  widths={[560, 1080]}
+                  sizes={`(max-width: 1600px) 560px, 1440px`}
+                  formats={['avif', 'webp']}
+                />
+              ))}
+            {data.imageLogo.format === 'svg' ? (
+              <img
+                src={data.imageLogo.src}
+                alt={data.title}
+                class={`object-cover w-full p-6 md:p-8`}
+              />
+            ) : (
+              <Picture
+                src={data.imageLogo}
+                alt={data.title}
+                class={`object-cover w-full p-6 md:p-8`}
+                widths={[560, 1080]}
+                sizes={`(max-width: 1600px) 560px, 1440px`}
+                formats={['avif', 'webp']}
+              />
+            )}
+          </button>
+          <span class='md:hidden item-title leading-tight absolute bottom-full left-0 pb-2 opacity-0'>
+            {data.title}
+          </span>
+          <span class='item-title leading-tight absolute top-full left-0 pt-2 opacity-0'>
+            {data.title}
+          </span>
+        </span>
+      ))
+    }
+  </div>
+</section>

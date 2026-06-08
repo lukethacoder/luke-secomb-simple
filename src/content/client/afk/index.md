@@ -1,7 +1,7 @@
 ---
 type: 'client'
 title: 'a frayed knot CBR'
-slug: 'acf'
+slug: 'afk'
 description: 'NextJS and DatoCMS powered brochure site'
 devDescription: 'NextJS / DatoCMS / GSAP'
 date: 2023-05-01

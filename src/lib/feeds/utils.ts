@@ -93,8 +93,8 @@ const remarkRemoveToc: Plugin<[], MdastRoot> = () => {
 }
 
 // inverts the 'remark-alerts' plugin, replaces with standard `blockquote` markup
-const rehypeAlertEdit: Plugin = () => {
-  return (tree) => {
+const rehypeAlertEdit: Plugin<[], HastRoot> = () => {
+  return (tree: HastRoot) => {
     const visit = (node: RootContent | HastRoot) => {
       if (node.type === 'element') {
         if (node.properties.class) {
@@ -104,7 +104,7 @@ const rehypeAlertEdit: Plugin = () => {
 
           if (isMarkdownAlert) {
             // Filter out the title element from the children
-            const filteredChildren = (node.children || []).filter((child) => {
+            const filteredChildren = (node.children || []).filter((child: RootContent) => {
               if (child.type === 'element' && child.properties.class) {
                 return !(Array.isArray(child.properties.class)
                   ? child.properties.class.includes('markdown-alert-title')
@@ -133,7 +133,7 @@ const rehypeAlertEdit: Plugin = () => {
         }
       }
       if ('children' in node) {
-        node.children.forEach((child) => {
+        node.children.forEach((child: RootContent) => {
           // add the parent property to the child for easier upward traversal
           // @ts-ignore
           child.parent = node
@@ -152,7 +152,7 @@ const rehypeAbsoluteUrls: Plugin<[UrlLike, UrlLike], HastRoot> = (
   baseUrl,
   localPath
 ) => {
-  return async (tree) => {
+  return async (tree: HastRoot) => {
     const visit = async (node: RootContent | HastRoot) => {
       if (node.type === 'element') {
         if (node.tagName === 'a' && node.properties?.href) {

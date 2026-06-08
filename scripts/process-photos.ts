@@ -87,7 +87,7 @@ async function processImage(imagePath: string, imageName: string) {
     const month = String(dateTaken.getMonth() + 1).padStart(2, '0')
     const day = String(dateTaken.getDate()).padStart(2, '0')
 
-    const fileNameRaw = path.parse(imageName).name
+    const fileNameRaw = path.parse(imageName).name.toLowerCase()
     const fileName = `${year}-${month}-${day}-${fileNameRaw}`
     const outputImageFolder = path.join(OUTPUT_PHOTO_BASE_FOLDER, fileName)
     const outputAvifPath = path.join(outputImageFolder, `img.avif`)

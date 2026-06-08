@@ -38,7 +38,7 @@ function createFeedInstance(site: string, author: SiteAuthor): Feed {
     favicon: createUrl('/favicon.jpg', site) as string,
     copyright: `Copyright ${new Date().getFullYear()} Luke Secomb`,
     // @ts-ignore - TODO: check
-    stylesheet: createUrl('/rss/styles.xsl', site) as string,
+    // stylesheet: createUrl('/rss/styles.xsl', site) as string,
     feedLinks: {
       rss: createUrl('/rss.xml', site) as string,
       atom: createUrl('/atom.xml', site) as string,

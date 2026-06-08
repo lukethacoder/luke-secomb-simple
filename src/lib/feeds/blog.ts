@@ -11,6 +11,7 @@ interface SiteAuthor extends Author {
   link: string
 }
 
+// TODO: add icon to feed(s)
 export async function generateFeed(context: APIContext): Promise<Feed> {
   // biome-ignore lint/style/noNonNullAssertion: we know
   const site = context.site!.toString()
