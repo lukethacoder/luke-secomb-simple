@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@11.3.0",
   "description": "luke-secomb-simple",
   "author": "Luke Secomb",
   "scripts": {
